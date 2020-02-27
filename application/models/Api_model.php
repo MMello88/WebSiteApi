@@ -20,7 +20,7 @@ class Api_model extends CI_Model {
         return $this->db->insert_id();
       } else {
         header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
-        echo json_encode($id);
+        echo json_encode(["Validation" => ['code' => $this->db->error()['code'], 'message' => $this->db->error()['message']]]);
       }
   }
 
@@ -29,6 +29,6 @@ class Api_model extends CI_Model {
   }
 
   public function delete($table, $Id){
-    $this->db->delete($table, ["Id" => $Id]);
+    return $this->db->delete($table, ["Id" => $Id]);
   }
 }

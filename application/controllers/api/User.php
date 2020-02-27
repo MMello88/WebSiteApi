@@ -11,12 +11,12 @@ class User extends CI_Controller {
   }
   public function get(){
     $rows = $this->api->get($this->table);
-    print_r(json_encode($rows));
+    echo json_encode($rows);
   }
 
 	public function getOne($Id){
     $row = $this->api->get($this->table, $Id);
-    print_r(json_encode($row));
+    echo json_encode($row);
   }
   
   public function create(){
@@ -24,7 +24,7 @@ class User extends CI_Controller {
     $this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required');
     $this->form_validation->set_rules('DataNascimento', 'Data Nascimento', 'required');
     $this->form_validation->set_rules('Usuario', 'Usuário', 'required');
-    $this->form_validation->set_rules('Email', 'Email', 'trim|required|valid_email');
+    $this->form_validation->set_rules('Email', 'Email', 'trim|required|valid_email|is_unique[users.Email]');
     $this->form_validation->set_rules('Senha', 'Senha', 'trim|required|min_length[8]');
     $this->form_validation->set_rules('SenhaConf', 'Senha Confirmation', 'trim|required|matches[Senha]');
 
@@ -36,15 +36,18 @@ class User extends CI_Controller {
       $this->getOne($Id);
     } else {
       header($_SERVER['SERVER_PROTOCOL'] . ' 401 Unauthorized');
+      //error_array();
       echo json_encode(
-        [
-          "Nome" => form_error('Nome'),
-          "Sobrenome" => form_error('Sobrenome'),
-          "DataNascimento" => form_error('DataNascimento'),
-          "Usuario" => form_error('Usuario'),
-          "Email" => form_error('Email'),
-          "Senha" => form_error('Senha'),
-          "SenhaConf" => form_error('SenhaConf'),
+        ["Validation" =>
+          [
+            "Nome" => form_error('Nome'),
+            "Sobrenome" => form_error('Sobrenome'),
+            "DataNascimento" => form_error('DataNascimento'),
+            "Usuario" => form_error('Usuario'),
+            "Email" => form_error('Email'),
+            "Senha" => form_error('Senha'),
+            "SenhaConf" => form_error('SenhaConf'),
+          ]
         ]
       );
     }
@@ -60,10 +63,12 @@ class User extends CI_Controller {
     } else {
       header($_SERVER['SERVER_PROTOCOL'] . ' 401 Unauthorized');
       echo json_encode(
-        [
-          "Nome" => form_error('Nome'),
-          "Sobrenome" => form_error('Sobrenome'),
-          "Senha" => form_error('Senha'),
+        ["Validation" =>
+          [
+            "Nome" => form_error('Nome'),
+            "Sobrenome" => form_error('Sobrenome'),
+            "Senha" => form_error('Senha'),
+          ]
         ]
       );
     }
