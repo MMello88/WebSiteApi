@@ -80,7 +80,7 @@ $db['default'] = array(
 	'password' => '',
 	'database' => 'matilab872_gestao',
 	'dbdriver' => 'mysqli',
-	'dbprefix' => 'tb',
+	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,

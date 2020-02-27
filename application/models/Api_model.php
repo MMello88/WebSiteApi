@@ -7,11 +7,28 @@ class Api_model extends CI_Model {
       parent::__construct();
   }
 
-  public function Get($tabela, $Id = ''){
-    if (empty($Id)){
-      return $this->db->order_by('Id')->get_where($tabela, ["Id" => $Id])->result();
+  public function get($table, $Id = ''){
+    if (!empty($Id)){
+      return $this->db->order_by('Id')->get_where($table, ["Id" => $Id])->row();
     } else {
-      return $this->db->order_by('Id')->get($tabela)->result();
+      return $this->db->get($table)->result();
     }
+  }
+
+  public function create($table, $data){
+    if($this->db->insert($table, $data)){
+        return $this->db->insert_id();
+      } else {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+        echo json_encode($id);
+      }
+  }
+
+  public function update($table, $Id, $data){
+    return $this->db->update($table, $data, ["Id" => $Id]);
+  }
+
+  public function delete($table, $Id){
+    $this->db->delete($table, ["Id" => $Id]);
   }
 }
