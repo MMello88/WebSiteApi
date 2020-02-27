@@ -3,6 +3,7 @@
 abstract class MY_Controller extends CI_Controller {
   
   protected $table;
+  protected $nameId;
 
   public function  __construct() {
     parent::__construct();
@@ -14,7 +15,7 @@ abstract class MY_Controller extends CI_Controller {
       $rows = $this->api->get($this->table);
       echo json_encode($rows);
     } else {
-      $row = $this->api->get($this->table, $Id);
+      $row = $this->api->get($this->table, [$this->nameId => $Id]);
       echo json_encode($row);
     }
   }
@@ -45,7 +46,7 @@ abstract class MY_Controller extends CI_Controller {
     }
 
     if ($this->form_validation->run() == TRUE){
-      $this->api->update($this->table, $Id, $_POST);
+      $this->api->update($this->table, $_POST, [$this->nameId => $Id]);
       $this->get($Id);
     } else {
       header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity');
@@ -66,6 +67,7 @@ abstract class MY_Controller extends CI_Controller {
         ]
       );
     }
+    $this->api->delete($this->table, [$this->nameId => $Id]);
   }
 
 	abstract function setDefaultValue(); 

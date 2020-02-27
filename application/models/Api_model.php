@@ -7,9 +7,9 @@ class Api_model extends CI_Model {
       parent::__construct();
   }
 
-  public function get($table, $Id = ''){
+  public function get($table, $where){
     if (!empty($Id)){
-      return $this->db->order_by('Id')->get_where($table, ["Id" => $Id])->row();
+      return $this->db->order_by('Id')->get_where($table, $where)->row();
     } else {
       return $this->db->get($table)->result();
     }
@@ -24,11 +24,11 @@ class Api_model extends CI_Model {
       }
   }
 
-  public function update($table, $Id, $data){
-    return $this->db->update($table, $data, ["Id" => $Id]);
+  public function update($table, $data, $where){
+    return $this->db->update($table, $data, $where);
   }
 
-  public function delete($table, $Id){
-    return $this->db->delete($table, ["Id" => $Id]);
+  public function delete($table, $where){
+    return $this->db->delete($table, $where);
   }
 }
