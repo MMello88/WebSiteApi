@@ -19,7 +19,7 @@ class Api_model extends CI_Model {
     if($this->db->insert($table, $data)){
         return $this->db->insert_id();
       } else {
-        header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+        header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error');
         echo json_encode(["Validation" => ['code' => $this->db->error()['code'], 'message' => $this->db->error()['message']]]);
       }
   }
