@@ -11,13 +11,12 @@ abstract class MY_Controller extends CI_Controller {
   }
 
   protected function get($Id = '', $date = ''){
-    //$where = "";
-    //$where. = empty($Id)  ? " {$this->table}.{$this->nameId} = {$Id} and" : "";
-    //echo json_encode(["where"=>$where]);
-//    $where. = empty($date) ? " {$date} between DtIni and DtFin and" : "";
-//    $where =  substr($where, 0, -3);
+    $where = "";
+    $where.= !empty($Id) || $Id > 0 ? " {$this->table}.{$this->nameId} = {$Id} and" : "";
+    $where.= !empty($date) ? " '{$date}' between DtIni and IF(ISNULL(DtFin),SYSDATE(),DtFin) and" : "";
+    $where = !empty($where) ? substr($where, 0, -3) : "";
 
-    //echo json_encode($this->api->get($this->table, $where));
+    echo json_encode($this->api->get($this->table, $where));
   }
 
   protected function create(){

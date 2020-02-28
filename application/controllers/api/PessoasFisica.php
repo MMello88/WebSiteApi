@@ -9,7 +9,7 @@ class PessoasFisica extends MY_Controller {
     $this->nameId = "Id";
   }
 
-  public function get($Id = ''){
+  public function get($Id = '', $date = ''){
     parent::get($Id);
   }
   

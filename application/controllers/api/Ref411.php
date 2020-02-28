@@ -10,7 +10,7 @@ class Ref411 extends MY_Controller {
   }
 
   public function get($Id = '', $date = ''){
-    parent::get($Id);
+    parent::get($Id,$date);
   }
   
   public function setDefaultValue(){

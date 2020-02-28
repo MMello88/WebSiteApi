@@ -9,7 +9,7 @@ class UsersGrupo extends MY_Controller {
     $this->nameId = "GrupoUserId";
   }
 
-  public function get($Id = ''){
+  public function get($Id = '', $date = ''){
     parent::get($Id);
   }
   
