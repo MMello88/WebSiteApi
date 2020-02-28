@@ -18,17 +18,17 @@ class UsersGrupo extends MY_Controller {
   }
 
   public function create(){
-    $this->form_validation->set_rules('UserId', 'Usuário', 'trim|required|valid_email|is_unique[users.Email]');
-    $this->form_validation->set_rules('GrupoUserId', 'Usuário', 'trim|required|valid_email|is_unique[users.Email]');
+    $this->form_validation->set_rules('UserId', 'Usuário', 'required');
+    $this->form_validation->set_rules('GrupoUserId', 'Usuário', 'required');
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('GrupoUserId', 'Grupo de Usuário', 'trim|required|valid_email|is_unique[users.Email]');
+    $this->form_validation->set_rules('Ativo', 'Ativo', 'required');
     parent::update($Id);
   }
 
   public function delete($Id){
-    parent::delete($Id);
+    $this->api->update($this->table, ["Ativo" => 0], [$this->nameId => $Id]);
   }
 }

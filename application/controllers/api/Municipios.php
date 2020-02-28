@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PessoasFisica extends MY_Controller {
+class Municipios extends MY_Controller {
 
   public function  __construct() {
     parent::__construct();
-    $this->table = "pessoasfisica";
+    $this->table = "municipios";
     $this->nameId = "Id";
   }
 
@@ -14,24 +14,23 @@ class PessoasFisica extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST["Criacao"] = date("Y-m-d H:i:s");
-    $_POST["Ativo"] = 1;
   }
 
   public function create(){
+    $this->form_validation->set_rules('CdMunicipio', 'Cod. Município', 'required');
     $this->form_validation->set_rules('Nome', 'Nome', 'required');
-    $this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required');
-    $this->form_validation->set_rules('DataNascimento', 'Data Nascimento', 'required');
+    $this->form_validation->set_rules('Uf', 'Uf', 'required|max_length[2]');
     parent::create();
   }
   
   public function update($Id){
+    $this->form_validation->set_rules('CdMunicipio', 'Cod. Município', 'required');
     $this->form_validation->set_rules('Nome', 'Nome', 'required');
-    $this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required');
+    $this->form_validation->set_rules('Uf', 'Uf', 'required|max_length[2]');
     parent::update($Id);
   }
 
   public function delete($Id){
-    $this->api->update($this->table, ["Ativo" => 0], [$this->nameId => $Id]);
+    parent::delete($Id);
   }
 }

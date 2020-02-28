@@ -7,9 +7,9 @@ class Api_model extends CI_Model {
       parent::__construct();
   }
 
-  public function get($table, $where){
-    if (!empty($Id)){
-      return $this->db->order_by('Id')->get_where($table, $where)->row();
+  public function get($table, $where = []){
+    if (count($where) > 0){
+      return $this->db->order_by('1')->get_where($table, $where)->row();
     } else {
       return $this->db->get($table)->result();
     }
@@ -21,6 +21,7 @@ class Api_model extends CI_Model {
       } else {
         header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error');
         echo json_encode(["Validation" => ['code' => $this->db->error()['code'], 'message' => $this->db->error()['message']]]);
+        return null;
       }
   }
 

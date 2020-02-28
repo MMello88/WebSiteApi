@@ -24,7 +24,8 @@ abstract class MY_Controller extends CI_Controller {
   	if ($this->form_validation->run() == TRUE){
       $this->setDefaultValue();
       $Id = $this->api->create($this->table, $_POST);
-      $this->get($Id);
+      if (is_numeric($Id)) 
+      	$this->get($Id);
     } else {
       header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity');
       echo json_encode(

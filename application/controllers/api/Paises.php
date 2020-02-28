@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class GrupoUsers extends MY_Controller {
+class Paises extends MY_Controller {
 
   public function  __construct() {
     parent::__construct();
-    $this->table = "grupousers";
+    $this->table = "paises";
     $this->nameId = "Id";
   }
 
@@ -17,12 +17,15 @@ class GrupoUsers extends MY_Controller {
   }
 
   public function create(){
-    $this->form_validation->set_rules('Nome', 'Nome', 'trim|required|is_unique[grupousers.Nome]');
+    $this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('CdPais', 'Cód Pais', 'required');
     parent::create();
   }
   
   public function update($Id){
-    header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+    $this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('CdPais', 'Cód Pais', 'required');
+    parent::update($Id);
   }
 
   public function delete($Id){
