@@ -10,14 +10,12 @@ abstract class MY_Controller extends CI_Controller {
     header('Content-Type: application/json');
   }
 
-  protected function get($Id = ''){
-    if (empty($Id)){
-      $rows = $this->api->get($this->table);
-      echo json_encode($rows);
-    } else {
-      $row = $this->api->get($this->table, [$this->nameId => $Id]);
-      echo json_encode($row);
-    }
+  protected function get($Id = '', $date = ''){
+    $where = "";
+    $where. = empty($Id) || $Id > 0 ? " {$this->table}.{$this->nameId} = {$Id} and" : "";
+    $where. = empty($date) ? " {$date} between DtIni and DtFin and" : "";
+    $where =  substr($where, 0, -3);
+    echo json_encode($this->api->get($this->table, $where));
   }
 
   protected function create(){

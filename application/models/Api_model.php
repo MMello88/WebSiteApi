@@ -9,7 +9,7 @@ class Api_model extends CI_Model {
 
   public function get($table, $where = []){
     if (count($where) > 0){
-      return $this->db->order_by('1')->get_where($table, $where)->row();
+      return $this->db->select('*')->from($table)->where($where)->order_by('1')->get()->row();
     } else {
       return $this->db->get($table)->result();
     }
