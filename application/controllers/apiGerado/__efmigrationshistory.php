@@ -14,18 +14,17 @@ class __efmigrationshistory extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('MigrationId', 'MigrationId', 'required');
-		$this->form_validation->set_rules('ProductVersion', 'ProductVersion', 'required');
+    $this->form_validation->set_rules('ProductVersion', 'ProductVersion', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('MigrationId', 'MigrationId', 'required');
-		$this->form_validation->set_rules('ProductVersion', 'ProductVersion', 'required');
+    $this->form_validation->set_rules('ProductVersion', 'ProductVersion', 'required');
 		
     parent::update($Id);
   }

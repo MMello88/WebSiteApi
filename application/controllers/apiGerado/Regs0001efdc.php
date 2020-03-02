@@ -14,22 +14,27 @@ class Regs0001efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    $_POST['Reg'] = '0001';
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required');
 		
     parent::update($Id);
+  }
+
+  public function delete($Id){
+    parent::delete($Id);
+  }
+}parent::update($Id);
   }
 
   public function delete($Id){

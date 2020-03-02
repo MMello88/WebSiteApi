@@ -14,26 +14,33 @@ class Regs0450efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    $_POST['Reg'] = '0450';
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('CodInf', 'CodInf', 'required');
 		$this->form_validation->set_rules('Txt', 'Txt', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'required');
-		$this->form_validation->set_rules('UserId', 'UserId', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('CodInf', 'CodInf', 'required');
 		$this->form_validation->set_rules('Txt', 'Txt', 'required');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
+		
+    parent::update($Id);
+  }
+
+  public function delete($Id){
+    parent::delete($Id);
+  }
+}', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'required');

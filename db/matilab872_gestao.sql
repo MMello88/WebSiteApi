@@ -672,15 +672,15 @@ DROP TABLE IF EXISTS `regs0000efdc`;
 
 CREATE TABLE `regs0000efdc` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `REG` varchar(4) CHARACTER SET utf8mb4 NOT NULL DEFAULT '0000',
+  `Reg` varchar(4) CHARACTER SET utf8mb4 NOT NULL DEFAULT '0000',
   `Ref311Id` int(11) NOT NULL,
-  `TIPO_ESCRIT` int(11) NOT NULL,
-  `IND_SIT_ESP` int(11) NOT NULL,
-  `NUM_REC_ANTERIOR` varchar(41) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `DT_INI` datetime(6) NOT NULL,
-  `DT_FIN` datetime(6) NOT NULL,
-  `IND_NAT_PJ` int(11) NOT NULL,
-  `IND_ATIV` int(11) NOT NULL,
+  `TipoEscrit` int(11) NOT NULL,
+  `IndSitEsp` int(11) NOT NULL,
+  `NumRecAnterior` varchar(41) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `DtIni` datetime(6) NOT NULL,
+  `DtFin` datetime(6) NOT NULL,
+  `IndNatPj` int(11) NOT NULL,
+  `IndAtiv` int(11) NOT NULL,
   `PessoaJuridicaId` int(11) DEFAULT NULL,
   `UserId` int(11) DEFAULT NULL,
   `Reg0001EFDCId` int(11) DEFAULT NULL,
@@ -1309,11 +1309,11 @@ CREATE TABLE `users` (
   `Email` varchar(250) CHARACTER SET utf8mb4 NOT NULL,
   `Senha` varchar(64) CHARACTER SET utf8mb4 NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
-insert  into `users`(`Id`,`Nome`,`Sobrenome`,`DataNascimento`,`UrlFoto`,`Ativo`,`Criacao`,`Usuario`,`Email`,`Senha`) values (1,'Matheusss','Mello','0001-01-01 00:00:00.000000',NULL,0,'0001-01-01 00:00:00.000000','','',''),(4,'Mat','Mel','1988-04-18 00:00:00.000000','xxxx',1,'2020-02-27 04:16:45.000000','m0rena0','math@math.com','99999999'),(5,'Joao','Rodrigues','1988-04-18 00:00:00.000000','dir/abc/',1,'2020-02-27 04:17:03.000000','m0rena0','math@math.com','89999999999'),(6,'Matheusssssss','Mel','1988-04-18 00:00:00.000000','xxxx',1,'2020-02-27 04:17:26.000000','m0rena0','math@math.com','99999999'),(7,'Matheusssssss','Mel','1988-04-18 00:00:00.000000','xxxx',1,'2020-02-27 17:09:41.000000','m0rena0','math@math.com.br','99999999');
+insert  into `users`(`Id`,`Nome`,`Sobrenome`,`DataNascimento`,`UrlFoto`,`Ativo`,`Criacao`,`Usuario`,`Email`,`Senha`) values (1,'Matheusss','Mello','0001-01-01 00:00:00.000000',NULL,0,'0001-01-01 00:00:00.000000','','',''),(4,'Mat','Mel','1988-04-18 00:00:00.000000','xxxx',1,'2020-02-27 04:16:45.000000','m0rena0','math@math.com','99999999'),(5,'Rogerio','Machado','1988-04-18 00:00:00.000000','abcde',1,'2020-02-27 04:17:03.000000','MMachado','math@math.com','8776655555'),(6,'Matheusssssss','Mel','1988-04-18 00:00:00.000000','xxxx',1,'2020-02-27 04:17:26.000000','m0rena0','math@math.com','99999999'),(7,'Matheusssssss','Mel','1988-04-18 00:00:00.000000','xxxx',1,'2020-02-27 17:09:41.000000','m0rena0','math@math.com.br','99999999'),(8,'Douglas','Rodrigues','1988-04-18 00:00:00.000000','dir/abc/',1,'2020-02-28 19:40:13.000000','m0rena0','doug@math.com.br','89999999999');
 
 /*Table structure for table `usersgrupo` */
 

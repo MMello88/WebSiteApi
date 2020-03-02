@@ -14,11 +14,11 @@ class Regs0208efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    $_POST['Reg'] = '0208';
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('CodTabIncidencia', 'CodTabIncidencia', 'required');
 		$this->form_validation->set_rules('CodGrupo', 'CodGrupo', 'required');
 		$this->form_validation->set_rules('MarcaComercial', 'MarcaComercial', 'required');
@@ -27,13 +27,18 @@ class Regs0208efdc extends MY_Controller {
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('CodTabIncidencia', 'CodTabIncidencia', 'required');
 		$this->form_validation->set_rules('CodGrupo', 'CodGrupo', 'required');
 		$this->form_validation->set_rules('MarcaComercial', 'MarcaComercial', 'required');
 		
     parent::update($Id);
+  }
+
+  public function delete($Id){
+    parent::delete($Id);
+  }
+}parent::update($Id);
   }
 
   public function delete($Id){

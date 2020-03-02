@@ -14,26 +14,23 @@ class Ref311 extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Versao', 'Versao', 'required');
 		$this->form_validation->set_rules('Leiaout', 'Leiaout', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Versao', 'Versao', 'required');
 		$this->form_validation->set_rules('Leiaout', 'Leiaout', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
 		
     parent::update($Id);
   }

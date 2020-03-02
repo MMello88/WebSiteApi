@@ -14,11 +14,11 @@ class Regs0111efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    $_POST['Reg'] = '0111';
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('RecBruNCumTribMI', 'RecBruNCumTribMI', 'required');
 		$this->form_validation->set_rules('RecBruNCumNaoTribMI', 'RecBruNCumNaoTribMI', 'required');
 		$this->form_validation->set_rules('RecBruNCumExp', 'RecBruNCumExp', 'required');
@@ -29,8 +29,7 @@ class Regs0111efdc extends MY_Controller {
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('RecBruNCumTribMI', 'RecBruNCumTribMI', 'required');
 		$this->form_validation->set_rules('RecBruNCumNaoTribMI', 'RecBruNCumNaoTribMI', 'required');
 		$this->form_validation->set_rules('RecBruNCumExp', 'RecBruNCumExp', 'required');
@@ -38,6 +37,12 @@ class Regs0111efdc extends MY_Controller {
 		$this->form_validation->set_rules('RecBruNCumTotal', 'RecBruNCumTotal', 'required');
 		
     parent::update($Id);
+  }
+
+  public function delete($Id){
+    parent::delete($Id);
+  }
+}parent::update($Id);
   }
 
   public function delete($Id){

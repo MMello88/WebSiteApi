@@ -14,23 +14,29 @@ class Regsa111efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    $_POST['Reg'] = 'A111';
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('NumProcesso', 'NumProcesso', 'required');
 		$this->form_validation->set_rules('IndicadorOrigemProcesso', 'IndicadorOrigemProcesso', 'required');
-		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required');
 		$this->form_validation->set_rules('NumProcesso', 'NumProcesso', 'required');
 		$this->form_validation->set_rules('IndicadorOrigemProcesso', 'IndicadorOrigemProcesso', 'required');
+		
+    parent::update($Id);
+  }
+
+  public function delete($Id){
+    parent::delete($Id);
+  }
+}t_rules('IndicadorOrigemProcesso', 'IndicadorOrigemProcesso', 'required');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'required');
 		
     parent::update($Id);

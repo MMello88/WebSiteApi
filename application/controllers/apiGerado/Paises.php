@@ -14,19 +14,18 @@ class Paises extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('CdPais', 'CdPais', 'required');
+    $this->form_validation->set_rules('CdPais', 'CdPais', 'required');
 		$this->form_validation->set_rules('Nome', 'Nome', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('CdPais', 'CdPais', 'required');
+    $this->form_validation->set_rules('CdPais', 'CdPais', 'required');
 		$this->form_validation->set_rules('Nome', 'Nome', 'required');
 		
     parent::update($Id);

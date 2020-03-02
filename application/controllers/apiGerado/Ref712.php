@@ -14,34 +14,21 @@ class Ref712 extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
-		$this->form_validation->set_rules('IndTipoAtividade', 'IndTipoAtividade', 'required');
-		$this->form_validation->set_rules('IndAjuste', 'IndAjuste', 'required');
-		$this->form_validation->set_rules('Grupo', 'Grupo', 'required');
-		$this->form_validation->set_rules('IndOutros', 'IndOutros', 'required');
-		$this->form_validation->set_rules('IndTipoDeducoes', 'IndTipoDeducoes', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
-		$this->form_validation->set_rules('IndTipoAtividade', 'IndTipoAtividade', 'required');
-		$this->form_validation->set_rules('IndAjuste', 'IndAjuste', 'required');
-		$this->form_validation->set_rules('Grupo', 'Grupo', 'required');
-		$this->form_validation->set_rules('IndOutros', 'IndOutros', 'required');
-		$this->form_validation->set_rules('IndTipoDeducoes', 'IndTipoDeducoes', 'required');
 		
     parent::update($Id);
   }

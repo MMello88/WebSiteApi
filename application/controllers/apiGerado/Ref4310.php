@@ -14,17 +14,14 @@ class Ref4310 extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
-		$this->form_validation->set_rules('NcmEx', 'NcmEx', 'required');
-		$this->form_validation->set_rules('ExIpi', 'ExIpi', 'required');
 		$this->form_validation->set_rules('AliqPis', 'AliqPis', 'required');
 		$this->form_validation->set_rules('AliqCofins', 'AliqCofins', 'required');
 		
@@ -32,14 +29,10 @@ class Ref4310 extends MY_Controller {
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
-		$this->form_validation->set_rules('NcmEx', 'NcmEx', 'required');
-		$this->form_validation->set_rules('ExIpi', 'ExIpi', 'required');
 		$this->form_validation->set_rules('AliqPis', 'AliqPis', 'required');
 		$this->form_validation->set_rules('AliqCofins', 'AliqCofins', 'required');
 		

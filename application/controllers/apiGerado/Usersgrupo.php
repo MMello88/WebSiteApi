@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Grupousers extends MY_Controller {
+class Usersgrupo extends MY_Controller {
 
   public function  __construct() {
     parent::__construct();
-    $this->table = 'grupousers';
-    $this->nameId = 'Id';
+    $this->table = 'usersgrupo';
+    $this->nameId = 'GrupoUserId';
   }
 
   public function get($Id = '', $date = ''){
@@ -14,17 +14,17 @@ class Grupousers extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Ativo'] = '1';
   }
 
   public function create(){
-    $this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('Ativo', 'Ativo', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('Ativo', 'Ativo', 'required');
 		
     parent::update($Id);
   }

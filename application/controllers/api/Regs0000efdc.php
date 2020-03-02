@@ -5,8 +5,8 @@ class Regs0000efdc extends MY_Controller {
 
   public function  __construct() {
     parent::__construct();
-    $this->table = "regs0000efdc";
-    $this->nameId = "Id";
+    $this->table = 'regs0000efdc';
+    $this->nameId = 'Id';
   }
 
   public function get($Id = '', $date = ''){
@@ -14,31 +14,38 @@ class Regs0000efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
+  	$_POST['Reg'] = '0000';
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');                  
-    $this->form_validation->set_rules('Reg', 'Reg', 'required');                
-    $this->form_validation->set_rules('Ref311Id', 'Ref311Id', 'required');      
-    $this->form_validation->set_rules('TipoEscrit', 'TipoEscrit', 'required');  
-    $this->form_validation->set_rules('IndSitEsp', 'IndSitEsp', 'required');    
-    $this->form_validation->set_rules('DtIni', 'DtIni', 'required');            
-    $this->form_validation->set_rules('DtFin', 'DtFin', 'required');            
-    $this->form_validation->set_rules('IndNatPj', 'IndNatPj', 'required');      
-    $this->form_validation->set_rules('IndAtiv', 'IndAtiv', 'required');  
+		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+		$this->form_validation->set_rules('Ref311Id', 'Ref311Id', 'required');
+		$this->form_validation->set_rules('TipoEscrit', 'TipoEscrit', 'required');
+		$this->form_validation->set_rules('IndSitEsp', 'IndSitEsp', 'required');
+		$this->form_validation->set_rules('NumRecAnterior', 'NumRecAnterior', 'required');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
+		$this->form_validation->set_rules('IndNatPj', 'IndNatPj', 'required');
+		$this->form_validation->set_rules('IndAtiv', 'IndAtiv', 'required');
+		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'required');
+		$this->form_validation->set_rules('UserId', 'UserId', 'required');		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');                  
-    $this->form_validation->set_rules('Reg', 'Reg', 'required');                
-    $this->form_validation->set_rules('Ref311Id', 'Ref311Id', 'required');      
-    $this->form_validation->set_rules('TipoEscrit', 'TipoEscrit', 'required');  
-    $this->form_validation->set_rules('IndSitEsp', 'IndSitEsp', 'required');    
-    $this->form_validation->set_rules('DtIni', 'DtIni', 'required');            
-    $this->form_validation->set_rules('DtFin', 'DtFin', 'required');            
-    $this->form_validation->set_rules('IndNatPj', 'IndNatPj', 'required');      
-    $this->form_validation->set_rules('IndAtiv', 'IndAtiv', 'required');  
+    $this->form_validation->set_rules('Id', 'Id', 'required');
+		$this->form_validation->set_rules('Reg', 'Reg', 'required');
+		$this->form_validation->set_rules('Ref311Id', 'Ref311Id', 'required');
+		$this->form_validation->set_rules('TipoEscrit', 'TipoEscrit', 'required');
+		$this->form_validation->set_rules('IndSitEsp', 'IndSitEsp', 'required');
+		$this->form_validation->set_rules('NumRecAnterior', 'NumRecAnterior', 'required');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
+		$this->form_validation->set_rules('IndNatPj', 'IndNatPj', 'required');
+		$this->form_validation->set_rules('IndAtiv', 'IndAtiv', 'required');
+		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'required');
+		$this->form_validation->set_rules('UserId', 'UserId', 'required');
+		
     parent::update($Id);
   }
 

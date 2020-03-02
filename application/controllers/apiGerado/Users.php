@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pessoasfisica extends MY_Controller {
+class Users extends MY_Controller {
 
   public function  __construct() {
     parent::__construct();
-    $this->table = 'pessoasfisica';
+    $this->table = 'users';
     $this->nameId = 'Id';
   }
 
@@ -23,6 +23,9 @@ class Pessoasfisica extends MY_Controller {
 		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required');
 		$this->form_validation->set_rules('Criacao', 'Criacao', 'required');
+		$this->form_validation->set_rules('Usuario', 'Usuario', 'required');
+		$this->form_validation->set_rules('Email', 'Email', 'required');
+		$this->form_validation->set_rules('Senha', 'Senha', 'required');
 		
     parent::create();
   }
@@ -33,6 +36,9 @@ class Pessoasfisica extends MY_Controller {
 		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required');
 		$this->form_validation->set_rules('Criacao', 'Criacao', 'required');
+		$this->form_validation->set_rules('Usuario', 'Usuario', 'required');
+		$this->form_validation->set_rules('Email', 'Email', 'required');
+		$this->form_validation->set_rules('Senha', 'Senha', 'required');
 		
     parent::update($Id);
   }

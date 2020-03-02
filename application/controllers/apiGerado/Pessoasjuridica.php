@@ -14,29 +14,21 @@ class Pessoasjuridica extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('Nome', 'Nome', 'required');
 		$this->form_validation->set_rules('NomeFantasia', 'NomeFantasia', 'required');
 		$this->form_validation->set_rules('Matriz', 'Matriz', 'required');
 		$this->form_validation->set_rules('Endereco', 'Endereco', 'required');
 		$this->form_validation->set_rules('Numero', 'Numero', 'required');
-		$this->form_validation->set_rules('Complemento', 'Complemento', 'required');
 		$this->form_validation->set_rules('Bairro', 'Bairro', 'required');
 		$this->form_validation->set_rules('CEP', 'CEP', 'required');
-		$this->form_validation->set_rules('Telefone', 'Telefone', 'required');
 		$this->form_validation->set_rules('Celular', 'Celular', 'required');
 		$this->form_validation->set_rules('Email', 'Email', 'required');
-		$this->form_validation->set_rules('InscricaoEstadual', 'InscricaoEstadual', 'required');
 		$this->form_validation->set_rules('Cnpj', 'Cnpj', 'required');
-		$this->form_validation->set_rules('CNAE', 'CNAE', 'required');
-		$this->form_validation->set_rules('InscricaoMunicipal', 'InscricaoMunicipal', 'required');
-		$this->form_validation->set_rules('NrSuframa', 'NrSuframa', 'required');
 		$this->form_validation->set_rules('NaturezaJuridica', 'NaturezaJuridica', 'required');
-		$this->form_validation->set_rules('NomeContato', 'NomeContato', 'required');
-		$this->form_validation->set_rules('WebSite', 'WebSite', 'required');
 		$this->form_validation->set_rules('DmContribuicao', 'DmContribuicao', 'required');
 		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required');
 		$this->form_validation->set_rules('PessoaFisicaId', 'PessoaFisicaId', 'required');
@@ -45,26 +37,17 @@ class Pessoasjuridica extends MY_Controller {
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('Nome', 'Nome', 'required');
 		$this->form_validation->set_rules('NomeFantasia', 'NomeFantasia', 'required');
 		$this->form_validation->set_rules('Matriz', 'Matriz', 'required');
 		$this->form_validation->set_rules('Endereco', 'Endereco', 'required');
 		$this->form_validation->set_rules('Numero', 'Numero', 'required');
-		$this->form_validation->set_rules('Complemento', 'Complemento', 'required');
 		$this->form_validation->set_rules('Bairro', 'Bairro', 'required');
 		$this->form_validation->set_rules('CEP', 'CEP', 'required');
-		$this->form_validation->set_rules('Telefone', 'Telefone', 'required');
 		$this->form_validation->set_rules('Celular', 'Celular', 'required');
 		$this->form_validation->set_rules('Email', 'Email', 'required');
-		$this->form_validation->set_rules('InscricaoEstadual', 'InscricaoEstadual', 'required');
 		$this->form_validation->set_rules('Cnpj', 'Cnpj', 'required');
-		$this->form_validation->set_rules('CNAE', 'CNAE', 'required');
-		$this->form_validation->set_rules('InscricaoMunicipal', 'InscricaoMunicipal', 'required');
-		$this->form_validation->set_rules('NrSuframa', 'NrSuframa', 'required');
 		$this->form_validation->set_rules('NaturezaJuridica', 'NaturezaJuridica', 'required');
-		$this->form_validation->set_rules('NomeContato', 'NomeContato', 'required');
-		$this->form_validation->set_rules('WebSite', 'WebSite', 'required');
 		$this->form_validation->set_rules('DmContribuicao', 'DmContribuicao', 'required');
 		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required');
 		$this->form_validation->set_rules('PessoaFisicaId', 'PessoaFisicaId', 'required');

@@ -20,8 +20,8 @@ abstract class MY_Controller extends CI_Controller {
   }
 
   protected function create(){
+    $this->setDefaultValue();
   	if ($this->form_validation->run() == TRUE){
-      $this->setDefaultValue();
       $Id = $this->api->create($this->table, $_POST);
       if (is_numeric($Id)) 
       	$this->get($Id);

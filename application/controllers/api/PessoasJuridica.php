@@ -10,7 +10,7 @@ class PessoasJuridica extends MY_Controller {
   }
 
   public function get($Id = '', $date = ''){
-    parent::get($Id);
+    parent::get($Id, $date);
   }
   
   public function setDefaultValue(){
@@ -27,7 +27,7 @@ class PessoasJuridica extends MY_Controller {
     $this->form_validation->set_rules('Celular', 'Celular', 'required');
     $this->form_validation->set_rules('Email', 'Email', 'required|valid_email');
     $this->form_validation->set_rules('Cnpj', 'Cnpj', 'required|is_unique[pessoasjuridica.Cnpj]');
-    $this->form_validation->set_rules('NaturezaJuridica', 'NaturezaJuridica', 'required|valid_cpf');
+    $this->form_validation->set_rules('NaturezaJuridica', 'NaturezaJuridica', 'required');
     $this->form_validation->set_rules('DmContribuicao', 'DmContribuicao', 'required');
     $this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required');
     $this->form_validation->set_rules('PessoaFisicaId', 'PessoaFisicaId', 'required');

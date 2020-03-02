@@ -14,11 +14,11 @@ class Municipios extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required');
+    $this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required');
 		$this->form_validation->set_rules('Nome', 'Nome', 'required');
 		$this->form_validation->set_rules('Uf', 'Uf', 'required');
 		
@@ -26,8 +26,7 @@ class Municipios extends MY_Controller {
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required');
+    $this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required');
 		$this->form_validation->set_rules('Nome', 'Nome', 'required');
 		$this->form_validation->set_rules('Uf', 'Uf', 'required');
 		

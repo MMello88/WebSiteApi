@@ -14,28 +14,21 @@ class Ref511 extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
-		$this->form_validation->set_rules('IndNcmAtividade', 'IndNcmAtividade', 'required');
-		$this->form_validation->set_rules('AliqAtividade', 'AliqAtividade', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
-		$this->form_validation->set_rules('IndNcmAtividade', 'IndNcmAtividade', 'required');
-		$this->form_validation->set_rules('AliqAtividade', 'AliqAtividade', 'required');
 		
     parent::update($Id);
   }

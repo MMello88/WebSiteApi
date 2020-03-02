@@ -14,30 +14,23 @@ class Ref4314 extends MY_Controller {
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
-		$this->form_validation->set_rules('NcmEx', 'NcmEx', 'required');
-		$this->form_validation->set_rules('ExIpi', 'ExIpi', 'required');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Id', 'Id', 'required');
-		$this->form_validation->set_rules('Codigo', 'Codigo', 'required');
+    $this->form_validation->set_rules('Codigo', 'Codigo', 'required');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
-		$this->form_validation->set_rules('NcmEx', 'NcmEx', 'required');
-		$this->form_validation->set_rules('ExIpi', 'ExIpi', 'required');
 		
     parent::update($Id);
   }
