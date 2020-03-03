@@ -37,12 +37,13 @@ DROP TABLE IF EXISTS `grupousers`;
 CREATE TABLE `grupousers` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(350) CHARACTER SET utf8mb4 NOT NULL,
+  `Ativo` enum('True','False') NOT NULL DEFAULT 'True',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `grupousers` */
 
-insert  into `grupousers`(`Id`,`Nome`) values (1,'Administrador'),(2,'Usuário');
+insert  into `grupousers`(`Id`,`Nome`,`Ativo`) values (1,'Administrador',''),(2,'Usuário','');
 
 /*Table structure for table `municipios` */
 
@@ -85,14 +86,14 @@ CREATE TABLE `pessoasfisica` (
   `Sobrenome` varchar(300) CHARACTER SET utf8mb4 NOT NULL,
   `DataNascimento` datetime(6) NOT NULL,
   `UrlFoto` varchar(150) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `Ativo` int(11) NOT NULL DEFAULT '1',
+  `Ativo` enum('True','False') NOT NULL DEFAULT 'True',
   `Criacao` datetime(6) NOT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `pessoasfisica` */
 
-insert  into `pessoasfisica`(`Id`,`Nome`,`Sobrenome`,`DataNascimento`,`UrlFoto`,`Ativo`,`Criacao`) values (1,'Matheus','Mello','1988-04-18 00:00:00.000000','xxxxxxxx',1,'2020-02-28 02:30:08.000000'),(2,'Cristina','Rodrigues','1972-06-19 00:00:00.000000','xxxxxxxx',1,'2020-02-28 02:30:33.000000'),(3,'Rogerio','Machado','1972-06-19 00:00:00.000000','abcdefg',0,'2020-02-28 02:31:02.000000');
+insert  into `pessoasfisica`(`Id`,`Nome`,`Sobrenome`,`DataNascimento`,`UrlFoto`,`Ativo`,`Criacao`) values (1,'Matheus','Mello','1988-04-18 00:00:00.000000','xxxxxxxx','True','2020-02-28 02:30:08.000000'),(2,'Cristina','Rodrigues','1972-06-19 00:00:00.000000','xxxxxxxx','True','2020-02-28 02:30:33.000000'),(3,'Rogerio','Machado','1972-06-19 00:00:00.000000','abcdefg','','2020-02-28 02:31:02.000000');
 
 /*Table structure for table `pessoasjuridica` */
 
@@ -122,14 +123,17 @@ CREATE TABLE `pessoasjuridica` (
   `DmContribuicao` int(11) NOT NULL DEFAULT '0',
   `MunicipioId` int(11) NOT NULL,
   `PessoaFisicaId` int(11) NOT NULL,
+  `Ativo` enum('True','False') NOT NULL DEFAULT 'True',
   PRIMARY KEY (`Id`),
   KEY `IX_PessoasJuridica_MunicipioId` (`MunicipioId`),
   KEY `IX_PessoasJuridica_PessoaFisicaId` (`PessoaFisicaId`),
   CONSTRAINT `FK_PessoasJuridica_Municipios_MunicipioId` FOREIGN KEY (`MunicipioId`) REFERENCES `municipios` (`Id`) ON DELETE CASCADE,
   CONSTRAINT `FK_PessoasJuridica_PessoasFisica_PessoaFisicaId` FOREIGN KEY (`PessoaFisicaId`) REFERENCES `pessoasfisica` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `pessoasjuridica` */
+
+insert  into `pessoasjuridica`(`Id`,`Nome`,`NomeFantasia`,`Matriz`,`Endereco`,`Numero`,`Complemento`,`Bairro`,`CEP`,`Telefone`,`Celular`,`Email`,`InscricaoEstadual`,`Cnpj`,`CNAE`,`InscricaoMunicipal`,`NrSuframa`,`NaturezaJuridica`,`NomeContato`,`WebSite`,`DmContribuicao`,`MunicipioId`,`PessoaFisicaId`,`Ativo`) values (2,'Matilab','Matilab SA',1,'Av. 9 de Julho','125','ap 51','Centro','141800000','991838523','991838523','matheusMello@matilab.com','1234','11111111111111111111','22222222','444444444444','32222',11111,'teste','teste.com.br',0,2,1,'True'),(3,'Matilab','Matilab SA',1,'Av. 9 de Julho','125','ap 51','Centro','141800000','991838523','991838523','matheusMello@matilab.com','1234','11111111111111111111','22222222','444444444444','32222',11111,'teste','teste.com.br',0,2,1,'True');
 
 /*Table structure for table `ref311` */
 
@@ -696,9 +700,11 @@ CREATE TABLE `regs0000efdc` (
   CONSTRAINT `FK_Regs0000EFDC_Regs0001EFDC_Reg0001EFDCId` FOREIGN KEY (`Reg0001EFDCId`) REFERENCES `regs0001efdc` (`Id`),
   CONSTRAINT `FK_Regs0000EFDC_Regs0110EFDC_Regs0110EFDCId` FOREIGN KEY (`Regs0110EFDCId`) REFERENCES `regs0110efdc` (`Id`),
   CONSTRAINT `FK_Regs0000EFDC_Users_UserId` FOREIGN KEY (`UserId`) REFERENCES `users` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `regs0000efdc` */
+
+insert  into `regs0000efdc`(`Id`,`Reg`,`Ref311Id`,`TipoEscrit`,`IndSitEsp`,`NumRecAnterior`,`DtIni`,`DtFin`,`IndNatPj`,`IndAtiv`,`PessoaJuridicaId`,`UserId`,`Reg0001EFDCId`,`Regs0110EFDCId`) values (2,'0000',1,1,1,'0000001','2020-01-01 00:00:00.000000','2020-12-01 00:00:00.000000',1,1,2,1,NULL,NULL),(3,'0000',1,1,1,'0000001','2020-01-01 00:00:00.000000','2020-12-01 00:00:00.000000',1,1,2,1,NULL,NULL);
 
 /*Table structure for table `regs0001efdc` */
 
@@ -1293,6 +1299,27 @@ CREATE TABLE `regsa170efdc` (
 
 /*Data for the table `regsa170efdc` */
 
+/*Table structure for table `teste` */
+
+DROP TABLE IF EXISTS `teste`;
+
+CREATE TABLE `teste` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(150) NOT NULL,
+  `Valor` float(16,2) NOT NULL,
+  `Desconto` decimal(16,2) DEFAULT '0.00',
+  `Total` double(11,1) DEFAULT NULL,
+  `VlIcms` decimal(16,2) DEFAULT NULL,
+  `Periodo` datetime DEFAULT NULL,
+  `Tipo` enum('masculino','feminino','trans','gay') DEFAULT NULL,
+  `Ativo` char(1) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `teste` */
+
+insert  into `teste`(`Id`,`Nome`,`Valor`,`Desconto`,`Total`,`VlIcms`,`Periodo`,`Tipo`,`Ativo`) values (1,'Celular',2399.99,0.00,0.0,0.00,'0000-00-00 00:00:00','',''),(2,'Celular',2399.99,0.00,0.0,0.00,'0000-00-00 00:00:00','','');
+
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
@@ -1303,7 +1330,7 @@ CREATE TABLE `users` (
   `Sobrenome` varchar(250) CHARACTER SET utf8mb4 NOT NULL,
   `DataNascimento` datetime(6) NOT NULL,
   `UrlFoto` longtext CHARACTER SET utf8mb4,
-  `Ativo` int(11) NOT NULL DEFAULT '1',
+  `Ativo` enum('True','False') NOT NULL DEFAULT 'True',
   `Criacao` datetime(6) NOT NULL,
   `Usuario` varchar(250) CHARACTER SET utf8mb4 NOT NULL,
   `Email` varchar(250) CHARACTER SET utf8mb4 NOT NULL,
@@ -1313,7 +1340,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`Id`,`Nome`,`Sobrenome`,`DataNascimento`,`UrlFoto`,`Ativo`,`Criacao`,`Usuario`,`Email`,`Senha`) values (1,'Matheusss','Mello','0001-01-01 00:00:00.000000',NULL,0,'0001-01-01 00:00:00.000000','','',''),(4,'Mat','Mel','1988-04-18 00:00:00.000000','xxxx',1,'2020-02-27 04:16:45.000000','m0rena0','math@math.com','99999999'),(5,'Rogerio','Machado','1988-04-18 00:00:00.000000','abcde',1,'2020-02-27 04:17:03.000000','MMachado','math@math.com','8776655555'),(6,'Matheusssssss','Mel','1988-04-18 00:00:00.000000','xxxx',1,'2020-02-27 04:17:26.000000','m0rena0','math@math.com','99999999'),(7,'Matheusssssss','Mel','1988-04-18 00:00:00.000000','xxxx',1,'2020-02-27 17:09:41.000000','m0rena0','math@math.com.br','99999999'),(8,'Douglas','Rodrigues','1988-04-18 00:00:00.000000','dir/abc/',1,'2020-02-28 19:40:13.000000','m0rena0','doug@math.com.br','89999999999');
+insert  into `users`(`Id`,`Nome`,`Sobrenome`,`DataNascimento`,`UrlFoto`,`Ativo`,`Criacao`,`Usuario`,`Email`,`Senha`) values (1,'Matheusss','Mello','0001-01-01 00:00:00.000000',NULL,'','0001-01-01 00:00:00.000000','','',''),(4,'Mat','Mel','1988-04-18 00:00:00.000000','xxxx','True','2020-02-27 04:16:45.000000','m0rena0','math@math.com','99999999'),(5,'Rogerio','Machado','1988-04-18 00:00:00.000000','abcde','True','2020-02-27 04:17:03.000000','MMachado','math@math.com','8776655555'),(6,'Matheusssssss','Mel','1988-04-18 00:00:00.000000','xxxx','True','2020-02-27 04:17:26.000000','m0rena0','math@math.com','99999999'),(7,'Matheusssssss','Mel','1988-04-18 00:00:00.000000','xxxx','True','2020-02-27 17:09:41.000000','m0rena0','math@math.com.br','99999999'),(8,'Douglas','Rodrigues','1988-04-18 00:00:00.000000','dir/abc/','True','2020-02-28 19:40:13.000000','m0rena0','doug@math.com.br','89999999999');
 
 /*Table structure for table `usersgrupo` */
 
@@ -1322,7 +1349,7 @@ DROP TABLE IF EXISTS `usersgrupo`;
 CREATE TABLE `usersgrupo` (
   `GrupoUserId` int(11) NOT NULL,
   `UserId` int(11) NOT NULL,
-  `Ativo` int(11) NOT NULL DEFAULT '1',
+  `Ativo` enum('True','False') NOT NULL DEFAULT 'True',
   PRIMARY KEY (`UserId`,`GrupoUserId`),
   KEY `IX_UsersGrupo_GrupoUserId` (`GrupoUserId`),
   CONSTRAINT `FK_UsersGrupo_GrupoUsers_GrupoUserId` FOREIGN KEY (`GrupoUserId`) REFERENCES `grupousers` (`Id`) ON DELETE CASCADE,
@@ -1331,7 +1358,7 @@ CREATE TABLE `usersgrupo` (
 
 /*Data for the table `usersgrupo` */
 
-insert  into `usersgrupo`(`GrupoUserId`,`UserId`,`Ativo`) values (1,1,0),(1,4,1),(1,5,1);
+insert  into `usersgrupo`(`GrupoUserId`,`UserId`,`Ativo`) values (1,1,''),(1,4,'True'),(1,5,'True');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
