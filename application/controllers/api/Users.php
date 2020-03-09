@@ -24,7 +24,6 @@ class Users extends MY_Controller {
     $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[350]');
 		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[250]');
 		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_datetime');
-		$this->form_validation->set_rules('UrlFoto', 'UrlFoto', '');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		$this->form_validation->set_rules('Criacao', 'Criacao', 'required|valid_datetime');
 		$this->form_validation->set_rules('Usuario', 'Usuario', 'required|max_length[250]');
@@ -38,7 +37,6 @@ class Users extends MY_Controller {
     $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[350]');
 		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[250]');
 		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_datetime');
-		$this->form_validation->set_rules('UrlFoto', 'UrlFoto', '');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		$this->form_validation->set_rules('Criacao', 'Criacao', 'required|valid_datetime');
 		$this->form_validation->set_rules('Usuario', 'Usuario', 'required|max_length[250]');
