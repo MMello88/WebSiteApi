@@ -89,32 +89,12 @@ abstract class MY_Controller extends CI_Controller {
         $result = $this->api->check_login($_POST);
 
         if (!empty($result['status']) && $result['status'] === TRUE) {
-
-            $session_array = array(
-                'USER_ID'  => $result['data']->id,
-                'USER_NAME'  => $result['data']->fullname,
-                'USERNAME'  => $result['data']->username,
-                'USER_EMAIL' => $result['data']->email,
-                'IS_ACTIVE'  => $result['data']->is_active,
-            );
-            
-            $this->session->set_userdata($session_array);
-
-            $this->session->set_flashdata('success_flashData', 'Login Success');
-            redirect('User/Panel');
-
+          echo json_encode(['status' => TRUE, 'data' => $result]);
         } else {
           echo json_encode($result);
-            $this->session->set_flashdata('error_flashData', 'Invalid Email/Password.');
-            redirect('User/login');
         }
     } else {
-      echo json_encode(
-        [
-          'status' => FALSE,
-          "error" => $this->form_error->error_array()
-        ]
-      );
+      echo json_encode(['status' => FALSE, "error" => $this->form_error->error_array()]);
     }
 
   }
