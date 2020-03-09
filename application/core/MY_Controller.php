@@ -1,6 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-abstract class MY_Controller extends CI_Controller {
+require_once APPPATH . 'libraries/API_Controller.php';
+
+abstract class MY_Controller extends API_Controller {
   
   protected $table;
   protected $nameId;
@@ -8,6 +10,7 @@ abstract class MY_Controller extends CI_Controller {
   public function  __construct() {
     parent::__construct();
     header('Content-Type: application/json');
+		header("Access-Control-Allow-Origin: *");
   }
 
   protected function get($Id = '', $date = ''){
@@ -16,7 +19,15 @@ abstract class MY_Controller extends CI_Controller {
     $where.= !empty($date) ? " '{$date}' between DtIni and IF(ISNULL(DtFin),SYSDATE(),DtFin) and" : "";
     $where = !empty($where) ? substr($where, 0, -3) : "";
 
-    echo json_encode(['status' => TRUE, 'data' => $this->api->get($this->table, $where)]);
+		$user_data = $this->_apiConfig([
+			'methods' => ['POST'],
+			'requireAuthorization' => true,
+		]);
+
+		$this->api_return(
+			['status' => TRUE, 'data' => $this->api->get($this->table, $where)],
+			200
+		);
   }
 
   protected function create(){
@@ -26,38 +37,44 @@ abstract class MY_Controller extends CI_Controller {
       if (is_numeric($Id)) 
       	$this->get($Id);
     } else {
-      header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity');
-      echo json_encode(
-        [
-          'status' => FALSE,
-          "error" => $this->form_error->error_array()
-        ]
-      );
+			$user_data = $this->_apiConfig([
+				'methods' => ['POST'],
+				'requireAuthorization' => true,
+			]);
+
+			$this->api_return(
+				['status' => FALSE, "error" => $this->form_error->error_array()],
+				422
+			);
     }
   }
 
   protected function update($Id){
     if(!is_numeric($Id)){
-      header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity');
-      echo json_encode(
-        [
-          'status' => FALSE,
-          "error" => ["Id" => "The Id field must contain only numbers."]
-        ]
-      );
+			$user_data = $this->_apiConfig([
+				'methods' => ['POST'],
+				'requireAuthorization' => true,
+			]);
+
+			$this->api_return(
+				['status' => FALSE, "error" => ["Id" => "The Id field must contain only numbers."]],
+				422
+			);
     }
 
     if ($this->form_error->run() == TRUE){
       $this->api->update($this->table, $_POST, [$this->nameId => $Id]);
       $this->get($Id);
     } else {
-      header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity');
-      echo json_encode(
-        [
-          'status' => FALSE,
-          "error" => $this->form_error->error_array()
-        ]
-      );
+      $user_data = $this->_apiConfig([
+				'methods' => ['POST'],
+				'requireAuthorization' => true,
+			]);
+
+			$this->api_return(
+				['status' => FALSE, "error" => $this->form_error->error_array()],
+				422
+			);
     }
   }
 
@@ -76,27 +93,53 @@ abstract class MY_Controller extends CI_Controller {
   }
 
   public function login(){
+    header("Access-Control-Allow-Origin: *");
     if($this->uri->segment(2) == 'Users'){
-      $this->check_login();
+      // API Configuration
+      $this->_apiConfig([
+        'methods' => ['POST'],
+      ]);
+      
+      $data = $this->verify_login();
+
+      if($data['status'] === TRUE){
+        $token = $this->authorization_token->generateToken($data['data']);
+
+        $this->api_return(
+        	[
+          	"status" => TRUE,
+            "data" => [
+              'token' => $token,
+            ],
+          ],
+          200);
+      } else {
+				$this->_apiConfig([
+					'methods' => ['POST'],
+					'limit' => [5, 'ip', 5],
+				]);
+
+				$this->api_return(
+					$data,
+					401
+				);
+      }
     }
   }
 
-  private function check_login(){
+  private function verify_login(){
     $this->form_error->set_rules('Email', 'Email', 'required|valid_email|max_length[250]');
     $this->form_error->set_rules('Senha', 'Senha', 'required|max_length[64]');
     if ($this->form_error->run() == TRUE){
-
         $result = $this->api->check_login($_POST);
-
         if (!empty($result['status']) && $result['status'] === TRUE) {
-          echo json_encode(['status' => TRUE, 'data' => $result]);
+          return ['status' => TRUE, 'data' => $result];
         } else {
-          echo json_encode($result);
+          return $result;
         }
     } else {
-      echo json_encode(['status' => FALSE, "error" => $this->form_error->error_array()]);
+      return ['status' => FALSE, "error" => $this->form_error->error_array()];
     }
-
   }
 
 	abstract function setDefaultValue(); 
