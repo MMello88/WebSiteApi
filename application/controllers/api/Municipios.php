@@ -5,28 +5,31 @@ class Municipios extends MY_Controller {
 
   public function  __construct() {
     parent::__construct();
-    $this->table = "municipios";
-    $this->nameId = "Id";
+    $this->table = 'municipios';
+    $this->nameId = 'Id';
   }
 
   public function get($Id = '', $date = ''){
-    parent::get($Id);
+    parent::get($Id, $date);
   }
   
   public function setDefaultValue(){
+    
   }
 
   public function create(){
-    $this->form_validation->set_rules('CdMunicipio', 'Cod. Município', 'required');
-    $this->form_validation->set_rules('Nome', 'Nome', 'required');
-    $this->form_validation->set_rules('Uf', 'Uf', 'required|max_length[2]');
+    $this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required|max_length[7]');
+		$this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[150]');
+		$this->form_validation->set_rules('Uf', 'Uf', 'required|max_length[2]');
+		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('CdMunicipio', 'Cod. Município', 'required');
-    $this->form_validation->set_rules('Nome', 'Nome', 'required');
-    $this->form_validation->set_rules('Uf', 'Uf', 'required|max_length[2]');
+    $this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required|max_length[7]');
+		$this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[150]');
+		$this->form_validation->set_rules('Uf', 'Uf', 'required|max_length[2]');
+		
     parent::update($Id);
   }
 

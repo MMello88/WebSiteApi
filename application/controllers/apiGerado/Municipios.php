@@ -18,17 +18,17 @@ class Municipios extends MY_Controller {
   }
 
   public function create(){
-    $this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required');
-		$this->form_validation->set_rules('Nome', 'Nome', 'required');
-		$this->form_validation->set_rules('Uf', 'Uf', 'required');
+    $this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required|max_length[7]');
+		$this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[150]');
+		$this->form_validation->set_rules('Uf', 'Uf', 'required|max_length[2]');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required');
-		$this->form_validation->set_rules('Nome', 'Nome', 'required');
-		$this->form_validation->set_rules('Uf', 'Uf', 'required');
+    $this->form_validation->set_rules('CdMunicipio', 'CdMunicipio', 'required|max_length[7]');
+		$this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[150]');
+		$this->form_validation->set_rules('Uf', 'Uf', 'required|max_length[2]');
 		
     parent::update($Id);
   }

@@ -18,15 +18,15 @@ class Paises extends MY_Controller {
   }
 
   public function create(){
-    $this->form_validation->set_rules('CdPais', 'CdPais', 'required');
-		$this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('CdPais', 'CdPais', 'required|max_length[5]');
+		$this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[150]');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('CdPais', 'CdPais', 'required');
-		$this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('CdPais', 'CdPais', 'required|max_length[5]');
+		$this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[150]');
 		
     parent::update($Id);
   }

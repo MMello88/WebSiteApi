@@ -18,13 +18,13 @@ class __efmigrationshistory extends MY_Controller {
   }
 
   public function create(){
-    $this->form_validation->set_rules('ProductVersion', 'ProductVersion', 'required');
+    $this->form_validation->set_rules('ProductVersion', 'ProductVersion', 'required|max_length[32]');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('ProductVersion', 'ProductVersion', 'required');
+    $this->form_validation->set_rules('ProductVersion', 'ProductVersion', 'required|max_length[32]');
 		
     parent::update($Id);
   }

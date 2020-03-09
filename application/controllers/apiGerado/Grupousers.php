@@ -14,17 +14,20 @@ class Grupousers extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Ativo'] = $_POST['Ativo'] == null ? 'True' : $_POST['Ativo'];
+		
   }
 
   public function create(){
-    $this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[350]');
+		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Nome', 'Nome', 'required');
+    $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[350]');
+		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		
     parent::update($Id);
   }

@@ -14,17 +14,18 @@ class Usersgrupo extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = '1';
+    $_POST['Ativo'] = $_POST['Ativo'] == null ? 'True' : $_POST['Ativo'];
+		
   }
 
   public function create(){
-    $this->form_validation->set_rules('Ativo', 'Ativo', 'required');
+    $this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Ativo', 'Ativo', 'required');
+    $this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		
     parent::update($Id);
   }

@@ -32,4 +32,27 @@ class Api_model extends CI_Model {
   public function delete($table, $where){
     return $this->db->delete($table, $where);
   }
+
+  public function check_login($userData){
+    $query = $this->db->get_where('users', array('Email' => $userData['Email']));
+    if ($this->db->affected_rows() > 0) {
+
+      $password = $query->row('Senha');
+
+      if (password_verify($userData['Senha'], $password) === TRUE) {
+          $row = $query->row();
+          unset($row["Senha"]);
+          return [
+              'status' => TRUE,
+              'data' => $row,
+          ];
+
+      } else {
+          return ['status' => FALSE, 'error' => ["Senha" => "Invalid Password"]];
+      }
+
+    } else {
+        return ['status' => FALSE, 'error' => ["Email" => "Invalid Email"];
+    }
+  }
 }

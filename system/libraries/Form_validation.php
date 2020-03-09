@@ -308,7 +308,7 @@ class CI_Form_validation {
 	 * @param	string
 	 * @return	CI_Form_validation
 	 */
-	public function set_error_delimiters($prefix = '', $suffix = '')
+	public function set_error_delimiters($prefix = '<p>', $suffix = '</p>')
 	{
 		$this->_error_prefix = $prefix;
 		$this->_error_suffix = $suffix;
@@ -1497,39 +1497,6 @@ class CI_Form_validation {
 
 	// --------------------------------------------------------------------
 
-    /**
-     * valid_date
-     *
-     * valid datetime default mysql 2020-03-02
-     * 
-     * @param	string
-     * @return	bool
-     */
-    function valid_date($date)
-    {
-    	$format = 'Y-m-d';
-		$d = DateTime::createFromFormat($format, $date);
-	    return $d && $d->format($format) == $date;
-    }
-
-	// --------------------------------------------------------------------
-
-    /**
-     * valid_datetime
-     *
-     * valid datetime default mysql 2020-03-02 21:20:02
-     * 
-     * @param	string
-     * @return	bool
-     */
-    function valid_datetime($date)
-    {
-    	$format = 'Y-m-d H:i:s';
-		$d = DateTime::createFromFormat($format, $date);
-	    return $d && $d->format($format) == $date;
-    }
-
-
 	/**
 	 * Prep data for form
 	 *
@@ -1608,7 +1575,6 @@ class CI_Form_validation {
 	{
 		return str_replace(array('<?', '?>'), array('&lt;?', '?&gt;'), $str);
 	}
-
 
 	// --------------------------------------------------------------------
 

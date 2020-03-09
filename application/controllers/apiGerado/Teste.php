@@ -15,6 +15,7 @@ class Teste extends MY_Controller {
   
   public function setDefaultValue(){
     $_POST['Desconto'] = $_POST['Desconto'] == null ? '0.00' : $_POST['Desconto'];
+		
   }
 
   public function create(){
@@ -36,7 +37,7 @@ class Teste extends MY_Controller {
 		$this->form_validation->set_rules('Desconto', 'Desconto', 'decimal');
 		$this->form_validation->set_rules('Total', 'Total', 'numeric');
 		$this->form_validation->set_rules('VlIcms', 'VlIcms', 'decimal');
-		$this->form_validation->set_rules('Periodo', 'Periodo', 'valid_date');
+		$this->form_validation->set_rules('Periodo', 'Periodo', 'valid_datetime');
 		$this->form_validation->set_rules('Tipo', 'Tipo', 'in_list[masculino,feminino,trans,gay]');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'max_length[1]');
 		
@@ -45,5 +46,7 @@ class Teste extends MY_Controller {
 
   public function delete($Id){
     parent::delete($Id);
+  }
+};
   }
 }

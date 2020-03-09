@@ -14,31 +14,36 @@ class Users extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = '1';
+    unset($_POST["SenhaConf"]);
+    $_POST['Ativo'] = $_POST['Ativo'] == null ? 'True' : $_POST['Ativo'];
+		$_POST['Criacao'] = $_POST['Criacao'] == null ? date('Y-m-d H:i:s') : $_POST['Criacao'];
+		
   }
 
   public function create(){
-    $this->form_validation->set_rules('Nome', 'Nome', 'required');
-		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required');
-		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required');
-		$this->form_validation->set_rules('Ativo', 'Ativo', 'required');
-		$this->form_validation->set_rules('Criacao', 'Criacao', 'required');
-		$this->form_validation->set_rules('Usuario', 'Usuario', 'required');
-		$this->form_validation->set_rules('Email', 'Email', 'required');
-		$this->form_validation->set_rules('Senha', 'Senha', 'required');
+    $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[350]');
+		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[250]');
+		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_datetime');
+		$this->form_validation->set_rules('UrlFoto', 'UrlFoto', '');
+		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
+		$this->form_validation->set_rules('Criacao', 'Criacao', 'required|valid_datetime');
+		$this->form_validation->set_rules('Usuario', 'Usuario', 'required|max_length[250]');
+		$this->form_validation->set_rules('Email', 'Email', 'required|max_length[250]');
+		$this->form_validation->set_rules('Senha', 'Senha', 'required|max_length[64]');
 		
     parent::create();
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Nome', 'Nome', 'required');
-		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required');
-		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required');
-		$this->form_validation->set_rules('Ativo', 'Ativo', 'required');
-		$this->form_validation->set_rules('Criacao', 'Criacao', 'required');
-		$this->form_validation->set_rules('Usuario', 'Usuario', 'required');
-		$this->form_validation->set_rules('Email', 'Email', 'required');
-		$this->form_validation->set_rules('Senha', 'Senha', 'required');
+    $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[350]');
+		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[250]');
+		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_datetime');
+		$this->form_validation->set_rules('UrlFoto', 'UrlFoto', '');
+		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
+		$this->form_validation->set_rules('Criacao', 'Criacao', 'required|valid_datetime');
+		$this->form_validation->set_rules('Usuario', 'Usuario', 'required|max_length[250]');
+		$this->form_validation->set_rules('Email', 'Email', 'required|max_length[250]');
+		$this->form_validation->set_rules('Senha', 'Senha', 'required|max_length[64]');
 		
     parent::update($Id);
   }

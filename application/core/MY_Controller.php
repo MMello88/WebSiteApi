@@ -16,12 +16,12 @@ abstract class MY_Controller extends CI_Controller {
     $where.= !empty($date) ? " '{$date}' between DtIni and IF(ISNULL(DtFin),SYSDATE(),DtFin) and" : "";
     $where = !empty($where) ? substr($where, 0, -3) : "";
 
-    echo json_encode($this->api->get($this->table, $where));
+    echo json_encode(['status' => TRUE, 'data' => $this->api->get($this->table, $where)]);
   }
 
   protected function create(){
     $this->setDefaultValue();
-  	if ($this->form_validation->run() == TRUE){
+  	if ($this->form_error->run() == TRUE){
       $Id = $this->api->create($this->table, $_POST);
       if (is_numeric($Id)) 
       	$this->get($Id);
@@ -29,7 +29,8 @@ abstract class MY_Controller extends CI_Controller {
       header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity');
       echo json_encode(
         [
-          "Validation" => $this->form_validation->error_array()
+          'status' => FALSE,
+          "error" => $this->form_error->error_array()
         ]
       );
     }
@@ -40,19 +41,21 @@ abstract class MY_Controller extends CI_Controller {
       header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity');
       echo json_encode(
         [
-          "Validation" => ["Id" => "The Id field must contain only numbers."]
+          'status' => FALSE,
+          "error" => ["Id" => "The Id field must contain only numbers."]
         ]
       );
     }
 
-    if ($this->form_validation->run() == TRUE){
+    if ($this->form_error->run() == TRUE){
       $this->api->update($this->table, $_POST, [$this->nameId => $Id]);
       $this->get($Id);
     } else {
       header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity');
       echo json_encode(
         [
-          "Validation" => $this->form_validation->error_array()
+          'status' => FALSE,
+          "error" => $this->form_error->error_array()
         ]
       );
     }
@@ -63,11 +66,57 @@ abstract class MY_Controller extends CI_Controller {
       header($_SERVER['SERVER_PROTOCOL'] . ' 422 Unprocessable Entity');
       echo json_encode(
         [
-          "Validation" => ["Id" => "The Id field must contain only numbers."]
+          'status' => FALSE,
+          "error" => ["Id" => "The Id field must contain only numbers."]
         ]
       );
     }
     $this->api->delete($this->table, [$this->nameId => $Id]);
+    echo json_encode(['status' => TRUE, 'data' => FALSE]);
+  }
+
+  public function login(){
+    if($this->uri->segment(2) == 'Users'){
+      $this->check_login();
+    }
+  }
+
+  private function check_login(){
+    $this->form_error->set_rules('Email', 'Email', 'required|valid_email|max_length[250]');
+    $this->form_error->set_rules('Senha', 'Senha', 'required|max_length[64]');
+    if ($this->form_error->run() == TRUE){
+
+        $result = $this->api->check_login($_POST);
+
+        if (!empty($result['status']) && $result['status'] === TRUE) {
+
+            $session_array = array(
+                'USER_ID'  => $result['data']->id,
+                'USER_NAME'  => $result['data']->fullname,
+                'USERNAME'  => $result['data']->username,
+                'USER_EMAIL' => $result['data']->email,
+                'IS_ACTIVE'  => $result['data']->is_active,
+            );
+            
+            $this->session->set_userdata($session_array);
+
+            $this->session->set_flashdata('success_flashData', 'Login Success');
+            redirect('User/Panel');
+
+        } else {
+          echo json_encode($result);
+            $this->session->set_flashdata('error_flashData', 'Invalid Email/Password.');
+            redirect('User/login');
+        }
+    } else {
+      echo json_encode(
+        [
+          'status' => FALSE,
+          "error" => $this->form_error->error_array()
+        ]
+      );
+    }
+
   }
 
 	abstract function setDefaultValue(); 
