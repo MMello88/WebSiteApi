@@ -16,7 +16,7 @@ abstract class MY_Controller extends API_Controller {
   protected function get($Id = "", $date = ""){
     $where = "";
     $where.= !empty($Id) || $Id > 0 ? " {$this->table}.{$this->nameId} = {$Id} and" : "";
-    $where.= !empty($date) ? " "{$date}" between DtIni and IF(ISNULL(DtFin),SYSDATE(),DtFin) and" : "";
+    $where.= !empty($date) ? "{$date} between DtIni and IF(ISNULL(DtFin),SYSDATE(),DtFin) and" : "";
     $where = !empty($where) ? substr($where, 0, -3) : "";
 
 		$user_data = $this->_apiConfig([
@@ -40,16 +40,21 @@ abstract class MY_Controller extends API_Controller {
 
     $this->setDefaultValue();
   	
-    if ($this->form_error->run() == TRUE){
+    if ($this->form_validation->run() == TRUE){
     
       $Id = $this->api->create($this->table, $_POST);
-      if (is_numeric($Id)) 
-      	$this->get($Id);
+      if (is_numeric($Id)){
+        $data = $this->api->get($this->table, [$this->nameId => $Id]);
+      	$this->api_return(
+          ["status" => TRUE, "data" => $data],
+          200
+        );
+      }
     
     } else {
 
 			$this->api_return(
-				["status" => FALSE, "error" => $this->form_error->error_array()],
+				["status" => FALSE, "error" => $this->form_validation->error_array()],
 				422
 			);
     }
@@ -70,15 +75,19 @@ abstract class MY_Controller extends API_Controller {
 
     } else {
 
-      if ($this->form_error->run() == TRUE){
+      if ($this->form_validation->run() == TRUE){
 
         $this->api->update($this->table, $_POST, [$this->nameId => $Id]);
-        $this->get($Id);
+        $data = $this->api->get($this->table, [$this->nameId => $Id]);
+        $this->api_return(
+          ["status" => TRUE, "data" => $data],
+          200
+        );
 
       } else {
 
   			$this->api_return(
-  				["status" => FALSE, "error" => $this->form_error->error_array()],
+  				["status" => FALSE, "error" => $this->form_validation->error_array()],
   				422
   			);
       }
@@ -121,13 +130,12 @@ abstract class MY_Controller extends API_Controller {
       if($data["status"] === TRUE){
         
         $token = $this->authorization_token->generateToken($data["data"]);
+        $data["data"]->token = $token;
 
         $this->api_return(
         	[
           	"status" => TRUE,
-            "data" => [
-              "token" => $token,
-            ],
+            "data" => $data["data"],
           ],
           200);
       
@@ -147,10 +155,10 @@ abstract class MY_Controller extends API_Controller {
   }
 
   private function verify_login(){
-    $this->form_error->set_rules("Email", "Email", "required|valid_email|max_length[250]");
-    $this->form_error->set_rules("Senha", "Senha", "required|max_length[64]");
+    $this->form_validation->set_rules("Email", "Email", "required|valid_email|max_length[250]");
+    $this->form_validation->set_rules("Senha", "Senha", "required|max_length[64]");
     
-    if ($this->form_error->run() == TRUE){
+    if ($this->form_validation->run() == TRUE){
     
         $result = $this->api->check_login($_POST);
     
@@ -166,7 +174,7 @@ abstract class MY_Controller extends API_Controller {
     
     } else {
     
-      return ["status" => FALSE, "error" => $this->form_error->error_array()];
+      return ["status" => FALSE, "error" => $this->form_validation->error_array()];
     
     }
   }

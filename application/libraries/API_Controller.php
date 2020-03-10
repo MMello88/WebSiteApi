@@ -59,6 +59,7 @@ class API_Controller extends CI_Controller
         '408' => 'Request Timeout',
         '404' => 'NOT FOUND',
         '401' => 'UNAUTHORIZED',
+        '422' => 'Unprocessable Entity',
         '200' => 'OK',
     ];
 

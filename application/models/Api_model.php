@@ -41,7 +41,7 @@ class Api_model extends CI_Model {
 
       if (password_verify($userData['Senha'], $password) === TRUE) {
           $row = $query->row();
-          unset($row["Senha"]);
+          unset($row->Senha);
           return [
               'status' => TRUE,
               'data' => $row,
@@ -52,7 +52,7 @@ class Api_model extends CI_Model {
       }
 
     } else {
-        return ['status' => FALSE, 'error' => ["Email" => "Invalid Email"];
+        return ['status' => FALSE, 'error' => ["Email" => "Invalid Email"]];
     }
   }
 }

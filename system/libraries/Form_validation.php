@@ -1497,6 +1497,38 @@ class CI_Form_validation {
 
 	// --------------------------------------------------------------------
 
+    /**
+     * valid_date
+     *
+     * valid datetime default mysql 2020-03-02
+     * 
+     * @param	string
+     * @return	bool
+     */
+    function valid_date($date)
+    {
+    	$format = 'Y-m-d';
+		$d = DateTime::createFromFormat($format, $date);
+	    return $d && $d->format($format) == $date;
+    }
+
+	// --------------------------------------------------------------------
+
+    /**
+     * valid_datetime
+     *
+     * valid datetime default mysql 2020-03-02 21:20:02
+     * 
+     * @param	string
+     * @return	bool
+     */
+    function valid_datetime($date)
+    {
+    	$format = 'Y-m-d H:i:s';
+		$d = DateTime::createFromFormat($format, $date);
+	    return $d && $d->format($format) == $date;
+    }
+
 	/**
 	 * Prep data for form
 	 *
