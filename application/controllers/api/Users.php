@@ -28,7 +28,6 @@ class Users extends MY_Controller {
       422
     );
 		
-    parent::create();
   }
   
   public function update($Id){

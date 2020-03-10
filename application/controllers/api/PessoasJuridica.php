@@ -14,7 +14,7 @@ class Pessoasjuridica extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = $_POST['Ativo'] == null ? 'True' : $_POST['Ativo'];
+    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
   }
 
   public function create(){

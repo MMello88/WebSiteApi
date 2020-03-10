@@ -137,7 +137,8 @@ abstract class MY_Controller extends API_Controller {
           	"status" => TRUE,
             "data" => $data["data"],
           ],
-          200);
+          200
+        );
       
       } else {
 			
