@@ -20,7 +20,6 @@ class Ref4318 extends MY_Controller {
   public function create(){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('Obrigatorio', 'Obrigatorio', '');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		
@@ -30,7 +29,6 @@ class Ref4318 extends MY_Controller {
   public function update($Id){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('Obrigatorio', 'Obrigatorio', '');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		

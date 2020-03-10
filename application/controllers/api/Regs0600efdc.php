@@ -14,7 +14,7 @@ class Regs0600efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = $_POST['Reg'] == null ? '0600' : $_POST['Reg'];
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0600' : $_POST['Reg'];
 		
   }
 

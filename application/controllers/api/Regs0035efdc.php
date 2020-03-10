@@ -14,14 +14,11 @@ class Regs0035efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0035' : $_POST['Reg'];
   }
 
   public function create(){
-    $this->form_validation->set_rules('Reg', 'Reg', '');
 		$this->form_validation->set_rules('CodSCP', 'CodSCP', 'required|integer');
-		$this->form_validation->set_rules('DescSCP', 'DescSCP', '');
-		$this->form_validation->set_rules('InfoCompl', 'InfoCompl', '');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
@@ -31,10 +28,7 @@ class Regs0035efdc extends MY_Controller {
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('Reg', 'Reg', '');
 		$this->form_validation->set_rules('CodSCP', 'CodSCP', 'required|integer');
-		$this->form_validation->set_rules('DescSCP', 'DescSCP', '');
-		$this->form_validation->set_rules('InfoCompl', 'InfoCompl', '');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');

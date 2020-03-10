@@ -23,8 +23,6 @@ class Ref4314 extends MY_Controller {
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
-		$this->form_validation->set_rules('NcmEx', 'NcmEx', '');
-		$this->form_validation->set_rules('ExIpi', 'ExIpi', '');
 		
     parent::create();
   }
@@ -35,8 +33,6 @@ class Ref4314 extends MY_Controller {
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
-		$this->form_validation->set_rules('NcmEx', 'NcmEx', '');
-		$this->form_validation->set_rules('ExIpi', 'ExIpi', '');
 		
     parent::update($Id);
   }

@@ -14,7 +14,7 @@ class Pessoasfisica extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Criacao'] = $_POST['Criacao'] == null ? date('Y-m-d H:i:s') : $_POST['Criacao'];
+    $_POST['Criacao'] = !isset($_POST['Criacao']) ? date('Y-m-d H:i:s') : $_POST['Criacao'];
   }
 
   public function create(){

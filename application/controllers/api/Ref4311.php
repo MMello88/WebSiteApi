@@ -23,9 +23,6 @@ class Ref4311 extends MY_Controller {
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
-		$this->form_validation->set_rules('NcmEx', 'NcmEx', '');
-		$this->form_validation->set_rules('ExIpi', 'ExIpi', '');
-		$this->form_validation->set_rules('Unid', 'Unid', '');
 		$this->form_validation->set_rules('AliqPis', 'AliqPis', 'numeric');
 		$this->form_validation->set_rules('AliqCofins', 'AliqCofins', 'numeric');
 		
@@ -38,9 +35,6 @@ class Ref4311 extends MY_Controller {
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
-		$this->form_validation->set_rules('NcmEx', 'NcmEx', '');
-		$this->form_validation->set_rules('ExIpi', 'ExIpi', '');
-		$this->form_validation->set_rules('Unid', 'Unid', '');
 		$this->form_validation->set_rules('AliqPis', 'AliqPis', 'numeric');
 		$this->form_validation->set_rules('AliqCofins', 'AliqCofins', 'numeric');
 		

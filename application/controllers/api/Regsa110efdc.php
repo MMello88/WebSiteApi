@@ -14,7 +14,7 @@ class Regsa110efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = $_POST['Reg'] == null ? 'A110' : $_POST['Reg'];
+    $_POST['Reg'] = !isset($_POST['Reg']) ? 'A110' : $_POST['Reg'];
 		
   }
 
