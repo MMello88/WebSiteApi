@@ -14,7 +14,7 @@ class Regs0111efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = $_POST['Reg'] == null ? '0111' : $_POST['Reg'];
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0111' : $_POST['Reg'];
 		
   }
 
@@ -44,3 +44,42 @@ class Regs0111efdc extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>regs0111efdc</legend>
+				<div class='form-group'>
+					<label for='Id'>Id</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+				</div>
+				<div class='form-group'>
+					<label for='Reg'>Reg</label>
+					<input type='hidden' name='Reg' id='Reg'>
+				</div>
+				<div class='form-group'>
+					<label for='RecBruNCumTribMI'>RecBruNCumTribMI</label>
+					<input type='hidden' name='RecBruNCumTribMI' id='RecBruNCumTribMI'>
+				</div>
+				<div class='form-group'>
+					<label for='RecBruNCumNaoTribMI'>RecBruNCumNaoTribMI</label>
+					<input type='hidden' name='RecBruNCumNaoTribMI' id='RecBruNCumNaoTribMI'>
+				</div>
+				<div class='form-group'>
+					<label for='RecBruNCumExp'>RecBruNCumExp</label>
+					<input type='hidden' name='RecBruNCumExp' id='RecBruNCumExp'>
+				</div>
+				<div class='form-group'>
+					<label for='RecBruNCum'>RecBruNCum</label>
+					<input type='hidden' name='RecBruNCum' id='RecBruNCum'>
+				</div>
+				<div class='form-group'>
+					<label for='RecBruNCumTotal'>RecBruNCumTotal</label>
+					<input type='hidden' name='RecBruNCumTotal' id='RecBruNCumTotal'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

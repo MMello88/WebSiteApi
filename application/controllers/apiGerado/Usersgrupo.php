@@ -14,7 +14,7 @@ class Usersgrupo extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = $_POST['Ativo'] == null ? 'True' : $_POST['Ativo'];
+    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
 		
   }
 
@@ -34,3 +34,26 @@ class Usersgrupo extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>usersgrupo</legend>
+				<div class='form-group'>
+					<label for='GrupoUserId'>GrupoUserId</label>
+					<input type='' name='GrupoUserId' id='GrupoUserId' class='form-control' placeholder='GrupoUserId' required>
+				</div>
+				<div class='form-group'>
+					<label for='UserId'>UserId</label>
+					<input type='' name='UserId' id='UserId' class='form-control' placeholder='UserId' required>
+				</div>
+				<div class='form-group'>
+					<label for='Ativo'>Ativo</label>
+					<input type='hidden' name='Ativo' id='Ativo'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

@@ -14,7 +14,7 @@ class Regs0145efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = $_POST['Reg'] == null ? '0145' : $_POST['Reg'];
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0145' : $_POST['Reg'];
 		
   }
 
@@ -44,3 +44,42 @@ class Regs0145efdc extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>regs0145efdc</legend>
+				<div class='form-group'>
+					<label for='Id'>Id</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+				</div>
+				<div class='form-group'>
+					<label for='Reg'>Reg</label>
+					<input type='hidden' name='Reg' id='Reg'>
+				</div>
+				<div class='form-group'>
+					<label for='CodIncTrib'>CodIncTrib</label>
+					<input type='hidden' name='CodIncTrib' id='CodIncTrib'>
+				</div>
+				<div class='form-group'>
+					<label for='VlRecTot'>VlRecTot</label>
+					<input type='hidden' name='VlRecTot' id='VlRecTot'>
+				</div>
+				<div class='form-group'>
+					<label for='VlRecAtiv'>VlRecAtiv</label>
+					<input type='hidden' name='VlRecAtiv' id='VlRecAtiv'>
+				</div>
+				<div class='form-group'>
+					<label for='VlRecDemaisAtiv'>VlRecDemaisAtiv</label>
+					<input type='hidden' name='VlRecDemaisAtiv' id='VlRecDemaisAtiv'>
+				</div>
+				<div class='form-group'>
+					<label for='InfoCompl'>InfoCompl</label>
+					<input type='hidden' name='InfoCompl' id='InfoCompl'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

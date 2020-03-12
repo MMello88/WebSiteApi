@@ -14,7 +14,7 @@ class Regs0206efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = $_POST['Reg'] == null ? '0206' : $_POST['Reg'];
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0206' : $_POST['Reg'];
 		
   }
 
@@ -36,3 +36,26 @@ class Regs0206efdc extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>regs0206efdc</legend>
+				<div class='form-group'>
+					<label for='Id'>Id</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+				</div>
+				<div class='form-group'>
+					<label for='Reg'>Reg</label>
+					<input type='hidden' name='Reg' id='Reg'>
+				</div>
+				<div class='form-group'>
+					<label for='CodComb'>CodComb</label>
+					<input type='hidden' name='CodComb' id='CodComb'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

@@ -14,7 +14,7 @@ class Pessoasjuridica extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = $_POST['Ativo'] == null ? 'True' : $_POST['Ativo'];
+    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
 		
   }
 
@@ -78,3 +78,110 @@ class Pessoasjuridica extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>pessoasjuridica</legend>
+				<div class='form-group'>
+					<label for='Id'>Id</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+				</div>
+				<div class='form-group'>
+					<label for='Nome'>Nome</label>
+					<input type='hidden' name='Nome' id='Nome'>
+				</div>
+				<div class='form-group'>
+					<label for='NomeFantasia'>NomeFantasia</label>
+					<input type='hidden' name='NomeFantasia' id='NomeFantasia'>
+				</div>
+				<div class='form-group'>
+					<label for='Matriz'>Matriz</label>
+					<input type='hidden' name='Matriz' id='Matriz'>
+				</div>
+				<div class='form-group'>
+					<label for='Endereco'>Endereco</label>
+					<input type='hidden' name='Endereco' id='Endereco'>
+				</div>
+				<div class='form-group'>
+					<label for='Numero'>Numero</label>
+					<input type='hidden' name='Numero' id='Numero'>
+				</div>
+				<div class='form-group'>
+					<label for='Complemento'>Complemento</label>
+					<input type='hidden' name='Complemento' id='Complemento'>
+				</div>
+				<div class='form-group'>
+					<label for='Bairro'>Bairro</label>
+					<input type='hidden' name='Bairro' id='Bairro'>
+				</div>
+				<div class='form-group'>
+					<label for='CEP'>CEP</label>
+					<input type='hidden' name='CEP' id='CEP'>
+				</div>
+				<div class='form-group'>
+					<label for='Telefone'>Telefone</label>
+					<input type='hidden' name='Telefone' id='Telefone'>
+				</div>
+				<div class='form-group'>
+					<label for='Celular'>Celular</label>
+					<input type='hidden' name='Celular' id='Celular'>
+				</div>
+				<div class='form-group'>
+					<label for='Email'>Email</label>
+					<input type='hidden' name='Email' id='Email'>
+				</div>
+				<div class='form-group'>
+					<label for='InscricaoEstadual'>InscricaoEstadual</label>
+					<input type='hidden' name='InscricaoEstadual' id='InscricaoEstadual'>
+				</div>
+				<div class='form-group'>
+					<label for='Cnpj'>Cnpj</label>
+					<input type='hidden' name='Cnpj' id='Cnpj'>
+				</div>
+				<div class='form-group'>
+					<label for='CNAE'>CNAE</label>
+					<input type='hidden' name='CNAE' id='CNAE'>
+				</div>
+				<div class='form-group'>
+					<label for='InscricaoMunicipal'>InscricaoMunicipal</label>
+					<input type='hidden' name='InscricaoMunicipal' id='InscricaoMunicipal'>
+				</div>
+				<div class='form-group'>
+					<label for='NrSuframa'>NrSuframa</label>
+					<input type='hidden' name='NrSuframa' id='NrSuframa'>
+				</div>
+				<div class='form-group'>
+					<label for='NaturezaJuridica'>NaturezaJuridica</label>
+					<input type='hidden' name='NaturezaJuridica' id='NaturezaJuridica'>
+				</div>
+				<div class='form-group'>
+					<label for='NomeContato'>NomeContato</label>
+					<input type='hidden' name='NomeContato' id='NomeContato'>
+				</div>
+				<div class='form-group'>
+					<label for='WebSite'>WebSite</label>
+					<input type='hidden' name='WebSite' id='WebSite'>
+				</div>
+				<div class='form-group'>
+					<label for='DmContribuicao'>DmContribuicao</label>
+					<input type='hidden' name='DmContribuicao' id='DmContribuicao'>
+				</div>
+				<div class='form-group'>
+					<label for='MunicipioId'>MunicipioId</label>
+					<input type='hidden' name='MunicipioId' id='MunicipioId'>
+				</div>
+				<div class='form-group'>
+					<label for='PessoaFisicaId'>PessoaFisicaId</label>
+					<input type='hidden' name='PessoaFisicaId' id='PessoaFisicaId'>
+				</div>
+				<div class='form-group'>
+					<label for='Ativo'>Ativo</label>
+					<input type='hidden' name='Ativo' id='Ativo'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

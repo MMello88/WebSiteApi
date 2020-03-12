@@ -14,7 +14,7 @@ class Grupousers extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = $_POST['Ativo'] == null ? 'True' : $_POST['Ativo'];
+    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
 		
   }
 
@@ -36,3 +36,26 @@ class Grupousers extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>grupousers</legend>
+				<div class='form-group'>
+					<label for='Id'>Id</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+				</div>
+				<div class='form-group'>
+					<label for='Nome'>Nome</label>
+					<input type='hidden' name='Nome' id='Nome'>
+				</div>
+				<div class='form-group'>
+					<label for='Ativo'>Ativo</label>
+					<input type='hidden' name='Ativo' id='Ativo'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

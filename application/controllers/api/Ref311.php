@@ -21,8 +21,8 @@ class Ref311 extends MY_Controller {
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[5]');
 		$this->form_validation->set_rules('Versao', 'Versao', 'required|max_length[5]');
 		$this->form_validation->set_rules('Leiaout', 'Leiaout', 'required|max_length[100]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		
     parent::create();
   }
@@ -31,8 +31,8 @@ class Ref311 extends MY_Controller {
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[5]');
 		$this->form_validation->set_rules('Versao', 'Versao', 'required|max_length[5]');
 		$this->form_validation->set_rules('Leiaout', 'Leiaout', 'required|max_length[100]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		
     parent::update($Id);
   }

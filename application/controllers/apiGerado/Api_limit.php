@@ -41,3 +41,38 @@ class Api_limit extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>api_limit</legend>
+				<div class='form-group'>
+					<label for='id'>id</label>
+					<input type='' name='id' id='id' class='form-control' placeholder='id' required>
+				</div>
+				<div class='form-group'>
+					<label for='uri'>uri</label>
+					<input type='hidden' name='uri' id='uri'>
+				</div>
+				<div class='form-group'>
+					<label for='class'>class</label>
+					<input type='hidden' name='class' id='class'>
+				</div>
+				<div class='form-group'>
+					<label for='method'>method</label>
+					<input type='hidden' name='method' id='method'>
+				</div>
+				<div class='form-group'>
+					<label for='ip_address'>ip_address</label>
+					<input type='hidden' name='ip_address' id='ip_address'>
+				</div>
+				<div class='form-group'>
+					<label for='time'>time</label>
+					<input type='hidden' name='time' id='time'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

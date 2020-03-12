@@ -14,7 +14,7 @@ class Regsa110efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = $_POST['Reg'] == null ? 'A110' : $_POST['Reg'];
+    $_POST['Reg'] = !isset($_POST['Reg']) ? 'A110' : $_POST['Reg'];
 		
   }
 
@@ -40,3 +40,34 @@ class Regsa110efdc extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>regsa110efdc</legend>
+				<div class='form-group'>
+					<label for='Id'>Id</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+				</div>
+				<div class='form-group'>
+					<label for='Reg'>Reg</label>
+					<input type='hidden' name='Reg' id='Reg'>
+				</div>
+				<div class='form-group'>
+					<label for='Reg0450EFDCId'>Reg0450EFDCId</label>
+					<input type='hidden' name='Reg0450EFDCId' id='Reg0450EFDCId'>
+				</div>
+				<div class='form-group'>
+					<label for='TxtComplementar'>TxtComplementar</label>
+					<input type='hidden' name='TxtComplementar' id='TxtComplementar'>
+				</div>
+				<div class='form-group'>
+					<label for='RegA100EFDCId'>RegA100EFDCId</label>
+					<input type='hidden' name='RegA100EFDCId' id='RegA100EFDCId'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

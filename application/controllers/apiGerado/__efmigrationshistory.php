@@ -33,3 +33,22 @@ class __efmigrationshistory extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>__efmigrationshistory</legend>
+				<div class='form-group'>
+					<label for='MigrationId'>MigrationId</label>
+					<input type='' name='MigrationId' id='MigrationId' class='form-control' placeholder='MigrationId' required>
+				</div>
+				<div class='form-group'>
+					<label for='ProductVersion'>ProductVersion</label>
+					<input type='hidden' name='ProductVersion' id='ProductVersion'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

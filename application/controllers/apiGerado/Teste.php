@@ -14,7 +14,7 @@ class Teste extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Desconto'] = $_POST['Desconto'] == null ? '0.00' : $_POST['Desconto'];
+    $_POST['Desconto'] = !isset($_POST['Desconto']) ? '0.00' : $_POST['Desconto'];
 		
   }
 
@@ -47,6 +47,51 @@ class Teste extends MY_Controller {
   public function delete($Id){
     parent::delete($Id);
   }
-};
-  }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>teste</legend>
+				<div class='form-group'>
+					<label for='Id'>Id</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+				</div>
+				<div class='form-group'>
+					<label for='Nome'>Nome</label>
+					<input type='hidden' name='Nome' id='Nome'>
+				</div>
+				<div class='form-group'>
+					<label for='Valor'>Valor</label>
+					<input type='hidden' name='Valor' id='Valor'>
+				</div>
+				<div class='form-group'>
+					<label for='Desconto'>Desconto</label>
+					<input type='hidden' name='Desconto' id='Desconto'>
+				</div>
+				<div class='form-group'>
+					<label for='Total'>Total</label>
+					<input type='hidden' name='Total' id='Total'>
+				</div>
+				<div class='form-group'>
+					<label for='VlIcms'>VlIcms</label>
+					<input type='hidden' name='VlIcms' id='VlIcms'>
+				</div>
+				<div class='form-group'>
+					<label for='Periodo'>Periodo</label>
+					<input type='hidden' name='Periodo' id='Periodo'>
+				</div>
+				<div class='form-group'>
+					<label for='Tipo'>Tipo</label>
+					<input type='hidden' name='Tipo' id='Tipo'>
+				</div>
+				<div class='form-group'>
+					<label for='Ativo'>Ativo</label>
+					<input type='hidden' name='Ativo' id='Ativo'>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

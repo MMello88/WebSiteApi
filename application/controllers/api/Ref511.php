@@ -20,8 +20,8 @@ class Ref511 extends MY_Controller {
   public function create(){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('IndNcmAtividade', 'IndNcmAtividade', '');
 		$this->form_validation->set_rules('AliqAtividade', 'AliqAtividade', 'numeric');
 		
@@ -31,8 +31,8 @@ class Ref511 extends MY_Controller {
   public function update($Id){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('IndNcmAtividade', 'IndNcmAtividade', '');
 		$this->form_validation->set_rules('AliqAtividade', 'AliqAtividade', 'numeric');
 		
