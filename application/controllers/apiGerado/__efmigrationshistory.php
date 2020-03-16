@@ -38,14 +38,20 @@ class __efmigrationshistory extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>__efmigrationshistory</legend>
+				<legend>histórico</legend>
 				<div class='form-group'>
-					<label for='MigrationId'>MigrationId</label>
-					<input type='' name='MigrationId' id='MigrationId' class='form-control' placeholder='MigrationId' required>
+					<label for='MigrationId'></label>
+					<input type='' name='MigrationId' id='MigrationId' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='ProductVersion'>ProductVersion</label>
+					<label for='ProductVersion'></label>
 					<input type='hidden' name='ProductVersion' id='ProductVersion'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

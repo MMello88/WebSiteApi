@@ -14,8 +14,7 @@ class Regsa120efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? 'A120' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -27,7 +26,7 @@ class Regsa120efdc extends MY_Controller {
 		$this->form_validation->set_rules('VlBcCofins', 'VlBcCofins', 'required|decimal');
 		$this->form_validation->set_rules('VlCofinsImportacao', 'VlCofinsImportacao', 'required|decimal');
 		$this->form_validation->set_rules('DtPgtoCofinsImportacao', 'DtPgtoCofinsImportacao', 'required|valid_date');
-		$this->form_validation->set_rules('IndicadorLocalExecucaoServico', 'IndicadorLocalExecucaoServico', 'required|integer');
+		$this->form_validation->set_rules('IndicadorLocalExecucaoServico', 'IndicadorLocalExecucaoServico', 'required|in_list[0 – Executado no País,1 – Executado no Exterior, cujo resultado se verifique no País]');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
 		
     parent::create();
@@ -42,7 +41,7 @@ class Regsa120efdc extends MY_Controller {
 		$this->form_validation->set_rules('VlBcCofins', 'VlBcCofins', 'required|decimal');
 		$this->form_validation->set_rules('VlCofinsImportacao', 'VlCofinsImportacao', 'required|decimal');
 		$this->form_validation->set_rules('DtPgtoCofinsImportacao', 'DtPgtoCofinsImportacao', 'required|valid_date');
-		$this->form_validation->set_rules('IndicadorLocalExecucaoServico', 'IndicadorLocalExecucaoServico', 'required|integer');
+		$this->form_validation->set_rules('IndicadorLocalExecucaoServico', 'IndicadorLocalExecucaoServico', 'required|in_list[0 – Executado no País,1 – Executado no Exterior, cujo resultado se verifique no País]');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
 		
     parent::update($Id);
@@ -57,50 +56,56 @@ class Regsa120efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regsa120efdc</legend>
+				<legend>Informação Complementar - Operações de Importação</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
-					<label for='VlTotalServico'>VlTotalServico</label>
+					<label for='VlTotalServico'>Valor Total do Serviço</label>
 					<input type='hidden' name='VlTotalServico' id='VlTotalServico'>
 				</div>
 				<div class='form-group'>
-					<label for='VlBcPis'>VlBcPis</label>
+					<label for='VlBcPis'>Valor BC PIS</label>
 					<input type='hidden' name='VlBcPis' id='VlBcPis'>
 				</div>
 				<div class='form-group'>
-					<label for='VlPisImportacao'>VlPisImportacao</label>
+					<label for='VlPisImportacao'>Valor Pago PIS</label>
 					<input type='hidden' name='VlPisImportacao' id='VlPisImportacao'>
 				</div>
 				<div class='form-group'>
-					<label for='DtPgtoPisImportacao'>DtPgtoPisImportacao</label>
+					<label for='DtPgtoPisImportacao'>Data Pgto PIS</label>
 					<input type='hidden' name='DtPgtoPisImportacao' id='DtPgtoPisImportacao'>
 				</div>
 				<div class='form-group'>
-					<label for='VlBcCofins'>VlBcCofins</label>
+					<label for='VlBcCofins'>Valor BC COFINS</label>
 					<input type='hidden' name='VlBcCofins' id='VlBcCofins'>
 				</div>
 				<div class='form-group'>
-					<label for='VlCofinsImportacao'>VlCofinsImportacao</label>
+					<label for='VlCofinsImportacao'>Valor Pago COFINS</label>
 					<input type='hidden' name='VlCofinsImportacao' id='VlCofinsImportacao'>
 				</div>
 				<div class='form-group'>
-					<label for='DtPgtoCofinsImportacao'>DtPgtoCofinsImportacao</label>
+					<label for='DtPgtoCofinsImportacao'>Data do Pgto COFINS</label>
 					<input type='hidden' name='DtPgtoCofinsImportacao' id='DtPgtoCofinsImportacao'>
 				</div>
 				<div class='form-group'>
-					<label for='IndicadorLocalExecucaoServico'>IndicadorLocalExecucaoServico</label>
+					<label for='IndicadorLocalExecucaoServico'>Local da execução do serviço</label>
 					<input type='hidden' name='IndicadorLocalExecucaoServico' id='IndicadorLocalExecucaoServico'>
 				</div>
 				<div class='form-group'>
-					<label for='RegA100EFDCId'>RegA100EFDCId</label>
+					<label for='RegA100EFDCId'>Documento - Nota Fiscal de Serviço</label>
 					<input type='hidden' name='RegA100EFDCId' id='RegA100EFDCId'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

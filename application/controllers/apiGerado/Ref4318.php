@@ -20,7 +20,6 @@ class Ref4318 extends MY_Controller {
   public function create(){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('Obrigatorio', 'Obrigatorio', '');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		
@@ -30,7 +29,6 @@ class Ref4318 extends MY_Controller {
   public function update($Id){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('Obrigatorio', 'Obrigatorio', '');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		
@@ -46,30 +44,36 @@ class Ref4318 extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>ref4318</legend>
+				<legend>Código de Ajuste da Base de Cálculo Mensal das Contribuições</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Codigo'>Codigo</label>
+					<label for='Codigo'>Código</label>
 					<input type='hidden' name='Codigo' id='Codigo'>
 				</div>
 				<div class='form-group'>
-					<label for='Descricao'>Descricao</label>
+					<label for='Descricao'>Descrição</label>
 					<input type='hidden' name='Descricao' id='Descricao'>
 				</div>
 				<div class='form-group'>
-					<label for='Obrigatorio'>Obrigatorio</label>
+					<label for='Obrigatorio'>Obrigatório</label>
 					<input type='hidden' name='Obrigatorio' id='Obrigatorio'>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'>DtIni</label>
+					<label for='DtIni'>Data Inicial</label>
 					<input type='hidden' name='DtIni' id='DtIni'>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'>DtFin</label>
+					<label for='DtFin'>Data Final</label>
 					<input type='hidden' name='DtFin' id='DtFin'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

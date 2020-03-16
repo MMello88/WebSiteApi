@@ -42,13 +42,13 @@ class Municipios extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>municipios</legend>
+				<legend>Municipios</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='CdMunicipio'>CdMunicipio</label>
+					<label for='CdMunicipio'>Cód. Municipio</label>
 					<input type='hidden' name='CdMunicipio' id='CdMunicipio'>
 				</div>
 				<div class='form-group'>
@@ -56,8 +56,14 @@ class Municipios extends MY_Controller {
 					<input type='hidden' name='Nome' id='Nome'>
 				</div>
 				<div class='form-group'>
-					<label for='Uf'>Uf</label>
+					<label for='Uf'>UF</label>
 					<input type='hidden' name='Uf' id='Uf'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

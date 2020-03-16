@@ -14,8 +14,7 @@ class Regs0206efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0206' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -41,18 +40,24 @@ class Regs0206efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regs0206efdc</legend>
+				<legend>Produto Conforme Tabela ANP (Combustíveis)</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
-					<label for='CodComb'>CodComb</label>
+					<label for='CodComb'>Código Combustível</label>
 					<input type='hidden' name='CodComb' id='CodComb'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

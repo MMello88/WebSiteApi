@@ -14,8 +14,7 @@ class Regs0190efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0190' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -51,13 +50,13 @@ class Regs0190efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regs0190efdc</legend>
+				<legend>Identificação das Unidades de Medida</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
@@ -69,20 +68,26 @@ class Regs0190efdc extends MY_Controller {
 					<input type='hidden' name='Descrição' id='Descrição'>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'>DtIni</label>
+					<label for='DtIni'>Data Inicial</label>
 					<input type='hidden' name='DtIni' id='DtIni'>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'>DtFin</label>
+					<label for='DtFin'>Data Final</label>
 					<input type='hidden' name='DtFin' id='DtFin'>
 				</div>
 				<div class='form-group'>
-					<label for='PessoaJuridicaId'>PessoaJuridicaId</label>
+					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
 					<input type='hidden' name='PessoaJuridicaId' id='PessoaJuridicaId'>
 				</div>
 				<div class='form-group'>
-					<label for='UserId'>UserId</label>
+					<label for='UserId'>Usuário</label>
 					<input type='hidden' name='UserId' id='UserId'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

@@ -80,8 +80,8 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## To do List
 
-* Hat tip to anyone whose code was used
-* Inspiration
+* Revisar a documentação para pegar os campos de tipo para analisar a melhor maneira de colocar estes tipos
+* alterar o banco de dados para colocar no comentário a titulo do nome do campo
 * etc

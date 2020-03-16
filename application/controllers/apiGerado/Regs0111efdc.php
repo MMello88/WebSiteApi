@@ -14,8 +14,7 @@ class Regs0111efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0111' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -49,34 +48,40 @@ class Regs0111efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regs0111efdc</legend>
+				<legend>Tabela de Receita Bruta Mensal Para Fins de Rateio de Créditos Comuns</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumTribMI'>RecBruNCumTribMI</label>
+					<label for='RecBruNCumTribMI'>Tributada</label>
 					<input type='hidden' name='RecBruNCumTribMI' id='RecBruNCumTribMI'>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumNaoTribMI'>RecBruNCumNaoTribMI</label>
+					<label for='RecBruNCumNaoTribMI'>Não Tributada</label>
 					<input type='hidden' name='RecBruNCumNaoTribMI' id='RecBruNCumNaoTribMI'>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumExp'>RecBruNCumExp</label>
+					<label for='RecBruNCumExp'>Exportação</label>
 					<input type='hidden' name='RecBruNCumExp' id='RecBruNCumExp'>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCum'>RecBruNCum</label>
+					<label for='RecBruNCum'>Receita Bruta Cumulativa</label>
 					<input type='hidden' name='RecBruNCum' id='RecBruNCum'>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumTotal'>RecBruNCumTotal</label>
+					<label for='RecBruNCumTotal'>Receita Bruta Total</label>
 					<input type='hidden' name='RecBruNCumTotal' id='RecBruNCumTotal'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

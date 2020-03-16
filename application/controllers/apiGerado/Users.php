@@ -14,8 +14,7 @@ class Users extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
-		$_POST['Criacao'] = !isset($_POST['Criacao']) ? date('Y-m-d H:i:s') : $_POST['Criacao'];
+    $_POST['Criacao'] = !isset($_POST['Criacao']) ? date('Y-m-d H:i:s') : $_POST['Criacao'];
 		
   }
 
@@ -23,7 +22,6 @@ class Users extends MY_Controller {
     $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[350]');
 		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[250]');
 		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_date');
-		$this->form_validation->set_rules('UrlFoto', 'UrlFoto', '');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		$this->form_validation->set_rules('Criacao', 'Criacao', 'required|valid_datetime');
 		$this->form_validation->set_rules('Usuario', 'Usuario', 'required|max_length[250]');
@@ -37,7 +35,6 @@ class Users extends MY_Controller {
     $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[350]');
 		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[250]');
 		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_date');
-		$this->form_validation->set_rules('UrlFoto', 'UrlFoto', '');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		$this->form_validation->set_rules('Criacao', 'Criacao', 'required|valid_datetime');
 		$this->form_validation->set_rules('Usuario', 'Usuario', 'required|max_length[250]');
@@ -56,25 +53,25 @@ class Users extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>users</legend>
+				<legend>Usuários</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
 					<label for='Nome'>Nome</label>
 					<input type='hidden' name='Nome' id='Nome'>
 				</div>
 				<div class='form-group'>
-					<label for='Sobrenome'>Sobrenome</label>
+					<label for='Sobrenome'></label>
 					<input type='hidden' name='Sobrenome' id='Sobrenome'>
 				</div>
 				<div class='form-group'>
-					<label for='DataNascimento'>DataNascimento</label>
+					<label for='DataNascimento'></label>
 					<input type='hidden' name='DataNascimento' id='DataNascimento'>
 				</div>
 				<div class='form-group'>
-					<label for='UrlFoto'>UrlFoto</label>
+					<label for='UrlFoto'></label>
 					<input type='hidden' name='UrlFoto' id='UrlFoto'>
 				</div>
 				<div class='form-group'>
@@ -82,20 +79,26 @@ class Users extends MY_Controller {
 					<input type='hidden' name='Ativo' id='Ativo'>
 				</div>
 				<div class='form-group'>
-					<label for='Criacao'>Criacao</label>
+					<label for='Criacao'></label>
 					<input type='hidden' name='Criacao' id='Criacao'>
 				</div>
 				<div class='form-group'>
-					<label for='Usuario'>Usuario</label>
+					<label for='Usuario'></label>
 					<input type='hidden' name='Usuario' id='Usuario'>
 				</div>
 				<div class='form-group'>
-					<label for='Email'>Email</label>
+					<label for='Email'></label>
 					<input type='hidden' name='Email' id='Email'>
 				</div>
 				<div class='form-group'>
-					<label for='Senha'>Senha</label>
+					<label for='Senha'></label>
 					<input type='hidden' name='Senha' id='Senha'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

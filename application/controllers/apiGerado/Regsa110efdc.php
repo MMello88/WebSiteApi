@@ -14,8 +14,7 @@ class Regsa110efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? 'A110' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -45,26 +44,32 @@ class Regsa110efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regsa110efdc</legend>
+				<legend>Complemento do Documento - Informação Complementar da NF</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg0450EFDCId'>Reg0450EFDCId</label>
+					<label for='Reg0450EFDCId'>Informação Complementar</label>
 					<input type='hidden' name='Reg0450EFDCId' id='Reg0450EFDCId'>
 				</div>
 				<div class='form-group'>
-					<label for='TxtComplementar'>TxtComplementar</label>
+					<label for='TxtComplementar'>Informação Complementar do Documento Fiscal</label>
 					<input type='hidden' name='TxtComplementar' id='TxtComplementar'>
 				</div>
 				<div class='form-group'>
-					<label for='RegA100EFDCId'>RegA100EFDCId</label>
+					<label for='RegA100EFDCId'>Documento - Nota Fiscal de Serviço</label>
 					<input type='hidden' name='RegA100EFDCId' id='RegA100EFDCId'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

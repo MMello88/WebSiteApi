@@ -14,8 +14,7 @@ class Pessoasjuridica extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
-		
+    
   }
 
   public function create(){
@@ -83,17 +82,17 @@ class Pessoasjuridica extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>pessoasjuridica</legend>
+				<legend>Pessoa Juridica</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
 					<label for='Nome'>Nome</label>
 					<input type='hidden' name='Nome' id='Nome'>
 				</div>
 				<div class='form-group'>
-					<label for='NomeFantasia'>NomeFantasia</label>
+					<label for='NomeFantasia'>Nome Fantasia</label>
 					<input type='hidden' name='NomeFantasia' id='NomeFantasia'>
 				</div>
 				<div class='form-group'>
@@ -101,7 +100,7 @@ class Pessoasjuridica extends MY_Controller {
 					<input type='hidden' name='Matriz' id='Matriz'>
 				</div>
 				<div class='form-group'>
-					<label for='Endereco'>Endereco</label>
+					<label for='Endereco'>Endereço</label>
 					<input type='hidden' name='Endereco' id='Endereco'>
 				</div>
 				<div class='form-group'>
@@ -117,7 +116,7 @@ class Pessoasjuridica extends MY_Controller {
 					<input type='hidden' name='Bairro' id='Bairro'>
 				</div>
 				<div class='form-group'>
-					<label for='CEP'>CEP</label>
+					<label for='CEP'>Cep</label>
 					<input type='hidden' name='CEP' id='CEP'>
 				</div>
 				<div class='form-group'>
@@ -129,15 +128,15 @@ class Pessoasjuridica extends MY_Controller {
 					<input type='hidden' name='Celular' id='Celular'>
 				</div>
 				<div class='form-group'>
-					<label for='Email'>Email</label>
+					<label for='Email'>E-mail</label>
 					<input type='hidden' name='Email' id='Email'>
 				</div>
 				<div class='form-group'>
-					<label for='InscricaoEstadual'>InscricaoEstadual</label>
+					<label for='InscricaoEstadual'>Inscrição Estadual</label>
 					<input type='hidden' name='InscricaoEstadual' id='InscricaoEstadual'>
 				</div>
 				<div class='form-group'>
-					<label for='Cnpj'>Cnpj</label>
+					<label for='Cnpj'>CNPJ</label>
 					<input type='hidden' name='Cnpj' id='Cnpj'>
 				</div>
 				<div class='form-group'>
@@ -145,40 +144,46 @@ class Pessoasjuridica extends MY_Controller {
 					<input type='hidden' name='CNAE' id='CNAE'>
 				</div>
 				<div class='form-group'>
-					<label for='InscricaoMunicipal'>InscricaoMunicipal</label>
+					<label for='InscricaoMunicipal'>Inscrição Municipal</label>
 					<input type='hidden' name='InscricaoMunicipal' id='InscricaoMunicipal'>
 				</div>
 				<div class='form-group'>
-					<label for='NrSuframa'>NrSuframa</label>
+					<label for='NrSuframa'>Numero Suframa</label>
 					<input type='hidden' name='NrSuframa' id='NrSuframa'>
 				</div>
 				<div class='form-group'>
-					<label for='NaturezaJuridica'>NaturezaJuridica</label>
+					<label for='NaturezaJuridica'>Natureza Juridica</label>
 					<input type='hidden' name='NaturezaJuridica' id='NaturezaJuridica'>
 				</div>
 				<div class='form-group'>
-					<label for='NomeContato'>NomeContato</label>
+					<label for='NomeContato'>Nome do Contato</label>
 					<input type='hidden' name='NomeContato' id='NomeContato'>
 				</div>
 				<div class='form-group'>
-					<label for='WebSite'>WebSite</label>
+					<label for='WebSite'>Web Site</label>
 					<input type='hidden' name='WebSite' id='WebSite'>
 				</div>
 				<div class='form-group'>
-					<label for='DmContribuicao'>DmContribuicao</label>
+					<label for='DmContribuicao'>Contribuinte</label>
 					<input type='hidden' name='DmContribuicao' id='DmContribuicao'>
 				</div>
 				<div class='form-group'>
-					<label for='MunicipioId'>MunicipioId</label>
+					<label for='MunicipioId'>Municipio</label>
 					<input type='hidden' name='MunicipioId' id='MunicipioId'>
 				</div>
 				<div class='form-group'>
-					<label for='PessoaFisicaId'>PessoaFisicaId</label>
+					<label for='PessoaFisicaId'>Pessoa Fisica</label>
 					<input type='hidden' name='PessoaFisicaId' id='PessoaFisicaId'>
 				</div>
 				<div class='form-group'>
 					<label for='Ativo'>Ativo</label>
 					<input type='hidden' name='Ativo' id='Ativo'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

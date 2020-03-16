@@ -53,42 +53,48 @@ class Teste extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>teste</legend>
+				<legend>Tabela de Teste</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
 					<label for='Nome'>Nome</label>
 					<input type='hidden' name='Nome' id='Nome'>
 				</div>
 				<div class='form-group'>
-					<label for='Valor'>Valor</label>
+					<label for='Valor'></label>
 					<input type='hidden' name='Valor' id='Valor'>
 				</div>
 				<div class='form-group'>
-					<label for='Desconto'>Desconto</label>
+					<label for='Desconto'></label>
 					<input type='hidden' name='Desconto' id='Desconto'>
 				</div>
 				<div class='form-group'>
-					<label for='Total'>Total</label>
+					<label for='Total'></label>
 					<input type='hidden' name='Total' id='Total'>
 				</div>
 				<div class='form-group'>
-					<label for='VlIcms'>VlIcms</label>
+					<label for='VlIcms'></label>
 					<input type='hidden' name='VlIcms' id='VlIcms'>
 				</div>
 				<div class='form-group'>
-					<label for='Periodo'>Periodo</label>
+					<label for='Periodo'></label>
 					<input type='hidden' name='Periodo' id='Periodo'>
 				</div>
 				<div class='form-group'>
-					<label for='Tipo'>Tipo</label>
+					<label for='Tipo'></label>
 					<input type='hidden' name='Tipo' id='Tipo'>
 				</div>
 				<div class='form-group'>
 					<label for='Ativo'>Ativo</label>
 					<input type='hidden' name='Ativo' id='Ativo'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

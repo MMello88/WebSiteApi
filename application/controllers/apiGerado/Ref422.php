@@ -44,26 +44,32 @@ class Ref422 extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>ref422</legend>
+				<legend>Código Fiscal de Operação e Prestação</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Codigo'>Codigo</label>
+					<label for='Codigo'>Código</label>
 					<input type='hidden' name='Codigo' id='Codigo'>
 				</div>
 				<div class='form-group'>
-					<label for='Descricao'>Descricao</label>
+					<label for='Descricao'>Descrição</label>
 					<input type='hidden' name='Descricao' id='Descricao'>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'>DtIni</label>
+					<label for='DtIni'>Data Inicial</label>
 					<input type='hidden' name='DtIni' id='DtIni'>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'>DtFin</label>
+					<label for='DtFin'>Data Final</label>
 					<input type='hidden' name='DtFin' id='DtFin'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

@@ -14,8 +14,7 @@ class Regs0450efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0450' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -51,38 +50,44 @@ class Regs0450efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regs0450efdc</legend>
+				<legend>Informação Complementar do Documento Fiscal</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
-					<label for='CodInf'>CodInf</label>
+					<label for='CodInf'>Código</label>
 					<input type='hidden' name='CodInf' id='CodInf'>
 				</div>
 				<div class='form-group'>
-					<label for='Txt'>Txt</label>
+					<label for='Txt'>Informação Complementar</label>
 					<input type='hidden' name='Txt' id='Txt'>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'>DtIni</label>
+					<label for='DtIni'>Data Inicial</label>
 					<input type='hidden' name='DtIni' id='DtIni'>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'>DtFin</label>
+					<label for='DtFin'>Data Final</label>
 					<input type='hidden' name='DtFin' id='DtFin'>
 				</div>
 				<div class='form-group'>
-					<label for='PessoaJuridicaId'>PessoaJuridicaId</label>
+					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
 					<input type='hidden' name='PessoaJuridicaId' id='PessoaJuridicaId'>
 				</div>
 				<div class='form-group'>
-					<label for='UserId'>UserId</label>
+					<label for='UserId'>Usuário</label>
 					<input type='hidden' name='UserId' id='UserId'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

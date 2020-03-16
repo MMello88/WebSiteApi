@@ -14,8 +14,7 @@ class Pessoasfisica extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
-		$_POST['Criacao'] = !isset($_POST['Criacao']) ? date('Y-m-d H:i:s') : $_POST['Criacao'];
+    $_POST['Criacao'] = !isset($_POST['Criacao']) ? date('Y-m-d H:i:s') : $_POST['Criacao'];
 		
   }
 
@@ -50,10 +49,10 @@ class Pessoasfisica extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>pessoasfisica</legend>
+				<legend>Pessoa Fisica</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
 					<label for='Nome'>Nome</label>
@@ -64,11 +63,11 @@ class Pessoasfisica extends MY_Controller {
 					<input type='hidden' name='Sobrenome' id='Sobrenome'>
 				</div>
 				<div class='form-group'>
-					<label for='DataNascimento'>DataNascimento</label>
+					<label for='DataNascimento'>Data Nascimento</label>
 					<input type='hidden' name='DataNascimento' id='DataNascimento'>
 				</div>
 				<div class='form-group'>
-					<label for='UrlFoto'>UrlFoto</label>
+					<label for='UrlFoto'>Foto Perfil</label>
 					<input type='hidden' name='UrlFoto' id='UrlFoto'>
 				</div>
 				<div class='form-group'>
@@ -76,8 +75,14 @@ class Pessoasfisica extends MY_Controller {
 					<input type='hidden' name='Ativo' id='Ativo'>
 				</div>
 				<div class='form-group'>
-					<label for='Criacao'>Criacao</label>
+					<label for='Criacao'></label>
 					<input type='hidden' name='Criacao' id='Criacao'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

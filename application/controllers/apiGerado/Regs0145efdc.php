@@ -14,8 +14,7 @@ class Regs0145efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0145' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -49,34 +48,40 @@ class Regs0145efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regs0145efdc</legend>
+				<legend>Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
-					<label for='CodIncTrib'>CodIncTrib</label>
+					<label for='CodIncTrib'>Código Incidência Tributária</label>
 					<input type='hidden' name='CodIncTrib' id='CodIncTrib'>
 				</div>
 				<div class='form-group'>
-					<label for='VlRecTot'>VlRecTot</label>
+					<label for='VlRecTot'>Valor da Receita Bruta Total</label>
 					<input type='hidden' name='VlRecTot' id='VlRecTot'>
 				</div>
 				<div class='form-group'>
-					<label for='VlRecAtiv'>VlRecAtiv</label>
+					<label for='VlRecAtiv'>Valor da Receita Bruta da Atividade</label>
 					<input type='hidden' name='VlRecAtiv' id='VlRecAtiv'>
 				</div>
 				<div class='form-group'>
-					<label for='VlRecDemaisAtiv'>VlRecDemaisAtiv</label>
+					<label for='VlRecDemaisAtiv'>Valor da Receita Bruta das demais Atividade</label>
 					<input type='hidden' name='VlRecDemaisAtiv' id='VlRecDemaisAtiv'>
 				</div>
 				<div class='form-group'>
-					<label for='InfoCompl'>InfoCompl</label>
+					<label for='InfoCompl'>Informação complementar</label>
 					<input type='hidden' name='InfoCompl' id='InfoCompl'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

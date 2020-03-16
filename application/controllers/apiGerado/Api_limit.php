@@ -46,30 +46,36 @@ class Api_limit extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>api_limit</legend>
+				<legend>Limit</legend>
 				<div class='form-group'>
-					<label for='id'>id</label>
-					<input type='' name='id' id='id' class='form-control' placeholder='id' required>
+					<label for='id'>Identificador</label>
+					<input type='' name='id' id='id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='uri'>uri</label>
+					<label for='uri'></label>
 					<input type='hidden' name='uri' id='uri'>
 				</div>
 				<div class='form-group'>
-					<label for='class'>class</label>
+					<label for='class'></label>
 					<input type='hidden' name='class' id='class'>
 				</div>
 				<div class='form-group'>
-					<label for='method'>method</label>
+					<label for='method'></label>
 					<input type='hidden' name='method' id='method'>
 				</div>
 				<div class='form-group'>
-					<label for='ip_address'>ip_address</label>
+					<label for='ip_address'></label>
 					<input type='hidden' name='ip_address' id='ip_address'>
 				</div>
 				<div class='form-group'>
-					<label for='time'>time</label>
+					<label for='time'></label>
 					<input type='hidden' name='time' id='time'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

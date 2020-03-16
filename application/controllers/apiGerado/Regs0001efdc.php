@@ -14,20 +14,19 @@ class Regs0001efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0001' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|integer');
+		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|in_list[0 - Bloco com dados informados,1 – Bloco sem dados informados]');
 		
     parent::create();
   }
   
   public function update($Id){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|integer');
+		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|in_list[0 - Bloco com dados informados,1 – Bloco sem dados informados]');
 		
     parent::update($Id);
   }
@@ -41,18 +40,24 @@ class Regs0001efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regs0001efdc</legend>
+				<legend>Abertura do Bloco 0</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
-					<label for='IndicadorMovimento'>IndicadorMovimento</label>
+					<label for='IndicadorMovimento'>Indicador Movimento</label>
 					<input type='hidden' name='IndicadorMovimento' id='IndicadorMovimento'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

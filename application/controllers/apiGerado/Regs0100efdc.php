@@ -14,8 +14,7 @@ class Regs0100efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0100' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -73,13 +72,13 @@ class Regs0100efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regs0100efdc</legend>
+				<legend>Dados do Contabilista</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
@@ -103,15 +102,15 @@ class Regs0100efdc extends MY_Controller {
 					<input type='hidden' name='CEP' id='CEP'>
 				</div>
 				<div class='form-group'>
-					<label for='End'>End</label>
+					<label for='End'>Endereço</label>
 					<input type='hidden' name='End' id='End'>
 				</div>
 				<div class='form-group'>
-					<label for='Num'>Num</label>
+					<label for='Num'>Número</label>
 					<input type='hidden' name='Num' id='Num'>
 				</div>
 				<div class='form-group'>
-					<label for='Compl'>Compl</label>
+					<label for='Compl'>Complemento</label>
 					<input type='hidden' name='Compl' id='Compl'>
 				</div>
 				<div class='form-group'>
@@ -127,28 +126,34 @@ class Regs0100efdc extends MY_Controller {
 					<input type='hidden' name='Fax' id='Fax'>
 				</div>
 				<div class='form-group'>
-					<label for='Email'>Email</label>
+					<label for='Email'>E-mail</label>
 					<input type='hidden' name='Email' id='Email'>
 				</div>
 				<div class='form-group'>
-					<label for='MunicipioId'>MunicipioId</label>
+					<label for='MunicipioId'>Municipio</label>
 					<input type='hidden' name='MunicipioId' id='MunicipioId'>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'>DtIni</label>
+					<label for='DtIni'>Data Inicial</label>
 					<input type='hidden' name='DtIni' id='DtIni'>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'>DtFin</label>
+					<label for='DtFin'>Data Final</label>
 					<input type='hidden' name='DtFin' id='DtFin'>
 				</div>
 				<div class='form-group'>
-					<label for='PessoaJuridicaId'>PessoaJuridicaId</label>
+					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
 					<input type='hidden' name='PessoaJuridicaId' id='PessoaJuridicaId'>
 				</div>
 				<div class='form-group'>
-					<label for='UserId'>UserId</label>
+					<label for='UserId'>Usuário</label>
 					<input type='hidden' name='UserId' id='UserId'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

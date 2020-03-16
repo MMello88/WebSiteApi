@@ -14,8 +14,7 @@ class Regsa170efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? 'A170' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -26,7 +25,7 @@ class Regsa170efdc extends MY_Controller {
 		$this->form_validation->set_rules('VlItem', 'VlItem', 'required|decimal');
 		$this->form_validation->set_rules('VlDesconto', 'VlDesconto', 'required|decimal');
 		$this->form_validation->set_rules('Ref431Id', 'Ref431Id', 'integer');
-		$this->form_validation->set_rules('IndicadorOrigemCredito', 'IndicadorOrigemCredito', 'required|integer');
+		$this->form_validation->set_rules('IndicadorOrigemCredito', 'IndicadorOrigemCredito', 'required|in_list[0 – Operação no Mercado Interno,1 – Operação de Importação]');
 		$this->form_validation->set_rules('Ref433Id', 'Ref433Id', 'integer');
 		$this->form_validation->set_rules('VlBcPis', 'VlBcPis', 'required|decimal');
 		$this->form_validation->set_rules('VlAliqPis', 'VlAliqPis', 'required|decimal');
@@ -50,7 +49,7 @@ class Regsa170efdc extends MY_Controller {
 		$this->form_validation->set_rules('VlItem', 'VlItem', 'required|decimal');
 		$this->form_validation->set_rules('VlDesconto', 'VlDesconto', 'required|decimal');
 		$this->form_validation->set_rules('Ref431Id', 'Ref431Id', 'integer');
-		$this->form_validation->set_rules('IndicadorOrigemCredito', 'IndicadorOrigemCredito', 'required|integer');
+		$this->form_validation->set_rules('IndicadorOrigemCredito', 'IndicadorOrigemCredito', 'required|in_list[0 – Operação no Mercado Interno,1 – Operação de Importação]');
 		$this->form_validation->set_rules('Ref433Id', 'Ref433Id', 'integer');
 		$this->form_validation->set_rules('VlBcPis', 'VlBcPis', 'required|decimal');
 		$this->form_validation->set_rules('VlAliqPis', 'VlAliqPis', 'required|decimal');
@@ -75,86 +74,92 @@ class Regsa170efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>regsa170efdc</legend>
+				<legend>Complemento do Documento - Itens do Documento</legend>
 				<div class='form-group'>
-					<label for='Id'>Id</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Id' required>
+					<label for='Id'>Identificador</label>
+					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Reg</label>
+					<label for='Reg'>Registro</label>
 					<input type='hidden' name='Reg' id='Reg'>
 				</div>
 				<div class='form-group'>
-					<label for='NumItem'>NumItem</label>
+					<label for='NumItem'>Sequencia</label>
 					<input type='hidden' name='NumItem' id='NumItem'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg0200EFDCId'>Reg0200EFDCId</label>
+					<label for='Reg0200EFDCId'>Código do Item</label>
 					<input type='hidden' name='Reg0200EFDCId' id='Reg0200EFDCId'>
 				</div>
 				<div class='form-group'>
-					<label for='DescricaoComplementar'>DescricaoComplementar</label>
+					<label for='DescricaoComplementar'>Descrição complementar</label>
 					<input type='hidden' name='DescricaoComplementar' id='DescricaoComplementar'>
 				</div>
 				<div class='form-group'>
-					<label for='VlItem'>VlItem</label>
+					<label for='VlItem'>Valor Total do Item</label>
 					<input type='hidden' name='VlItem' id='VlItem'>
 				</div>
 				<div class='form-group'>
-					<label for='VlDesconto'>VlDesconto</label>
+					<label for='VlDesconto'>Valor do Desconto</label>
 					<input type='hidden' name='VlDesconto' id='VlDesconto'>
 				</div>
 				<div class='form-group'>
-					<label for='Ref431Id'>Ref431Id</label>
+					<label for='Ref431Id'>Código da Situação Tributária</label>
 					<input type='hidden' name='Ref431Id' id='Ref431Id'>
 				</div>
 				<div class='form-group'>
-					<label for='IndicadorOrigemCredito'>IndicadorOrigemCredito</label>
+					<label for='IndicadorOrigemCredito'>Origem do Crédito</label>
 					<input type='hidden' name='IndicadorOrigemCredito' id='IndicadorOrigemCredito'>
 				</div>
 				<div class='form-group'>
-					<label for='Ref433Id'>Ref433Id</label>
+					<label for='Ref433Id'>Código da Situação Tributária Referente ao PIS/Pasep</label>
 					<input type='hidden' name='Ref433Id' id='Ref433Id'>
 				</div>
 				<div class='form-group'>
-					<label for='VlBcPis'>VlBcPis</label>
+					<label for='VlBcPis'>Valor BC PIS</label>
 					<input type='hidden' name='VlBcPis' id='VlBcPis'>
 				</div>
 				<div class='form-group'>
-					<label for='VlAliqPis'>VlAliqPis</label>
+					<label for='VlAliqPis'>Valor Alíquota do PIS</label>
 					<input type='hidden' name='VlAliqPis' id='VlAliqPis'>
 				</div>
 				<div class='form-group'>
-					<label for='VlPis'>VlPis</label>
+					<label for='VlPis'>Valor PIS</label>
 					<input type='hidden' name='VlPis' id='VlPis'>
 				</div>
 				<div class='form-group'>
-					<label for='Ref434Id'>Ref434Id</label>
+					<label for='Ref434Id'>Código da Situação Tributária Referente à Cofins</label>
 					<input type='hidden' name='Ref434Id' id='Ref434Id'>
 				</div>
 				<div class='form-group'>
-					<label for='VlBcCofins'>VlBcCofins</label>
+					<label for='VlBcCofins'>Valor BC COFINS</label>
 					<input type='hidden' name='VlBcCofins' id='VlBcCofins'>
 				</div>
 				<div class='form-group'>
-					<label for='VlAliqCofins'>VlAliqCofins</label>
+					<label for='VlAliqCofins'>Valor Alíquota do COFINS</label>
 					<input type='hidden' name='VlAliqCofins' id='VlAliqCofins'>
 				</div>
 				<div class='form-group'>
-					<label for='VlCofins'>VlCofins</label>
+					<label for='VlCofins'>Valor da COFINS</label>
 					<input type='hidden' name='VlCofins' id='VlCofins'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg0500EFDCId'>Reg0500EFDCId</label>
+					<label for='Reg0500EFDCId'>Plano de Conta</label>
 					<input type='hidden' name='Reg0500EFDCId' id='Reg0500EFDCId'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg0600EFDCId'>Reg0600EFDCId</label>
+					<label for='Reg0600EFDCId'>Centro de Custo</label>
 					<input type='hidden' name='Reg0600EFDCId' id='Reg0600EFDCId'>
 				</div>
 				<div class='form-group'>
-					<label for='RegA100EFDCId'>RegA100EFDCId</label>
+					<label for='RegA100EFDCId'>Documento - Nota Fiscal de Serviço</label>
 					<input type='hidden' name='RegA100EFDCId' id='RegA100EFDCId'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>

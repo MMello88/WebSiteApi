@@ -44,26 +44,32 @@ class Api_keys extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>api_keys</legend>
+				<legend>Key</legend>
 				<div class='form-group'>
-					<label for='id'>id</label>
-					<input type='' name='id' id='id' class='form-control' placeholder='id' required>
+					<label for='id'>Identificador</label>
+					<input type='' name='id' id='id' class='form-control' placeholder='Identificador' required>
 				</div>
 				<div class='form-group'>
-					<label for='api_key'>api_key</label>
+					<label for='api_key'></label>
 					<input type='hidden' name='api_key' id='api_key'>
 				</div>
 				<div class='form-group'>
-					<label for='controller'>controller</label>
+					<label for='controller'></label>
 					<input type='hidden' name='controller' id='controller'>
 				</div>
 				<div class='form-group'>
-					<label for='date_created'>date_created</label>
+					<label for='date_created'></label>
 					<input type='hidden' name='date_created' id='date_created'>
 				</div>
 				<div class='form-group'>
-					<label for='date_modified'>date_modified</label>
+					<label for='date_modified'></label>
 					<input type='hidden' name='date_modified' id='date_modified'>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
 				</div>
 			</fieldset>
 		</form>
