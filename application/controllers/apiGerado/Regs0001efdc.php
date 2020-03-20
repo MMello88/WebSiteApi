@@ -14,19 +14,20 @@ class Regs0001efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0001' : $_POST['Reg'];
+		
   }
 
   public function create(){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|in_list[0 - Bloco com dados informados,1 – Bloco sem dados informados]');
+		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|integer');
 		
     parent::create();
   }
   
   public function update($Id){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|in_list[0 - Bloco com dados informados,1 – Bloco sem dados informados]');
+		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|integer');
 		
     parent::update($Id);
   }
@@ -40,18 +41,18 @@ class Regs0001efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Abertura do Bloco 0</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='hidden' name='Reg' id='Reg'>
+					<label for='Reg'></label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='IndicadorMovimento'>Indicador Movimento</label>
-					<input type='hidden' name='IndicadorMovimento' id='IndicadorMovimento'>
+					<label for='IndicadorMovimento'></label>
+					<input type='number' name='IndicadorMovimento' id='IndicadorMovimento' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

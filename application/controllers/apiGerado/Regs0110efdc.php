@@ -14,17 +14,18 @@ class Regs0110efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0110' : $_POST['Reg'];
+		
   }
 
   public function create(){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('CodIncTrib', 'CodIncTrib', 'required|in_list[1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo,2 – Escrituração de operações com incidência exclusivamente no regime cumulativo,3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo]');
-		$this->form_validation->set_rules('IndAproCred', 'IndAproCred', 'required|in_list[1 – Método de Apropriação Direta,2 – Método de Rateio Proporcional (Receita Bruta]');
-		$this->form_validation->set_rules('CodTipoCont', 'CodTipoCont', 'required|in_list[1 – Apuração da Contribuição Exclusivamente a Alíquota Básica,2 – Apuração da Contribuição a Alíquotas Específicas]');
-		$this->form_validation->set_rules('IndRegCum', 'IndRegCum', 'required|in_list[1 – Regime de Caixa – Escrituração consolidada,2 – Regime de Competência - Escrituração consolidada]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('CodIncTrib', 'CodIncTrib', 'required|integer');
+		$this->form_validation->set_rules('IndAproCred', 'IndAproCred', 'required|integer');
+		$this->form_validation->set_rules('CodTipoCont', 'CodTipoCont', 'required|integer');
+		$this->form_validation->set_rules('IndRegCum', 'IndRegCum', 'required|integer');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		$this->form_validation->set_rules('Reg0111EFDCId', 'Reg0111EFDCId', 'integer');
@@ -34,12 +35,12 @@ class Regs0110efdc extends MY_Controller {
   
   public function update($Id){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('CodIncTrib', 'CodIncTrib', 'required|in_list[1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo,2 – Escrituração de operações com incidência exclusivamente no regime cumulativo,3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo]');
-		$this->form_validation->set_rules('IndAproCred', 'IndAproCred', 'required|in_list[1 – Método de Apropriação Direta,2 – Método de Rateio Proporcional (Receita Bruta]');
-		$this->form_validation->set_rules('CodTipoCont', 'CodTipoCont', 'required|in_list[1 – Apuração da Contribuição Exclusivamente a Alíquota Básica,2 – Apuração da Contribuição a Alíquotas Específicas]');
-		$this->form_validation->set_rules('IndRegCum', 'IndRegCum', 'required|in_list[1 – Regime de Caixa – Escrituração consolidada,2 – Regime de Competência - Escrituração consolidada]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('CodIncTrib', 'CodIncTrib', 'required|integer');
+		$this->form_validation->set_rules('IndAproCred', 'IndAproCred', 'required|integer');
+		$this->form_validation->set_rules('CodTipoCont', 'CodTipoCont', 'required|integer');
+		$this->form_validation->set_rules('IndRegCum', 'IndRegCum', 'required|integer');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		$this->form_validation->set_rules('Reg0111EFDCId', 'Reg0111EFDCId', 'integer');
@@ -56,50 +57,50 @@ class Regs0110efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Regimes de Apuração da Contribuição Social e de Apropriação de Crédito</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='hidden' name='Reg' id='Reg'>
+					<label for='Reg'></label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodIncTrib'>Código Incidência Tributária</label>
-					<input type='hidden' name='CodIncTrib' id='CodIncTrib'>
+					<label for='CodIncTrib'></label>
+					<input type='number' name='CodIncTrib' id='CodIncTrib' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='IndAproCred'>Código Método Apropriação Créditos comuns</label>
-					<input type='hidden' name='IndAproCred' id='IndAproCred'>
+					<label for='IndAproCred'></label>
+					<input type='number' name='IndAproCred' id='IndAproCred' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodTipoCont'>Código Tipo de Contribuição Apurada</label>
-					<input type='hidden' name='CodTipoCont' id='CodTipoCont'>
+					<label for='CodTipoCont'></label>
+					<input type='number' name='CodTipoCont' id='CodTipoCont' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='IndRegCum'>Código Critério de Escrituração</label>
-					<input type='hidden' name='IndRegCum' id='IndRegCum'>
+					<label for='IndRegCum'></label>
+					<input type='number' name='IndRegCum' id='IndRegCum' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='hidden' name='DtIni' id='DtIni'>
+					<label for='DtIni'></label>
+					<input type='datetime-local' name='DtIni' id='DtIni' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='hidden' name='DtFin' id='DtFin'>
+					<label for='DtFin'></label>
+					<input type='datetime-local' name='DtFin' id='DtFin' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
-					<input type='hidden' name='PessoaJuridicaId' id='PessoaJuridicaId'>
+					<label for='PessoaJuridicaId'></label>
+					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='UserId'>Usuário</label>
-					<input type='hidden' name='UserId' id='UserId'>
+					<label for='UserId'></label>
+					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
 					<label for='Reg0111EFDCId'></label>
-					<input type='hidden' name='Reg0111EFDCId' id='Reg0111EFDCId'>
+					<input type='number' name='Reg0111EFDCId' id='Reg0111EFDCId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

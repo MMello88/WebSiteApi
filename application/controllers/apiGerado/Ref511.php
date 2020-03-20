@@ -20,8 +20,8 @@ class Ref511 extends MY_Controller {
   public function create(){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		$this->form_validation->set_rules('AliqAtividade', 'AliqAtividade', 'numeric');
 		
     parent::create();
@@ -30,8 +30,8 @@ class Ref511 extends MY_Controller {
   public function update($Id){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		$this->form_validation->set_rules('AliqAtividade', 'AliqAtividade', 'numeric');
 		
     parent::update($Id);
@@ -46,34 +46,34 @@ class Ref511 extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Atividades, Produtos e Serviços Sujeitos à Contribuição Sobre a Receita Bruta - CPRB</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Codigo'>Código</label>
-					<input type='hidden' name='Codigo' id='Codigo'>
+					<label for='Codigo'></label>
+					<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Descricao'>Descrição</label>
-					<input type='hidden' name='Descricao' id='Descricao'>
+					<label for='Descricao'></label>
+					<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='hidden' name='DtIni' id='DtIni'>
+					<label for='DtIni'></label>
+					<input type='datetime-local' name='DtIni' id='DtIni' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='hidden' name='DtFin' id='DtFin'>
+					<label for='DtFin'></label>
+					<input type='datetime-local' name='DtFin' id='DtFin' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='IndNcmAtividade'>NCM Atividade</label>
-					<input type='hidden' name='IndNcmAtividade' id='IndNcmAtividade'>
+					<label for='IndNcmAtividade'></label>
+					<input type='text' name='IndNcmAtividade' id='IndNcmAtividade' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='AliqAtividade'>Aliquota Atividade</label>
-					<input type='hidden' name='AliqAtividade' id='AliqAtividade'>
+					<label for='AliqAtividade'></label>
+					<input type='number' name='AliqAtividade' id='AliqAtividade' class='form-control' placeholder='' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

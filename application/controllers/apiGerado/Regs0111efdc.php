@@ -14,7 +14,8 @@ class Regs0111efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0111' : $_POST['Reg'];
+		
   }
 
   public function create(){
@@ -48,34 +49,34 @@ class Regs0111efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Tabela de Receita Bruta Mensal Para Fins de Rateio de Créditos Comuns</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='hidden' name='Reg' id='Reg'>
+					<label for='Reg'></label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumTribMI'>Tributada</label>
-					<input type='hidden' name='RecBruNCumTribMI' id='RecBruNCumTribMI'>
+					<label for='RecBruNCumTribMI'></label>
+					<input type='number' name='RecBruNCumTribMI' id='RecBruNCumTribMI' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumNaoTribMI'>Não Tributada</label>
-					<input type='hidden' name='RecBruNCumNaoTribMI' id='RecBruNCumNaoTribMI'>
+					<label for='RecBruNCumNaoTribMI'></label>
+					<input type='number' name='RecBruNCumNaoTribMI' id='RecBruNCumNaoTribMI' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumExp'>Exportação</label>
-					<input type='hidden' name='RecBruNCumExp' id='RecBruNCumExp'>
+					<label for='RecBruNCumExp'></label>
+					<input type='number' name='RecBruNCumExp' id='RecBruNCumExp' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCum'>Receita Bruta Cumulativa</label>
-					<input type='hidden' name='RecBruNCum' id='RecBruNCum'>
+					<label for='RecBruNCum'></label>
+					<input type='number' name='RecBruNCum' id='RecBruNCum' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumTotal'>Receita Bruta Total</label>
-					<input type='hidden' name='RecBruNCumTotal' id='RecBruNCumTotal'>
+					<label for='RecBruNCumTotal'></label>
+					<input type='number' name='RecBruNCumTotal' id='RecBruNCumTotal' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

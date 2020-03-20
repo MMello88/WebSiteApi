@@ -14,7 +14,8 @@ class Regs0200efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0200' : $_POST['Reg'];
+		
   }
 
   public function create(){
@@ -24,14 +25,14 @@ class Regs0200efdc extends MY_Controller {
 		$this->form_validation->set_rules('CodBarra', 'CodBarra', 'max_length[255]');
 		$this->form_validation->set_rules('CodAntItem', 'CodAntItem', 'max_length[60]');
 		$this->form_validation->set_rules('Reg0190EFDCId', 'Reg0190EFDCId', 'integer');
-		$this->form_validation->set_rules('TipoItem', 'TipoItem', 'required|in_list[00 – Mercadoria para Revenda,01 – Matéria-Prima,02 – Embalagem,03 – Produto em Processo,04 – Produto Acabado,05 – Subproduto,06 – Produto Intermediário,07 – Material de Uso e Consumo,08 – Ativo Imobilizado,09 – Serviços,10 – Outros insumos,99 – Outras]');
+		$this->form_validation->set_rules('TipoItem', 'TipoItem', 'required|integer');
 		$this->form_validation->set_rules('CodNcm', 'CodNcm', 'max_length[8]');
 		$this->form_validation->set_rules('ExIpi', 'ExIpi', 'max_length[3]');
 		$this->form_validation->set_rules('CodGen', 'CodGen', 'required|integer');
 		$this->form_validation->set_rules('CodLst', 'CodLst', 'required|integer');
 		$this->form_validation->set_rules('AliqIcms', 'AliqIcms', 'required|decimal');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		$this->form_validation->set_rules('Reg0205EFDCId', 'Reg0205EFDCId', 'integer');
@@ -48,14 +49,14 @@ class Regs0200efdc extends MY_Controller {
 		$this->form_validation->set_rules('CodBarra', 'CodBarra', 'max_length[255]');
 		$this->form_validation->set_rules('CodAntItem', 'CodAntItem', 'max_length[60]');
 		$this->form_validation->set_rules('Reg0190EFDCId', 'Reg0190EFDCId', 'integer');
-		$this->form_validation->set_rules('TipoItem', 'TipoItem', 'required|in_list[00 – Mercadoria para Revenda,01 – Matéria-Prima,02 – Embalagem,03 – Produto em Processo,04 – Produto Acabado,05 – Subproduto,06 – Produto Intermediário,07 – Material de Uso e Consumo,08 – Ativo Imobilizado,09 – Serviços,10 – Outros insumos,99 – Outras]');
+		$this->form_validation->set_rules('TipoItem', 'TipoItem', 'required|integer');
 		$this->form_validation->set_rules('CodNcm', 'CodNcm', 'max_length[8]');
 		$this->form_validation->set_rules('ExIpi', 'ExIpi', 'max_length[3]');
 		$this->form_validation->set_rules('CodGen', 'CodGen', 'required|integer');
 		$this->form_validation->set_rules('CodLst', 'CodLst', 'required|integer');
 		$this->form_validation->set_rules('AliqIcms', 'AliqIcms', 'required|decimal');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		$this->form_validation->set_rules('Reg0205EFDCId', 'Reg0205EFDCId', 'integer');
@@ -74,86 +75,86 @@ class Regs0200efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Identificação do Item (Produtos e Serviços)</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='hidden' name='Reg' id='Reg'>
+					<label for='Reg'></label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodItem'>Código do Item</label>
-					<input type='hidden' name='CodItem' id='CodItem'>
+					<label for='CodItem'></label>
+					<input type='text' name='CodItem' id='CodItem' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='DescricaoItem'>Descrição</label>
-					<input type='hidden' name='DescricaoItem' id='DescricaoItem'>
+					<label for='DescricaoItem'></label>
+					<input type='text' name='DescricaoItem' id='DescricaoItem' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodBarra'>Código de Barra</label>
-					<input type='hidden' name='CodBarra' id='CodBarra'>
+					<label for='CodBarra'></label>
+					<input type='text' name='CodBarra' id='CodBarra' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='CodAntItem'>Código Anterior do Item</label>
-					<input type='hidden' name='CodAntItem' id='CodAntItem'>
+					<label for='CodAntItem'></label>
+					<input type='text' name='CodAntItem' id='CodAntItem' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='Reg0190EFDCId'>Unidades de Medida</label>
-					<input type='hidden' name='Reg0190EFDCId' id='Reg0190EFDCId'>
+					<label for='Reg0190EFDCId'></label>
+					<input type='number' name='Reg0190EFDCId' id='Reg0190EFDCId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='TipoItem'>Tipo do item</label>
-					<input type='hidden' name='TipoItem' id='TipoItem'>
+					<label for='TipoItem'></label>
+					<input type='number' name='TipoItem' id='TipoItem' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodNcm'>NCM</label>
-					<input type='hidden' name='CodNcm' id='CodNcm'>
+					<label for='CodNcm'></label>
+					<input type='text' name='CodNcm' id='CodNcm' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='ExIpi'>Código EX TIPI</label>
-					<input type='hidden' name='ExIpi' id='ExIpi'>
+					<label for='ExIpi'></label>
+					<input type='text' name='ExIpi' id='ExIpi' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='CodGen'>Código Gênero Item</label>
-					<input type='hidden' name='CodGen' id='CodGen'>
+					<label for='CodGen'></label>
+					<input type='number' name='CodGen' id='CodGen' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodLst'>Código do Serviço</label>
-					<input type='hidden' name='CodLst' id='CodLst'>
+					<label for='CodLst'></label>
+					<input type='number' name='CodLst' id='CodLst' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='AliqIcms'>Alíquota de ICMS</label>
-					<input type='hidden' name='AliqIcms' id='AliqIcms'>
+					<label for='AliqIcms'></label>
+					<input type='' name='AliqIcms' id='AliqIcms' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='hidden' name='DtIni' id='DtIni'>
+					<label for='DtIni'></label>
+					<input type='datetime-local' name='DtIni' id='DtIni' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='hidden' name='DtFin' id='DtFin'>
+					<label for='DtFin'></label>
+					<input type='datetime-local' name='DtFin' id='DtFin' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
-					<input type='hidden' name='PessoaJuridicaId' id='PessoaJuridicaId'>
+					<label for='PessoaJuridicaId'></label>
+					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='UserId'>Usuário</label>
-					<input type='hidden' name='UserId' id='UserId'>
+					<label for='UserId'></label>
+					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='Reg0205EFDCId'>Alteração do Item</label>
-					<input type='hidden' name='Reg0205EFDCId' id='Reg0205EFDCId'>
+					<label for='Reg0205EFDCId'></label>
+					<input type='number' name='Reg0205EFDCId' id='Reg0205EFDCId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='Reg0206EFDCId'>Código de Produto Conforme Tabela ANP</label>
-					<input type='hidden' name='Reg0206EFDCId' id='Reg0206EFDCId'>
+					<label for='Reg0206EFDCId'></label>
+					<input type='number' name='Reg0206EFDCId' id='Reg0206EFDCId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='Reg020EFDCId'>Código de Grupos por Marca Comercial</label>
-					<input type='hidden' name='Reg020EFDCId' id='Reg020EFDCId'>
+					<label for='Reg020EFDCId'></label>
+					<input type='number' name='Reg020EFDCId' id='Reg020EFDCId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

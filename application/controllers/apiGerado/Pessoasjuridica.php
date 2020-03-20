@@ -14,7 +14,8 @@ class Pessoasjuridica extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
+		
   }
 
   public function create(){
@@ -82,102 +83,106 @@ class Pessoasjuridica extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Pessoa Juridica</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Nome'>Nome</label>
-					<input type='hidden' name='Nome' id='Nome'>
+					<label for='Nome'></label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='NomeFantasia'>Nome Fantasia</label>
-					<input type='hidden' name='NomeFantasia' id='NomeFantasia'>
+					<label for='NomeFantasia'></label>
+					<input type='text' name='NomeFantasia' id='NomeFantasia' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Matriz'>Matriz</label>
-					<input type='hidden' name='Matriz' id='Matriz'>
+					<label for='Matriz'></label>
+					<input type='number' name='Matriz' id='Matriz' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Endereco'>Endereço</label>
-					<input type='hidden' name='Endereco' id='Endereco'>
+					<label for='Endereco'></label>
+					<input type='text' name='Endereco' id='Endereco' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Numero'>Numero</label>
-					<input type='hidden' name='Numero' id='Numero'>
+					<label for='Numero'></label>
+					<input type='text' name='Numero' id='Numero' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Complemento'>Complemento</label>
-					<input type='hidden' name='Complemento' id='Complemento'>
+					<label for='Complemento'></label>
+					<input type='text' name='Complemento' id='Complemento' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='Bairro'>Bairro</label>
-					<input type='hidden' name='Bairro' id='Bairro'>
+					<label for='Bairro'></label>
+					<input type='text' name='Bairro' id='Bairro' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CEP'>Cep</label>
-					<input type='hidden' name='CEP' id='CEP'>
+					<label for='CEP'></label>
+					<input type='text' name='CEP' id='CEP' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Telefone'>Telefone</label>
-					<input type='hidden' name='Telefone' id='Telefone'>
+					<label for='Telefone'></label>
+					<input type='text' name='Telefone' id='Telefone' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='Celular'>Celular</label>
-					<input type='hidden' name='Celular' id='Celular'>
+					<label for='Celular'></label>
+					<input type='text' name='Celular' id='Celular' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Email'>E-mail</label>
-					<input type='hidden' name='Email' id='Email'>
+					<label for='Email'></label>
+					<input type='text' name='Email' id='Email' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='InscricaoEstadual'>Inscrição Estadual</label>
-					<input type='hidden' name='InscricaoEstadual' id='InscricaoEstadual'>
+					<label for='InscricaoEstadual'></label>
+					<input type='text' name='InscricaoEstadual' id='InscricaoEstadual' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='Cnpj'>CNPJ</label>
-					<input type='hidden' name='Cnpj' id='Cnpj'>
+					<label for='Cnpj'></label>
+					<input type='text' name='Cnpj' id='Cnpj' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CNAE'>CNAE</label>
-					<input type='hidden' name='CNAE' id='CNAE'>
+					<label for='CNAE'></label>
+					<input type='text' name='CNAE' id='CNAE' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='InscricaoMunicipal'>Inscrição Municipal</label>
-					<input type='hidden' name='InscricaoMunicipal' id='InscricaoMunicipal'>
+					<label for='InscricaoMunicipal'></label>
+					<input type='text' name='InscricaoMunicipal' id='InscricaoMunicipal' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='NrSuframa'>Numero Suframa</label>
-					<input type='hidden' name='NrSuframa' id='NrSuframa'>
+					<label for='NrSuframa'></label>
+					<input type='text' name='NrSuframa' id='NrSuframa' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='NaturezaJuridica'>Natureza Juridica</label>
-					<input type='hidden' name='NaturezaJuridica' id='NaturezaJuridica'>
+					<label for='NaturezaJuridica'></label>
+					<input type='number' name='NaturezaJuridica' id='NaturezaJuridica' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='NomeContato'>Nome do Contato</label>
-					<input type='hidden' name='NomeContato' id='NomeContato'>
+					<label for='NomeContato'></label>
+					<input type='text' name='NomeContato' id='NomeContato' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='WebSite'>Web Site</label>
-					<input type='hidden' name='WebSite' id='WebSite'>
+					<label for='WebSite'></label>
+					<input type='text' name='WebSite' id='WebSite' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='DmContribuicao'>Contribuinte</label>
-					<input type='hidden' name='DmContribuicao' id='DmContribuicao'>
+					<label for='DmContribuicao'></label>
+					<input type='number' name='DmContribuicao' id='DmContribuicao' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='MunicipioId'>Municipio</label>
-					<input type='hidden' name='MunicipioId' id='MunicipioId'>
+					<label for='MunicipioId'></label>
+					<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='PessoaFisicaId'>Pessoa Fisica</label>
-					<input type='hidden' name='PessoaFisicaId' id='PessoaFisicaId'>
+					<label for='PessoaFisicaId'></label>
+					<input type='number' name='PessoaFisicaId' id='PessoaFisicaId' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Ativo'>Ativo</label>
-					<input type='hidden' name='Ativo' id='Ativo'>
+					<label for='Ativo'></label>
+					<select name='Ativo' id='Ativo' class='custom-select' placeholder='' required>
+						<option value=''> Selecione </option>
+						<option value='True'> True </option>
+						<option value='False'> False </option>
+					</select>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

@@ -14,7 +14,8 @@ class Usersgrupo extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
+		
   }
 
   public function create(){
@@ -38,18 +39,22 @@ class Usersgrupo extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Grupo de Usuário</legend>
+				<legend></legend>
 				<div class='form-group'>
 					<label for='GrupoUserId'></label>
-					<input type='' name='GrupoUserId' id='GrupoUserId' class='form-control' placeholder='' required>
+					<input type='hidden' name='GrupoUserId' id='GrupoUserId'>
 				</div>
 				<div class='form-group'>
-					<label for='UserId'>Usuário</label>
-					<input type='' name='UserId' id='UserId' class='form-control' placeholder='Usuário' required>
+					<label for='UserId'></label>
+					<input type='hidden' name='UserId' id='UserId'>
 				</div>
 				<div class='form-group'>
-					<label for='Ativo'>Ativo</label>
-					<input type='hidden' name='Ativo' id='Ativo'>
+					<label for='Ativo'></label>
+					<select name='Ativo' id='Ativo' class='custom-select' placeholder='' required>
+						<option value=''> Selecione </option>
+						<option value='True'> True </option>
+						<option value='False'> False </option>
+					</select>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

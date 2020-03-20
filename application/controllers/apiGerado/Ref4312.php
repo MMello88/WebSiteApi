@@ -20,8 +20,8 @@ class Ref4312 extends MY_Controller {
   public function create(){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
 		$this->form_validation->set_rules('AliqPis', 'AliqPis', 'numeric');
 		$this->form_validation->set_rules('AliqCofins', 'AliqCofins', 'numeric');
@@ -32,8 +32,8 @@ class Ref4312 extends MY_Controller {
   public function update($Id){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
 		$this->form_validation->set_rules('Ncm', 'Ncm', 'required');
 		$this->form_validation->set_rules('AliqPis', 'AliqPis', 'numeric');
 		$this->form_validation->set_rules('AliqCofins', 'AliqCofins', 'numeric');
@@ -50,46 +50,46 @@ class Ref4312 extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Produtos Sujeitos à Substituição Tributária da Contribuição Social</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Codigo'>Código</label>
-					<input type='hidden' name='Codigo' id='Codigo'>
+					<label for='Codigo'></label>
+					<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Descricao'>Descrição</label>
-					<input type='hidden' name='Descricao' id='Descricao'>
+					<label for='Descricao'></label>
+					<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='hidden' name='DtIni' id='DtIni'>
+					<label for='DtIni'></label>
+					<input type='datetime-local' name='DtIni' id='DtIni' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='hidden' name='DtFin' id='DtFin'>
+					<label for='DtFin'></label>
+					<input type='datetime-local' name='DtFin' id='DtFin' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='Ncm'>NCM</label>
-					<input type='hidden' name='Ncm' id='Ncm'>
+					<label for='Ncm'></label>
+					<input type='text' name='Ncm' id='Ncm' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='NcmEx'>Exceto NCM</label>
-					<input type='hidden' name='NcmEx' id='NcmEx'>
+					<label for='NcmEx'></label>
+					<input type='text' name='NcmEx' id='NcmEx' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='ExIpi'>Código EX TIPI</label>
-					<input type='hidden' name='ExIpi' id='ExIpi'>
+					<label for='ExIpi'></label>
+					<input type='text' name='ExIpi' id='ExIpi' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='AliqPis'>Alíquota do PIS %</label>
-					<input type='hidden' name='AliqPis' id='AliqPis'>
+					<label for='AliqPis'></label>
+					<input type='number' name='AliqPis' id='AliqPis' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
-					<label for='AliqCofins'>Alíquota da COFINS %</label>
-					<input type='hidden' name='AliqCofins' id='AliqCofins'>
+					<label for='AliqCofins'></label>
+					<input type='number' name='AliqCofins' id='AliqCofins' class='form-control' placeholder='' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

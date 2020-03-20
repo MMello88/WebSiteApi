@@ -42,22 +42,22 @@ class Municipios extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Municipios</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='CdMunicipio'>Cód. Municipio</label>
-					<input type='hidden' name='CdMunicipio' id='CdMunicipio'>
+					<label for='CdMunicipio'></label>
+					<input type='text' name='CdMunicipio' id='CdMunicipio' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Nome'>Nome</label>
-					<input type='hidden' name='Nome' id='Nome'>
+					<label for='Nome'></label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='Uf'>UF</label>
-					<input type='hidden' name='Uf' id='Uf'>
+					<label for='Uf'></label>
+					<input type='text' name='Uf' id='Uf' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

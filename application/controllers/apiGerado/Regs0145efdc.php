@@ -14,7 +14,8 @@ class Regs0145efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0145' : $_POST['Reg'];
+		
   }
 
   public function create(){
@@ -48,34 +49,34 @@ class Regs0145efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='hidden' name='Reg' id='Reg'>
+					<label for='Reg'></label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodIncTrib'>Código Incidência Tributária</label>
-					<input type='hidden' name='CodIncTrib' id='CodIncTrib'>
+					<label for='CodIncTrib'></label>
+					<input type='number' name='CodIncTrib' id='CodIncTrib' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='VlRecTot'>Valor da Receita Bruta Total</label>
-					<input type='hidden' name='VlRecTot' id='VlRecTot'>
+					<label for='VlRecTot'></label>
+					<input type='' name='VlRecTot' id='VlRecTot' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='VlRecAtiv'>Valor da Receita Bruta da Atividade</label>
-					<input type='hidden' name='VlRecAtiv' id='VlRecAtiv'>
+					<label for='VlRecAtiv'></label>
+					<input type='' name='VlRecAtiv' id='VlRecAtiv' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='VlRecDemaisAtiv'>Valor da Receita Bruta das demais Atividade</label>
-					<input type='hidden' name='VlRecDemaisAtiv' id='VlRecDemaisAtiv'>
+					<label for='VlRecDemaisAtiv'></label>
+					<input type='' name='VlRecDemaisAtiv' id='VlRecDemaisAtiv' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='InfoCompl'>Informação complementar</label>
-					<input type='hidden' name='InfoCompl' id='InfoCompl'>
+					<label for='InfoCompl'></label>
+					<input type='text' name='InfoCompl' id='InfoCompl' class='form-control' placeholder='' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

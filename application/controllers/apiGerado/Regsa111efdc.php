@@ -14,13 +14,14 @@ class Regsa111efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Reg'] = !isset($_POST['Reg']) ? 'A111' : $_POST['Reg'];
+		
   }
 
   public function create(){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
 		$this->form_validation->set_rules('NumProcesso', 'NumProcesso', 'required|max_length[15]');
-		$this->form_validation->set_rules('IndicadorOrigemProcesso', 'IndicadorOrigemProcesso', 'required|in_list[1 - Justiça Federal,3 – Secretaria da Receita Federal do Brasil,9 - Outros]');
+		$this->form_validation->set_rules('IndicadorOrigemProcesso', 'IndicadorOrigemProcesso', 'required|integer');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
 		
     parent::create();
@@ -29,7 +30,7 @@ class Regsa111efdc extends MY_Controller {
   public function update($Id){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
 		$this->form_validation->set_rules('NumProcesso', 'NumProcesso', 'required|max_length[15]');
-		$this->form_validation->set_rules('IndicadorOrigemProcesso', 'IndicadorOrigemProcesso', 'required|in_list[1 - Justiça Federal,3 – Secretaria da Receita Federal do Brasil,9 - Outros]');
+		$this->form_validation->set_rules('IndicadorOrigemProcesso', 'IndicadorOrigemProcesso', 'required|integer');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
 		
     parent::update($Id);
@@ -44,26 +45,26 @@ class Regsa111efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Processo Referenciado</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='hidden' name='Reg' id='Reg'>
+					<label for='Reg'></label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='NumProcesso'>Número do Processo</label>
-					<input type='hidden' name='NumProcesso' id='NumProcesso'>
+					<label for='NumProcesso'></label>
+					<input type='text' name='NumProcesso' id='NumProcesso' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='IndicadorOrigemProcesso'>Origem do Processo</label>
-					<input type='hidden' name='IndicadorOrigemProcesso' id='IndicadorOrigemProcesso'>
+					<label for='IndicadorOrigemProcesso'></label>
+					<input type='number' name='IndicadorOrigemProcesso' id='IndicadorOrigemProcesso' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='RegA100EFDCId'>Documento - Nota Fiscal de Serviço</label>
-					<input type='hidden' name='RegA100EFDCId' id='RegA100EFDCId'>
+					<label for='RegA100EFDCId'></label>
+					<input type='number' name='RegA100EFDCId' id='RegA100EFDCId' class='form-control' placeholder='' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

@@ -53,42 +53,48 @@ class Teste extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Tabela de Teste</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Nome'>Nome</label>
-					<input type='hidden' name='Nome' id='Nome'>
+					<label for='Nome'></label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
 					<label for='Valor'></label>
-					<input type='hidden' name='Valor' id='Valor'>
+					<input type='number' name='Valor' id='Valor' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
 					<label for='Desconto'></label>
-					<input type='hidden' name='Desconto' id='Desconto'>
+					<input type='' name='Desconto' id='Desconto' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
 					<label for='Total'></label>
-					<input type='hidden' name='Total' id='Total'>
+					<input type='' name='Total' id='Total' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
 					<label for='VlIcms'></label>
-					<input type='hidden' name='VlIcms' id='VlIcms'>
+					<input type='' name='VlIcms' id='VlIcms' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
 					<label for='Periodo'></label>
-					<input type='hidden' name='Periodo' id='Periodo'>
+					<input type='datetime-local' name='Periodo' id='Periodo' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
 					<label for='Tipo'></label>
-					<input type='hidden' name='Tipo' id='Tipo'>
+					<select name='Tipo' id='Tipo' class='custom-select' placeholder='' >
+						<option value=''> Selecione </option>
+						<option value='masculino'> masculino </option>
+						<option value='feminino'> feminino </option>
+						<option value='trans'> trans </option>
+						<option value='gay'> gay </option>
+					</select>
 				</div>
 				<div class='form-group'>
-					<label for='Ativo'>Ativo</label>
-					<input type='hidden' name='Ativo' id='Ativo'>
+					<label for='Ativo'></label>
+					<input type='' name='Ativo' id='Ativo' class='form-control' placeholder='' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

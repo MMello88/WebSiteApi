@@ -14,12 +14,13 @@ class Regs0208efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    
+    $_POST['Reg'] = !isset($_POST['Reg']) ? '0208' : $_POST['Reg'];
+		
   }
 
   public function create(){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('CodTabIncidencia', 'CodTabIncidencia', 'required|in_list[01 – Tabela I,02 – Tabela II,03 – Tabela III,04 – Tabela IV,05 – Tabela V,06 – Tabela VI,07 – Tabela VII,08– Tabela VIII,09 – Tabela IX,10 – Tabela X,11 – Tabela XI,12 – Tabela XII,13 – Tabela XIII]');
+		$this->form_validation->set_rules('CodTabIncidencia', 'CodTabIncidencia', 'required|integer');
 		$this->form_validation->set_rules('CodGrupo', 'CodGrupo', 'required|max_length[2]');
 		$this->form_validation->set_rules('MarcaComercial', 'MarcaComercial', 'required|max_length[255]');
 		
@@ -28,7 +29,7 @@ class Regs0208efdc extends MY_Controller {
   
   public function update($Id){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('CodTabIncidencia', 'CodTabIncidencia', 'required|in_list[01 – Tabela I,02 – Tabela II,03 – Tabela III,04 – Tabela IV,05 – Tabela V,06 – Tabela VI,07 – Tabela VII,08– Tabela VIII,09 – Tabela IX,10 – Tabela X,11 – Tabela XI,12 – Tabela XII,13 – Tabela XIII]');
+		$this->form_validation->set_rules('CodTabIncidencia', 'CodTabIncidencia', 'required|integer');
 		$this->form_validation->set_rules('CodGrupo', 'CodGrupo', 'required|max_length[2]');
 		$this->form_validation->set_rules('MarcaComercial', 'MarcaComercial', 'required|max_length[255]');
 		
@@ -44,26 +45,26 @@ class Regs0208efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend>Grupos por Marca Comercial – Refri</legend>
+				<legend></legend>
 				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='' name='Id' id='Id' class='form-control' placeholder='Identificador' required>
+					<label for='Id'></label>
+					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='hidden' name='Reg' id='Reg'>
+					<label for='Reg'></label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodTabIncidencia'>Código Tabela de Incidência</label>
-					<input type='hidden' name='CodTabIncidencia' id='CodTabIncidencia'>
+					<label for='CodTabIncidencia'></label>
+					<input type='number' name='CodTabIncidencia' id='CodTabIncidencia' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodGrupo'>Código Grupo</label>
-					<input type='hidden' name='CodGrupo' id='CodGrupo'>
+					<label for='CodGrupo'></label>
+					<input type='text' name='CodGrupo' id='CodGrupo' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
-					<label for='MarcaComercial'>Marca Comercial</label>
-					<input type='hidden' name='MarcaComercial' id='MarcaComercial'>
+					<label for='MarcaComercial'></label>
+					<input type='text' name='MarcaComercial' id='MarcaComercial' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>
