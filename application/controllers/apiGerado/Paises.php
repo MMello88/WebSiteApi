@@ -40,18 +40,18 @@ class Paises extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Paises</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='CdPais'></label>
-					<input type='text' name='CdPais' id='CdPais' class='form-control' placeholder='' required>
+					<label for='CdPais'>Cód. País</label>
+					<input type='text' name='CdPais' id='CdPais' class='form-control' placeholder='Cód. País' required>
 				</div>
 				<div class='form-group'>
-					<label for='Nome'></label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='' required>
+					<label for='Nome'>Nome</label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

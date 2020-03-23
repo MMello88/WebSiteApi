@@ -47,23 +47,23 @@ class Api_keys extends MY_Controller {
 				<legend>Key</legend>
 				<div class='form-group'>
 					<label for='id'>Identificador</label>
-					<input type='' name='id' id='id' class='form-control' placeholder='Identificador' required>
+					<input type='hidden' name='id' id='id'>
 				</div>
 				<div class='form-group'>
 					<label for='api_key'></label>
-					<input type='hidden' name='api_key' id='api_key'>
+					<input type='text' name='api_key' id='api_key' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
 					<label for='controller'></label>
-					<input type='hidden' name='controller' id='controller'>
+					<input type='text' name='controller' id='controller' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
 					<label for='date_created'></label>
-					<input type='hidden' name='date_created' id='date_created'>
+					<input type='date' name='date_created' id='date_created' class='form-control' placeholder='' >
 				</div>
 				<div class='form-group'>
 					<label for='date_modified'></label>
-					<input type='hidden' name='date_modified' id='date_modified'>
+					<input type='date' name='date_modified' id='date_modified' class='form-control' placeholder='' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

@@ -21,8 +21,8 @@ class Ref311 extends MY_Controller {
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[5]');
 		$this->form_validation->set_rules('Versao', 'Versao', 'required|max_length[5]');
 		$this->form_validation->set_rules('Leiaout', 'Leiaout', 'required|max_length[100]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		
     parent::create();
   }
@@ -31,8 +31,8 @@ class Ref311 extends MY_Controller {
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[5]');
 		$this->form_validation->set_rules('Versao', 'Versao', 'required|max_length[5]');
 		$this->form_validation->set_rules('Leiaout', 'Leiaout', 'required|max_length[100]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		
     parent::update($Id);
   }
@@ -46,30 +46,30 @@ class Ref311 extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Versão do Leiaute</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Codigo'></label>
-					<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='' required>
+					<label for='Codigo'>Código</label>
+					<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='Código' required>
 				</div>
 				<div class='form-group'>
-					<label for='Versao'></label>
-					<input type='text' name='Versao' id='Versao' class='form-control' placeholder='' required>
+					<label for='Versao'>Versão</label>
+					<input type='text' name='Versao' id='Versao' class='form-control' placeholder='Versão' required>
 				</div>
 				<div class='form-group'>
-					<label for='Leiaout'></label>
-					<input type='text' name='Leiaout' id='Leiaout' class='form-control' placeholder='' required>
+					<label for='Leiaout'>Leiaout Instituído</label>
+					<input type='text' name='Leiaout' id='Leiaout' class='form-control' placeholder='Leiaout Instituído' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'></label>
-					<input type='datetime-local' name='DtIni' id='DtIni' class='form-control' placeholder='' required>
+					<label for='DtIni'>Data Inicial</label>
+					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'></label>
-					<input type='datetime-local' name='DtFin' id='DtFin' class='form-control' placeholder='' >
+					<label for='DtFin'>Data Final</label>
+					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

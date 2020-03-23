@@ -27,7 +27,7 @@ abstract class MY_Controller extends API_Controller {
     $data = $this->api->get($this->table, $where);
 
 		$this->api_return(
-			["status" => TRUE, "data" => $data],
+			["status" => "TRUE", "data" => $data],
 			200
 		);
   }
@@ -46,7 +46,7 @@ abstract class MY_Controller extends API_Controller {
       if (is_numeric($Id)){
         $data = $this->api->get($this->table, [$this->nameId => $Id]);
       	$this->api_return(
-          ["status" => TRUE, "data" => $data],
+          ["status" => "TRUE", "data" => $data],
           200
         );
       }
@@ -54,7 +54,7 @@ abstract class MY_Controller extends API_Controller {
     } else {
 
 			$this->api_return(
-				["status" => FALSE, "error" => $this->form_validation->error_array()],
+				["status" => "FALSE", "error" => $this->form_validation->error_array()],
 				422
 			);
     }
@@ -69,7 +69,7 @@ abstract class MY_Controller extends API_Controller {
     if(!is_numeric($Id)){
 
 			$this->api_return(
-				["status" => FALSE, "error" => ["Id" => "The Id field must contain only numbers."]],
+				["status" => "FALSE", "error" => ["Id" => "The Id field must contain only numbers."]],
 				422
 			);
 
@@ -80,14 +80,14 @@ abstract class MY_Controller extends API_Controller {
         $this->api->update($this->table, $_POST, [$this->nameId => $Id]);
         $data = $this->api->get($this->table, [$this->nameId => $Id]);
         $this->api_return(
-          ["status" => TRUE, "data" => $data],
+          ["status" => "TRUE", "data" => $data],
           200
         );
 
       } else {
 
   			$this->api_return(
-  				["status" => FALSE, "error" => $this->form_validation->error_array()],
+  				["status" => "FALSE", "error" => $this->form_validation->error_array()],
   				422
   			);
       }
@@ -103,7 +103,7 @@ abstract class MY_Controller extends API_Controller {
     if(!is_numeric($Id)){
 
       $this->api_return(
-        ["status" => FALSE, "error" => ["Id" => "The Id field must contain only numbers."]],
+        ["status" => "FALSE", "error" => ["Id" => "The Id field must contain only numbers."]],
         422
       );
 
@@ -112,7 +112,7 @@ abstract class MY_Controller extends API_Controller {
       $this->api->delete($this->table, [$this->nameId => $Id]);
 
       $this->api_return(
-        ["status" => FALSE, "data" => FALSE],
+        ["status" => "FALSE", "data" => FALSE],
         200
       );
     }
@@ -127,21 +127,17 @@ abstract class MY_Controller extends API_Controller {
       
       $data = $this->verify_login();
 
-      if($data["status"] === TRUE){
-        
+      if ($data["status"] === "TRUE"){
         $token = $this->authorization_token->generateToken($data["data"]);
-        $data["data"]->token = $token;
+        $data["data"]["token"] = $token;
 
         $this->api_return(
-        	[
-          	"status" => TRUE,
-            "data" => $data["data"],
-          ],
+        	$data,
           200
         );
       
       } else {
-			
+
       	$this->_apiConfig([
 					"methods" => ["POST"],
 					"limit" => [5, "ip", 5],
@@ -161,21 +157,11 @@ abstract class MY_Controller extends API_Controller {
     
     if ($this->form_validation->run() == TRUE){
     
-        $result = $this->api->check_login($_POST);
-    
-        if (!empty($result["status"]) && $result["status"] === TRUE) {
-    
-          return ["status" => TRUE, "data" => $result];
-    
-        } else {
-    
-          return $result;
-    
-        }
+      return $this->api->check_login($_POST);
     
     } else {
     
-      return ["status" => FALSE, "error" => $this->form_validation->error_array()];
+      return ["status" => "FALSE", "error" => $this->form_validation->error_array()];
     
     }
   }

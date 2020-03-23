@@ -38,7 +38,7 @@ class __efmigrationshistory extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>histórico</legend>
 				<div class='form-group'>
 					<label for='MigrationId'></label>
 					<input type='hidden' name='MigrationId' id='MigrationId'>

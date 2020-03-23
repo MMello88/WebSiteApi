@@ -49,27 +49,27 @@ class Api_limit extends MY_Controller {
 				<legend>Limit</legend>
 				<div class='form-group'>
 					<label for='id'>Identificador</label>
-					<input type='' name='id' id='id' class='form-control' placeholder='Identificador' required>
+					<input type='hidden' name='id' id='id'>
 				</div>
 				<div class='form-group'>
 					<label for='uri'></label>
-					<input type='hidden' name='uri' id='uri'>
+					<input type='text' name='uri' id='uri' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
 					<label for='class'></label>
-					<input type='hidden' name='class' id='class'>
+					<input type='text' name='class' id='class' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
 					<label for='method'></label>
-					<input type='hidden' name='method' id='method'>
+					<input type='text' name='method' id='method' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
 					<label for='ip_address'></label>
-					<input type='hidden' name='ip_address' id='ip_address'>
+					<input type='text' name='ip_address' id='ip_address' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-group'>
 					<label for='time'></label>
-					<input type='hidden' name='time' id='time'>
+					<input type='' name='time' id='time' class='form-control' placeholder='' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

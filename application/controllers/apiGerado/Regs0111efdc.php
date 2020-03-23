@@ -14,8 +14,7 @@ class Regs0111efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0111' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -49,34 +48,34 @@ class Regs0111efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Tabela de Receita Bruta Mensal Para Fins de Rateio de Créditos Comuns</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'></label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
+					<label for='Reg'>Registro</label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumTribMI'></label>
-					<input type='number' name='RecBruNCumTribMI' id='RecBruNCumTribMI' class='form-control' placeholder='' required>
+					<label for='RecBruNCumTribMI'>Tributada</label>
+					<input type='number' name='RecBruNCumTribMI' id='RecBruNCumTribMI' class='form-control' placeholder='Tributada' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumNaoTribMI'></label>
-					<input type='number' name='RecBruNCumNaoTribMI' id='RecBruNCumNaoTribMI' class='form-control' placeholder='' required>
+					<label for='RecBruNCumNaoTribMI'>Não Tributada</label>
+					<input type='number' name='RecBruNCumNaoTribMI' id='RecBruNCumNaoTribMI' class='form-control' placeholder='Não Tributada' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumExp'></label>
-					<input type='number' name='RecBruNCumExp' id='RecBruNCumExp' class='form-control' placeholder='' required>
+					<label for='RecBruNCumExp'>Exportação</label>
+					<input type='number' name='RecBruNCumExp' id='RecBruNCumExp' class='form-control' placeholder='Exportação' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCum'></label>
-					<input type='number' name='RecBruNCum' id='RecBruNCum' class='form-control' placeholder='' required>
+					<label for='RecBruNCum'>Receita Bruta Cumulativa</label>
+					<input type='number' name='RecBruNCum' id='RecBruNCum' class='form-control' placeholder='Receita Bruta Cumulativa' required>
 				</div>
 				<div class='form-group'>
-					<label for='RecBruNCumTotal'></label>
-					<input type='number' name='RecBruNCumTotal' id='RecBruNCumTotal' class='form-control' placeholder='' required>
+					<label for='RecBruNCumTotal'>Receita Bruta Total</label>
+					<input type='number' name='RecBruNCumTotal' id='RecBruNCumTotal' class='form-control' placeholder='Receita Bruta Total' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

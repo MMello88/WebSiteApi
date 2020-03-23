@@ -14,8 +14,7 @@ class Regs0140efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0140' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -28,8 +27,8 @@ class Regs0140efdc extends MY_Controller {
 		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
 		$this->form_validation->set_rules('IM', 'IM', 'max_length[255]');
 		$this->form_validation->set_rules('Suframa', 'Suframa', 'max_length[9]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		$this->form_validation->set_rules('Reg0145EFDCId', 'Reg0145EFDCId', 'integer');
@@ -47,8 +46,8 @@ class Regs0140efdc extends MY_Controller {
 		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
 		$this->form_validation->set_rules('IM', 'IM', 'max_length[255]');
 		$this->form_validation->set_rules('Suframa', 'Suframa', 'max_length[9]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		$this->form_validation->set_rules('Reg0145EFDCId', 'Reg0145EFDCId', 'integer');
@@ -65,66 +64,66 @@ class Regs0140efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Tabela de Cadastro de Estabelecimentos</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'></label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
+					<label for='Reg'>Registro</label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodEstab'></label>
-					<input type='text' name='CodEstab' id='CodEstab' class='form-control' placeholder='' >
+					<label for='CodEstab'>Código</label>
+					<input type='text' name='CodEstab' id='CodEstab' class='form-control' placeholder='Código' >
 				</div>
 				<div class='form-group'>
-					<label for='Nome'></label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='' required>
+					<label for='Nome'>Nome</label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
 				</div>
 				<div class='form-group'>
-					<label for='CNPJ'></label>
-					<input type='number' name='CNPJ' id='CNPJ' class='form-control' placeholder='' required>
+					<label for='CNPJ'>CNPJ</label>
+					<input type='number' name='CNPJ' id='CNPJ' class='form-control' placeholder='CNPJ' required>
 				</div>
 				<div class='form-group'>
-					<label for='UF'></label>
-					<input type='text' name='UF' id='UF' class='form-control' placeholder='' required>
+					<label for='UF'>UF</label>
+					<input type='text' name='UF' id='UF' class='form-control' placeholder='UF' required>
 				</div>
 				<div class='form-group'>
-					<label for='IE'></label>
-					<input type='text' name='IE' id='IE' class='form-control' placeholder='' >
+					<label for='IE'>Inscrição Estadual</label>
+					<input type='text' name='IE' id='IE' class='form-control' placeholder='Inscrição Estadual' >
 				</div>
 				<div class='form-group'>
-					<label for='MunicipioId'></label>
-					<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='' required>
+					<label for='MunicipioId'>Municipio</label>
+					<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='Municipio' required>
 				</div>
 				<div class='form-group'>
-					<label for='IM'></label>
-					<input type='text' name='IM' id='IM' class='form-control' placeholder='' >
+					<label for='IM'>Inscrição Municipal</label>
+					<input type='text' name='IM' id='IM' class='form-control' placeholder='Inscrição Municipal' >
 				</div>
 				<div class='form-group'>
-					<label for='Suframa'></label>
-					<input type='text' name='Suframa' id='Suframa' class='form-control' placeholder='' >
+					<label for='Suframa'>Suframa</label>
+					<input type='text' name='Suframa' id='Suframa' class='form-control' placeholder='Suframa' >
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'></label>
-					<input type='datetime-local' name='DtIni' id='DtIni' class='form-control' placeholder='' required>
+					<label for='DtIni'>Data Inicial</label>
+					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'></label>
-					<input type='datetime-local' name='DtFin' id='DtFin' class='form-control' placeholder='' required>
+					<label for='DtFin'>Data Final</label>
+					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
 				</div>
 				<div class='form-group'>
-					<label for='PessoaJuridicaId'></label>
-					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='' >
+					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
+					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
 				</div>
 				<div class='form-group'>
-					<label for='UserId'></label>
-					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='' >
+					<label for='UserId'>Usuário</label>
+					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='Usuário' >
 				</div>
 				<div class='form-group'>
-					<label for='Reg0145EFDCId'></label>
-					<input type='number' name='Reg0145EFDCId' id='Reg0145EFDCId' class='form-control' placeholder='' >
+					<label for='Reg0145EFDCId'>Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta</label>
+					<input type='number' name='Reg0145EFDCId' id='Reg0145EFDCId' class='form-control' placeholder='Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

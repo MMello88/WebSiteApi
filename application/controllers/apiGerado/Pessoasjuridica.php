@@ -14,8 +14,7 @@ class Pessoasjuridica extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
-		
+    
   }
 
   public function create(){
@@ -83,102 +82,102 @@ class Pessoasjuridica extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Pessoa Juridica</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Nome'></label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='' required>
+					<label for='Nome'>Nome</label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
 				</div>
 				<div class='form-group'>
-					<label for='NomeFantasia'></label>
-					<input type='text' name='NomeFantasia' id='NomeFantasia' class='form-control' placeholder='' required>
+					<label for='NomeFantasia'>Nome Fantasia</label>
+					<input type='text' name='NomeFantasia' id='NomeFantasia' class='form-control' placeholder='Nome Fantasia' required>
 				</div>
 				<div class='form-group'>
-					<label for='Matriz'></label>
-					<input type='number' name='Matriz' id='Matriz' class='form-control' placeholder='' required>
+					<label for='Matriz'>Matriz</label>
+					<input type='number' name='Matriz' id='Matriz' class='form-control' placeholder='Matriz' required>
 				</div>
 				<div class='form-group'>
-					<label for='Endereco'></label>
-					<input type='text' name='Endereco' id='Endereco' class='form-control' placeholder='' required>
+					<label for='Endereco'>Endereço</label>
+					<input type='text' name='Endereco' id='Endereco' class='form-control' placeholder='Endereço' required>
 				</div>
 				<div class='form-group'>
-					<label for='Numero'></label>
-					<input type='text' name='Numero' id='Numero' class='form-control' placeholder='' required>
+					<label for='Numero'>Numero</label>
+					<input type='text' name='Numero' id='Numero' class='form-control' placeholder='Numero' required>
 				</div>
 				<div class='form-group'>
-					<label for='Complemento'></label>
-					<input type='text' name='Complemento' id='Complemento' class='form-control' placeholder='' >
+					<label for='Complemento'>Complemento</label>
+					<input type='text' name='Complemento' id='Complemento' class='form-control' placeholder='Complemento' >
 				</div>
 				<div class='form-group'>
-					<label for='Bairro'></label>
-					<input type='text' name='Bairro' id='Bairro' class='form-control' placeholder='' required>
+					<label for='Bairro'>Bairro</label>
+					<input type='text' name='Bairro' id='Bairro' class='form-control' placeholder='Bairro' required>
 				</div>
 				<div class='form-group'>
-					<label for='CEP'></label>
-					<input type='text' name='CEP' id='CEP' class='form-control' placeholder='' required>
+					<label for='CEP'>Cep</label>
+					<input type='text' name='CEP' id='CEP' class='form-control' placeholder='Cep' required>
 				</div>
 				<div class='form-group'>
-					<label for='Telefone'></label>
-					<input type='text' name='Telefone' id='Telefone' class='form-control' placeholder='' >
+					<label for='Telefone'>Telefone</label>
+					<input type='text' name='Telefone' id='Telefone' class='form-control' placeholder='Telefone' >
 				</div>
 				<div class='form-group'>
-					<label for='Celular'></label>
-					<input type='text' name='Celular' id='Celular' class='form-control' placeholder='' required>
+					<label for='Celular'>Celular</label>
+					<input type='text' name='Celular' id='Celular' class='form-control' placeholder='Celular' required>
 				</div>
 				<div class='form-group'>
-					<label for='Email'></label>
-					<input type='text' name='Email' id='Email' class='form-control' placeholder='' required>
+					<label for='Email'>E-mail</label>
+					<input type='text' name='Email' id='Email' class='form-control' placeholder='E-mail' required>
 				</div>
 				<div class='form-group'>
-					<label for='InscricaoEstadual'></label>
-					<input type='text' name='InscricaoEstadual' id='InscricaoEstadual' class='form-control' placeholder='' >
+					<label for='InscricaoEstadual'>Inscrição Estadual</label>
+					<input type='text' name='InscricaoEstadual' id='InscricaoEstadual' class='form-control' placeholder='Inscrição Estadual' >
 				</div>
 				<div class='form-group'>
-					<label for='Cnpj'></label>
-					<input type='text' name='Cnpj' id='Cnpj' class='form-control' placeholder='' required>
+					<label for='Cnpj'>CNPJ</label>
+					<input type='text' name='Cnpj' id='Cnpj' class='form-control' placeholder='CNPJ' required>
 				</div>
 				<div class='form-group'>
-					<label for='CNAE'></label>
-					<input type='text' name='CNAE' id='CNAE' class='form-control' placeholder='' >
+					<label for='CNAE'>CNAE</label>
+					<input type='text' name='CNAE' id='CNAE' class='form-control' placeholder='CNAE' >
 				</div>
 				<div class='form-group'>
-					<label for='InscricaoMunicipal'></label>
-					<input type='text' name='InscricaoMunicipal' id='InscricaoMunicipal' class='form-control' placeholder='' >
+					<label for='InscricaoMunicipal'>Inscrição Municipal</label>
+					<input type='text' name='InscricaoMunicipal' id='InscricaoMunicipal' class='form-control' placeholder='Inscrição Municipal' >
 				</div>
 				<div class='form-group'>
-					<label for='NrSuframa'></label>
-					<input type='text' name='NrSuframa' id='NrSuframa' class='form-control' placeholder='' >
+					<label for='NrSuframa'>Numero Suframa</label>
+					<input type='text' name='NrSuframa' id='NrSuframa' class='form-control' placeholder='Numero Suframa' >
 				</div>
 				<div class='form-group'>
-					<label for='NaturezaJuridica'></label>
-					<input type='number' name='NaturezaJuridica' id='NaturezaJuridica' class='form-control' placeholder='' required>
+					<label for='NaturezaJuridica'>Natureza Juridica</label>
+					<input type='number' name='NaturezaJuridica' id='NaturezaJuridica' class='form-control' placeholder='Natureza Juridica' required>
 				</div>
 				<div class='form-group'>
-					<label for='NomeContato'></label>
-					<input type='text' name='NomeContato' id='NomeContato' class='form-control' placeholder='' >
+					<label for='NomeContato'>Nome do Contato</label>
+					<input type='text' name='NomeContato' id='NomeContato' class='form-control' placeholder='Nome do Contato' >
 				</div>
 				<div class='form-group'>
-					<label for='WebSite'></label>
-					<input type='text' name='WebSite' id='WebSite' class='form-control' placeholder='' >
+					<label for='WebSite'>Web Site</label>
+					<input type='text' name='WebSite' id='WebSite' class='form-control' placeholder='Web Site' >
 				</div>
 				<div class='form-group'>
-					<label for='DmContribuicao'></label>
-					<input type='number' name='DmContribuicao' id='DmContribuicao' class='form-control' placeholder='' required>
+					<label for='DmContribuicao'>Contribuinte</label>
+					<input type='number' name='DmContribuicao' id='DmContribuicao' class='form-control' placeholder='Contribuinte' required>
 				</div>
 				<div class='form-group'>
-					<label for='MunicipioId'></label>
-					<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='' required>
+					<label for='MunicipioId'>Municipio</label>
+					<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='Municipio' required>
 				</div>
 				<div class='form-group'>
-					<label for='PessoaFisicaId'></label>
-					<input type='number' name='PessoaFisicaId' id='PessoaFisicaId' class='form-control' placeholder='' required>
+					<label for='PessoaFisicaId'>Pessoa Fisica</label>
+					<input type='number' name='PessoaFisicaId' id='PessoaFisicaId' class='form-control' placeholder='Pessoa Fisica' required>
 				</div>
 				<div class='form-group'>
-					<label for='Ativo'></label>
-					<select name='Ativo' id='Ativo' class='custom-select' placeholder='' required>
+					<label for='Ativo'>Ativo</label>
+					<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
 						<option value=''> Selecione </option>
 						<option value='True'> True </option>
 						<option value='False'> False </option>

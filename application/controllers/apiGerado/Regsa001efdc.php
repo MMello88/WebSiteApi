@@ -14,15 +14,14 @@ class Regsa001efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? 'A001' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|integer');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
+		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|in_list[0 - Bloco com dados informados,1 - Bloco sem dados informados]');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		
@@ -31,9 +30,9 @@ class Regsa001efdc extends MY_Controller {
   
   public function update($Id){
     $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|integer');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
+		$this->form_validation->set_rules('IndicadorMovimento', 'IndicadorMovimento', 'required|in_list[0 - Bloco com dados informados,1 - Bloco sem dados informados]');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		
@@ -49,34 +48,38 @@ class Regsa001efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Abertura do Bloco A</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'></label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' required>
+					<label for='Reg'>Registro</label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
 				</div>
 				<div class='form-group'>
-					<label for='IndicadorMovimento'></label>
-					<input type='number' name='IndicadorMovimento' id='IndicadorMovimento' class='form-control' placeholder='' required>
+					<label for='IndicadorMovimento'>Indicador Movimento</label>
+					<select name='IndicadorMovimento' id='IndicadorMovimento' class='custom-select' placeholder='Indicador Movimento' required>
+						<option value=''> Selecione </option>
+						<option value='0 - Bloco com dados informados'> 0 - Bloco com dados informados </option>
+						<option value='1 - Bloco sem dados informados'> 1 - Bloco sem dados informados </option>
+					</select>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'></label>
-					<input type='datetime-local' name='DtIni' id='DtIni' class='form-control' placeholder='' required>
+					<label for='DtIni'>Data Inicial</label>
+					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'></label>
-					<input type='datetime-local' name='DtFin' id='DtFin' class='form-control' placeholder='' required>
+					<label for='DtFin'>Data Final</label>
+					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
 				</div>
 				<div class='form-group'>
-					<label for='PessoaJuridicaId'></label>
-					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='' >
+					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
+					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
 				</div>
 				<div class='form-group'>
-					<label for='UserId'></label>
-					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='' >
+					<label for='UserId'>Usuário</label>
+					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='Usuário' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

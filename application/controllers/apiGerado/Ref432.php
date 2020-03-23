@@ -20,8 +20,8 @@ class Ref432 extends MY_Controller {
   public function create(){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		
     parent::create();
   }
@@ -29,8 +29,8 @@ class Ref432 extends MY_Controller {
   public function update($Id){
     $this->form_validation->set_rules('Codigo', 'Codigo', 'required|max_length[30]');
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_datetime');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		
     parent::update($Id);
   }
@@ -44,26 +44,26 @@ class Ref432 extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Código da Situação Tributária Referente ao IPI</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Codigo'></label>
-					<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='' required>
+					<label for='Codigo'>Código</label>
+					<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='Código' required>
 				</div>
 				<div class='form-group'>
-					<label for='Descricao'></label>
-					<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='' required>
+					<label for='Descricao'>Descrição</label>
+					<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='Descrição' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'></label>
-					<input type='datetime-local' name='DtIni' id='DtIni' class='form-control' placeholder='' required>
+					<label for='DtIni'>Data Inicial</label>
+					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'></label>
-					<input type='datetime-local' name='DtFin' id='DtFin' class='form-control' placeholder='' >
+					<label for='DtFin'>Data Final</label>
+					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

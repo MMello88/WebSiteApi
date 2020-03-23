@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$config['nome_fantasia'] = "Matilab";
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

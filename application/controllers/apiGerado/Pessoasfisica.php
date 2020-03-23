@@ -14,14 +14,14 @@ class Pessoasfisica extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
+    $_POST['Criacao'] = !isset($_POST['Criacao']) ? date('Y-m-d H:i:s') : $_POST['Criacao'];
 		
   }
 
   public function create(){
     $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[250]');
 		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[300]');
-		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_datetime');
+		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_date');
 		$this->form_validation->set_rules('UrlFoto', 'UrlFoto', 'max_length[150]');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		$this->form_validation->set_rules('Criacao', 'Criacao', 'required|valid_datetime');
@@ -32,7 +32,7 @@ class Pessoasfisica extends MY_Controller {
   public function update($Id){
     $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[250]');
 		$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[300]');
-		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_datetime');
+		$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_date');
 		$this->form_validation->set_rules('UrlFoto', 'UrlFoto', 'max_length[150]');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
 		$this->form_validation->set_rules('Criacao', 'Criacao', 'required|valid_datetime');
@@ -49,30 +49,30 @@ class Pessoasfisica extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Pessoa Fisica</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Nome'></label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='' required>
+					<label for='Nome'>Nome</label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
 				</div>
 				<div class='form-group'>
-					<label for='Sobrenome'></label>
-					<input type='text' name='Sobrenome' id='Sobrenome' class='form-control' placeholder='' required>
+					<label for='Sobrenome'>Sobrenome</label>
+					<input type='text' name='Sobrenome' id='Sobrenome' class='form-control' placeholder='Sobrenome' required>
 				</div>
 				<div class='form-group'>
-					<label for='DataNascimento'></label>
-					<input type='datetime-local' name='DataNascimento' id='DataNascimento' class='form-control' placeholder='' required>
+					<label for='DataNascimento'>Data Nascimento</label>
+					<input type='date' name='DataNascimento' id='DataNascimento' class='form-control' placeholder='Data Nascimento' required>
 				</div>
 				<div class='form-group'>
-					<label for='UrlFoto'></label>
-					<input type='text' name='UrlFoto' id='UrlFoto' class='form-control' placeholder='' >
+					<label for='UrlFoto'>Foto Perfil</label>
+					<input type='text' name='UrlFoto' id='UrlFoto' class='form-control' placeholder='Foto Perfil' >
 				</div>
 				<div class='form-group'>
-					<label for='Ativo'></label>
-					<select name='Ativo' id='Ativo' class='custom-select' placeholder='' required>
+					<label for='Ativo'>Ativo</label>
+					<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
 						<option value=''> Selecione </option>
 						<option value='True'> True </option>
 						<option value='False'> False </option>

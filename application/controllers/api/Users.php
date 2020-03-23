@@ -16,6 +16,8 @@ class Users extends MY_Controller {
   public function setDefaultValue(){
     $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
 		$_POST['Criacao'] = !isset($_POST['Criacao']) ? date('Y-m-d H:i:s') : $_POST['Criacao'];
+    $_POST['Senha'] = !isset($_POST['Senha']) ? "" : md5($_POST['Senha']);
+    $_POST['SenhaConf'] = !isset($_POST['SenhaConf']) ? "" : md5($_POST['SenhaConf']);
   }
 
   public function create(){
@@ -24,7 +26,7 @@ class Users extends MY_Controller {
     ]);
 
     $this->api_return(
-      ["status" => FALSE, "error" => "Utilize o método add para cadastrar o usuário."],
+      ["status" => "FALSE", "error" => "Utilize o método add para cadastrar o usuário."],
       422
     );
 		
@@ -53,13 +55,10 @@ class Users extends MY_Controller {
     ]);
 
     $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[350]');
-    $this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[250]');
-    $this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_date');
-    $this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
-    $this->form_validation->set_rules('Criacao', 'Criacao', 'required|valid_datetime');
-    $this->form_validation->set_rules('Usuario', 'Usuario', 'required|max_length[250]');
-    $this->form_validation->set_rules('Email', 'Email', 'required|max_length[250]|is_unique[users.Email]');
-    $this->form_validation->set_rules('Senha', 'Senha', 'required|max_length[64]');
+    //$this->form_validation->set_rules('Sobrenome', 'Sobrenome', 'required|max_length[250]');
+    //$this->form_validation->set_rules('DataNascimento', 'DataNascimento', 'required|valid_date');
+    $this->form_validation->set_rules('Email', 'Email', 'required|max_length[250]|valid_email|is_unique[users.Email]');
+    $this->form_validation->set_rules('Senha', 'Senha', 'required|min_length[6]|max_length[64]');
     $this->form_validation->set_rules('SenhaConf', 'Senha Confirmation', 'required|matches[Senha]|max_length[64]');
 
     $this->setDefaultValue();
@@ -74,7 +73,7 @@ class Users extends MY_Controller {
         $token = $this->authorization_token->generateToken($data);
         $data->token = $token;
         $this->api_return(
-          ["status" => TRUE, "data" => $data],
+          ["status" => "TRUE", "data" => $data, "message" => "Cadastro realizado com sucesso!"],
           200
         );
       }
@@ -83,9 +82,54 @@ class Users extends MY_Controller {
     } else {
 
       $this->api_return(
-        ["status" => FALSE, "error" => $this->form_validation->error_array()],
+        [
+          "status" => "FALSE", 
+          "error" => $this->form_validation->error_array()
+        ],
         422
       );
+    }
+  }
+
+  public function forgot($paraHash = ""){
+    $user_data = $this->_apiConfig([
+      "methods" => ["POST"],
+    ]);
+
+    if(empty($paraHash)){
+
+      $this->form_validation->set_rules('Email', 'Email', 'required|max_length[250]|valid_email');
+
+      if ($this->form_validation->run() == TRUE){
+        $data = $this->api->forgot($_POST["Email"]);
+        $this->sendemail->enviarEmailRecuperarSenha($data["data"]["Nome"], $data["data"]["Email"], $data["data"]["IdReset"]);
+        $this->api_return($data,200);
+      } else {
+        $this->api_return(
+          [
+            "status" => "FALSE", 
+            "error" => $this->form_validation->error_array()
+          ],
+          422
+        );
+      }
+    } else {
+
+      $this->form_validation->set_rules('Senha', 'Senha', 'required|min_length[6]|max_length[64]');
+      $this->form_validation->set_rules('SenhaConf', 'Senha Confirmation', 'required|matches[Senha]|max_length[64]');
+
+      if ($this->form_validation->run() == TRUE){
+        $data = $this->api->recover($paraHash, md5($_POST["Senha"]));
+        $this->api_return($data,200);
+      } else {
+        $this->api_return(
+          [
+            "status" => "FALSE", 
+            "error" => $this->form_validation->error_array()
+          ],
+          422
+        );
+      }
     }
   }
 }

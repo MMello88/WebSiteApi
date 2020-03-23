@@ -18,9 +18,10 @@ class Regs0035efdc extends MY_Controller {
   }
 
   public function create(){
-    $this->form_validation->set_rules('CodSCP', 'CodSCP', 'required|integer');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
+		$this->form_validation->set_rules('CodSCP', 'CodSCP', 'required|integer');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		
@@ -28,9 +29,10 @@ class Regs0035efdc extends MY_Controller {
   }
   
   public function update($Id){
-    $this->form_validation->set_rules('CodSCP', 'CodSCP', 'required|integer');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_datetime');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'required|valid_datetime');
+    $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
+		$this->form_validation->set_rules('CodSCP', 'CodSCP', 'required|integer');
+		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
 		
@@ -46,42 +48,42 @@ class Regs0035efdc extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Identificação de Sociedade em Conta de Participação – SCP</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Reg'></label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='' >
+					<label for='Reg'>Registro</label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
 				</div>
 				<div class='form-group'>
-					<label for='CodSCP'></label>
-					<input type='number' name='CodSCP' id='CodSCP' class='form-control' placeholder='' required>
+					<label for='CodSCP'>Identificação da SCP</label>
+					<input type='number' name='CodSCP' id='CodSCP' class='form-control' placeholder='Identificação da SCP' required>
 				</div>
 				<div class='form-group'>
-					<label for='DescSCP'></label>
-					<input type='text' name='DescSCP' id='DescSCP' class='form-control' placeholder='' >
+					<label for='DescSCP'>Descrição da SCP</label>
+					<input type='text' name='DescSCP' id='DescSCP' class='form-control' placeholder='Descrição da SCP' >
 				</div>
 				<div class='form-group'>
-					<label for='InfoCompl'></label>
-					<input type='text' name='InfoCompl' id='InfoCompl' class='form-control' placeholder='' >
+					<label for='InfoCompl'>Informação Complementar</label>
+					<input type='text' name='InfoCompl' id='InfoCompl' class='form-control' placeholder='Informação Complementar' >
 				</div>
 				<div class='form-group'>
-					<label for='DtIni'></label>
-					<input type='datetime-local' name='DtIni' id='DtIni' class='form-control' placeholder='' required>
+					<label for='DtIni'>Data Inicial</label>
+					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
 				</div>
 				<div class='form-group'>
-					<label for='DtFin'></label>
-					<input type='datetime-local' name='DtFin' id='DtFin' class='form-control' placeholder='' required>
+					<label for='DtFin'>Data Final</label>
+					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
 				</div>
 				<div class='form-group'>
-					<label for='PessoaJuridicaId'></label>
-					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='' >
+					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
+					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
 				</div>
 				<div class='form-group'>
-					<label for='UserId'></label>
-					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='' >
+					<label for='UserId'>Usuário</label>
+					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='Usuário' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

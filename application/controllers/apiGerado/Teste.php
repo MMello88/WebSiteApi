@@ -53,14 +53,14 @@ class Teste extends MY_Controller {
 	<div class='card-body'>
 		<form>
 			<fieldset>
-				<legend></legend>
+				<legend>Tabela de Teste</legend>
 				<div class='form-group'>
-					<label for='Id'></label>
+					<label for='Id'>Identificador</label>
 					<input type='hidden' name='Id' id='Id'>
 				</div>
 				<div class='form-group'>
-					<label for='Nome'></label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='' required>
+					<label for='Nome'>Nome</label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
 				</div>
 				<div class='form-group'>
 					<label for='Valor'></label>
@@ -93,8 +93,8 @@ class Teste extends MY_Controller {
 					</select>
 				</div>
 				<div class='form-group'>
-					<label for='Ativo'></label>
-					<input type='' name='Ativo' id='Ativo' class='form-control' placeholder='' >
+					<label for='Ativo'>Ativo</label>
+					<input type='' name='Ativo' id='Ativo' class='form-control' placeholder='Ativo' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>
