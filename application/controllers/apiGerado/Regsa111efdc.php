@@ -7,6 +7,7 @@ class Regsa111efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regsa111efdc';
     $this->nameId = 'Id';
+    $this->usersId = 'UsersId';
   }
 
   public function get($Id = '', $date = ''){
@@ -22,6 +23,7 @@ class Regsa111efdc extends MY_Controller {
 		$this->form_validation->set_rules('NumProcesso', 'NumProcesso', 'required|max_length[15]');
 		$this->form_validation->set_rules('IndicadorOrigemProcesso', 'IndicadorOrigemProcesso', 'required|in_list[1 - Justiça Federal,3 – Secretaria da Receita Federal do Brasil,9 - Outros]');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		
     parent::create();
   }
@@ -31,6 +33,7 @@ class Regsa111efdc extends MY_Controller {
 		$this->form_validation->set_rules('NumProcesso', 'NumProcesso', 'required|max_length[15]');
 		$this->form_validation->set_rules('IndicadorOrigemProcesso', 'IndicadorOrigemProcesso', 'required|in_list[1 - Justiça Federal,3 – Secretaria da Receita Federal do Brasil,9 - Outros]');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		
     parent::update($Id);
   }
@@ -69,6 +72,10 @@ class Regsa111efdc extends MY_Controller {
 				<div class='form-group'>
 					<label for='RegA100EFDCId'>Documento - Nota Fiscal de Serviço</label>
 					<input type='number' name='RegA100EFDCId' id='RegA100EFDCId' class='form-control' placeholder='Documento - Nota Fiscal de Serviço' >
+				</div>
+				<div class='form-group'>
+					<label for='UsersId'>Usuário</label>
+					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

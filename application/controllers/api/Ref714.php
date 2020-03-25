@@ -7,6 +7,7 @@ class Ref714 extends MY_Controller {
     parent::__construct();
     $this->table = 'ref714';
     $this->nameId = 'Id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){
@@ -22,11 +23,6 @@ class Ref714 extends MY_Controller {
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
-		$this->form_validation->set_rules('IndTipoAtividade', 'IndTipoAtividade', '');
-		$this->form_validation->set_rules('IndAjuste', 'IndAjuste', '');
-		$this->form_validation->set_rules('Grupo', 'Grupo', '');
-		$this->form_validation->set_rules('SubGrupo', 'SubGrupo', '');
-		$this->form_validation->set_rules('IndOutros', 'IndOutros', '');
 		
     parent::create();
   }
@@ -36,11 +32,6 @@ class Ref714 extends MY_Controller {
 		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
-		$this->form_validation->set_rules('IndTipoAtividade', 'IndTipoAtividade', '');
-		$this->form_validation->set_rules('IndAjuste', 'IndAjuste', '');
-		$this->form_validation->set_rules('Grupo', 'Grupo', '');
-		$this->form_validation->set_rules('SubGrupo', 'SubGrupo', '');
-		$this->form_validation->set_rules('IndOutros', 'IndOutros', '');
 		
     parent::update($Id);
   }
@@ -49,3 +40,60 @@ class Ref714 extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>Detalhamento Analítico das Deduções e Exclusões</legend>
+				<div class='form-group'>
+					<label for='Id'>Identificador</label>
+					<input type='hidden' name='Id' id='Id'>
+				</div>
+				<div class='form-group'>
+					<label for='Codigo'>Código</label>
+					<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='Código' required>
+				</div>
+				<div class='form-group'>
+					<label for='Descricao'>Descrição</label>
+					<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='Descrição' required>
+				</div>
+				<div class='form-group'>
+					<label for='DtIni'>Data Inicial</label>
+					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
+				</div>
+				<div class='form-group'>
+					<label for='DtFin'>Data Final</label>
+					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
+				</div>
+				<div class='form-group'>
+					<label for='IndTipoAtividade'>Indicador Tipo Atividade</label>
+					<input type='text' name='IndTipoAtividade' id='IndTipoAtividade' class='form-control' placeholder='Indicador Tipo Atividade' >
+				</div>
+				<div class='form-group'>
+					<label for='IndAjuste'>Indicador Ajuste</label>
+					<input type='text' name='IndAjuste' id='IndAjuste' class='form-control' placeholder='Indicador Ajuste' >
+				</div>
+				<div class='form-group'>
+					<label for='Grupo'>Cód. Grupo</label>
+					<input type='text' name='Grupo' id='Grupo' class='form-control' placeholder='Cód. Grupo' >
+				</div>
+				<div class='form-group'>
+					<label for='SubGrupo'>Cód. SubGrupo</label>
+					<input type='text' name='SubGrupo' id='SubGrupo' class='form-control' placeholder='Cód. SubGrupo' >
+				</div>
+				<div class='form-group'>
+					<label for='IndOutros'>Indicador Outros</label>
+					<input type='text' name='IndOutros' id='IndOutros' class='form-control' placeholder='Indicador Outros' >
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

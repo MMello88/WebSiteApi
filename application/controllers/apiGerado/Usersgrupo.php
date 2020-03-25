@@ -7,6 +7,7 @@ class Usersgrupo extends MY_Controller {
     parent::__construct();
     $this->table = 'usersgrupo';
     $this->nameId = 'GrupoUserId';
+    $this->usersId = 'UsersId';
   }
 
   public function get($Id = '', $date = ''){
@@ -44,8 +45,8 @@ class Usersgrupo extends MY_Controller {
 					<input type='hidden' name='GrupoUserId' id='GrupoUserId'>
 				</div>
 				<div class='form-group'>
-					<label for='UserId'>Usuário</label>
-					<input type='hidden' name='UserId' id='UserId'>
+					<label for='UsersId'>Usuário</label>
+					<input type='hidden' name='UsersId' id='UsersId'>
 				</div>
 				<div class='form-group'>
 					<label for='Ativo'>Ativo</label>

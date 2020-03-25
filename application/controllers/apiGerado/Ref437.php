@@ -7,6 +7,7 @@ class Ref437 extends MY_Controller {
     parent::__construct();
     $this->table = 'ref437';
     $this->nameId = 'Id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){

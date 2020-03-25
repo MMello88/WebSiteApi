@@ -7,6 +7,7 @@ class __efmigrationshistory extends MY_Controller {
     parent::__construct();
     $this->table = '__efmigrationshistory';
     $this->nameId = 'MigrationId';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){

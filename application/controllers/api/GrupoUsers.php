@@ -7,6 +7,7 @@ class Grupousers extends MY_Controller {
     parent::__construct();
     $this->table = 'grupousers';
     $this->nameId = 'Id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){
@@ -14,7 +15,7 @@ class Grupousers extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Ativo'] = !isset($_POST['Ativo']) ? 'True' : $_POST['Ativo'];
+    
   }
 
   public function create(){
@@ -35,3 +36,36 @@ class Grupousers extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>Grupo</legend>
+				<div class='form-group'>
+					<label for='Id'>Identificador</label>
+					<input type='hidden' name='Id' id='Id'>
+				</div>
+				<div class='form-group'>
+					<label for='Nome'>Nome</label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
+				</div>
+				<div class='form-group'>
+					<label for='Ativo'>Ativo</label>
+					<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
+						<option value=''> Selecione </option>
+						<option value='True'> True </option>
+						<option value='False'> False </option>
+					</select>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

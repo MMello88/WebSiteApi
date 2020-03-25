@@ -7,6 +7,7 @@ class Regs0206efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0206efdc';
     $this->nameId = 'Id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){
@@ -14,8 +15,7 @@ class Regs0206efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0206' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -36,3 +36,32 @@ class Regs0206efdc extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>Produto Conforme Tabela ANP (Combustíveis)</legend>
+				<div class='form-group'>
+					<label for='Id'>Identificador</label>
+					<input type='hidden' name='Id' id='Id'>
+				</div>
+				<div class='form-group'>
+					<label for='Reg'>Registro</label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+				</div>
+				<div class='form-group'>
+					<label for='CodComb'>Código Combustível</label>
+					<input type='text' name='CodComb' id='CodComb' class='form-control' placeholder='Código Combustível' required>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

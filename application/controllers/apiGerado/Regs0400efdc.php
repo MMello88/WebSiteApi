@@ -7,6 +7,7 @@ class Regs0400efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0400efdc';
     $this->nameId = 'Id';
+    $this->usersId = 'UsersId';
   }
 
   public function get($Id = '', $date = ''){
@@ -24,7 +25,7 @@ class Regs0400efdc extends MY_Controller {
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
 		
     parent::create();
   }
@@ -36,7 +37,7 @@ class Regs0400efdc extends MY_Controller {
 		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
 		
     parent::update($Id);
   }
@@ -80,8 +81,8 @@ class Regs0400efdc extends MY_Controller {
 					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
 				</div>
 				<div class='form-group'>
-					<label for='UserId'>Usuário</label>
-					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='Usuário' >
+					<label for='UsersId'>Usuário</label>
+					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

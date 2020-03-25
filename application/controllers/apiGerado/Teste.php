@@ -7,6 +7,7 @@ class Teste extends MY_Controller {
     parent::__construct();
     $this->table = 'teste';
     $this->nameId = 'Id';
+    $this->usersId = 'UsersId';
   }
 
   public function get($Id = '', $date = ''){
@@ -27,6 +28,7 @@ class Teste extends MY_Controller {
 		$this->form_validation->set_rules('Periodo', 'Periodo', 'valid_datetime');
 		$this->form_validation->set_rules('Tipo', 'Tipo', 'in_list[masculino,feminino,trans,gay]');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'max_length[1]');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		
     parent::create();
   }
@@ -40,6 +42,7 @@ class Teste extends MY_Controller {
 		$this->form_validation->set_rules('Periodo', 'Periodo', 'valid_datetime');
 		$this->form_validation->set_rules('Tipo', 'Tipo', 'in_list[masculino,feminino,trans,gay]');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'max_length[1]');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		
     parent::update($Id);
   }
@@ -95,6 +98,10 @@ class Teste extends MY_Controller {
 				<div class='form-group'>
 					<label for='Ativo'>Ativo</label>
 					<input type='' name='Ativo' id='Ativo' class='form-control' placeholder='Ativo' >
+				</div>
+				<div class='form-group'>
+					<label for='UsersId'>Usuário</label>
+					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

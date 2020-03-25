@@ -7,6 +7,7 @@ class Api_limit extends MY_Controller {
     parent::__construct();
     $this->table = 'api_limit';
     $this->nameId = 'id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){

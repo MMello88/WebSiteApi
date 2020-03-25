@@ -7,6 +7,7 @@ class Paises extends MY_Controller {
     parent::__construct();
     $this->table = 'paises';
     $this->nameId = 'Id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){

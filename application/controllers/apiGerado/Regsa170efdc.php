@@ -7,6 +7,7 @@ class Regsa170efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regsa170efdc';
     $this->nameId = 'Id';
+    $this->usersId = 'UsersId';
   }
 
   public function get($Id = '', $date = ''){
@@ -37,6 +38,7 @@ class Regsa170efdc extends MY_Controller {
 		$this->form_validation->set_rules('Reg0500EFDCId', 'Reg0500EFDCId', 'integer');
 		$this->form_validation->set_rules('Reg0600EFDCId', 'Reg0600EFDCId', 'integer');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		
     parent::create();
   }
@@ -61,6 +63,7 @@ class Regsa170efdc extends MY_Controller {
 		$this->form_validation->set_rules('Reg0500EFDCId', 'Reg0500EFDCId', 'integer');
 		$this->form_validation->set_rules('Reg0600EFDCId', 'Reg0600EFDCId', 'integer');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		
     parent::update($Id);
   }
@@ -158,6 +161,10 @@ class Regsa170efdc extends MY_Controller {
 				<div class='form-group'>
 					<label for='RegA100EFDCId'>Documento - Nota Fiscal de Serviço</label>
 					<input type='number' name='RegA100EFDCId' id='RegA100EFDCId' class='form-control' placeholder='Documento - Nota Fiscal de Serviço' >
+				</div>
+				<div class='form-group'>
+					<label for='UsersId'>Usuários</label>
+					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuários' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

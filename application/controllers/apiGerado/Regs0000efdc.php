@@ -7,6 +7,7 @@ class Regs0000efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0000efdc';
     $this->nameId = 'Id';
+    $this->usersId = 'UsersId';
   }
 
   public function get($Id = '', $date = ''){
@@ -28,7 +29,7 @@ class Regs0000efdc extends MY_Controller {
 		$this->form_validation->set_rules('IndNatPj', 'IndNatPj', 'required|in_list[00 – Pessoa jurídica em geral,01 – Sociedade cooperativa,02 – Entidade sujeita ao PIS/Pasep exclusivamente com base na Folha de Salários,03 - Pessoa jurídica em geral participante de SCP como sócia ostensiva,04 – Sociedade cooperativa participante de SCP como sócia ostensiva,05 – Sociedade em Conta de Participação - SCP]');
 		$this->form_validation->set_rules('IndAtiv', 'IndAtiv', 'required|in_list[0 – Industrial ou equiparado a industrial,1 – Prestador de serviços,2 - Atividade de comércio,3 – Pessoas jurídicas referidas nos §§ 6º, 8º e 9º do art. 3º da Lei nº 9.718, de 1998,4 – Atividade imobiliária,9 – Outros]');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
 		$this->form_validation->set_rules('Reg0001EFDCId', 'Reg0001EFDCId', 'integer');
 		$this->form_validation->set_rules('Regs0110EFDCId', 'Regs0110EFDCId', 'integer');
 		
@@ -46,7 +47,7 @@ class Regs0000efdc extends MY_Controller {
 		$this->form_validation->set_rules('IndNatPj', 'IndNatPj', 'required|in_list[00 – Pessoa jurídica em geral,01 – Sociedade cooperativa,02 – Entidade sujeita ao PIS/Pasep exclusivamente com base na Folha de Salários,03 - Pessoa jurídica em geral participante de SCP como sócia ostensiva,04 – Sociedade cooperativa participante de SCP como sócia ostensiva,05 – Sociedade em Conta de Participação - SCP]');
 		$this->form_validation->set_rules('IndAtiv', 'IndAtiv', 'required|in_list[0 – Industrial ou equiparado a industrial,1 – Prestador de serviços,2 - Atividade de comércio,3 – Pessoas jurídicas referidas nos §§ 6º, 8º e 9º do art. 3º da Lei nº 9.718, de 1998,4 – Atividade imobiliária,9 – Outros]');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UserId', 'UserId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
 		$this->form_validation->set_rules('Reg0001EFDCId', 'Reg0001EFDCId', 'integer');
 		$this->form_validation->set_rules('Regs0110EFDCId', 'Regs0110EFDCId', 'integer');
 		
@@ -137,8 +138,8 @@ class Regs0000efdc extends MY_Controller {
 					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
 				</div>
 				<div class='form-group'>
-					<label for='UserId'>Usuário</label>
-					<input type='number' name='UserId' id='UserId' class='form-control' placeholder='Usuário' >
+					<label for='UsersId'>Usuário</label>
+					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
 				</div>
 				<div class='form-group'>
 					<label for='Reg0001EFDCId'>Abertura Bloco 0</label>

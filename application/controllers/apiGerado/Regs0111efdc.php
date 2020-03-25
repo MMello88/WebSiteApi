@@ -7,6 +7,7 @@ class Regs0111efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0111efdc';
     $this->nameId = 'Id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){

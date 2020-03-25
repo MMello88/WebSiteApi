@@ -7,6 +7,7 @@ class Pessoasjuridica extends MY_Controller {
     parent::__construct();
     $this->table = 'pessoasjuridica';
     $this->nameId = 'Id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){

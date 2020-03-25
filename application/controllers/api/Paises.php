@@ -7,6 +7,7 @@ class Paises extends MY_Controller {
     parent::__construct();
     $this->table = 'paises';
     $this->nameId = 'Id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){
@@ -35,3 +36,32 @@ class Paises extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>Paises</legend>
+				<div class='form-group'>
+					<label for='Id'>Identificador</label>
+					<input type='hidden' name='Id' id='Id'>
+				</div>
+				<div class='form-group'>
+					<label for='CdPais'>Cód. País</label>
+					<input type='text' name='CdPais' id='CdPais' class='form-control' placeholder='Cód. País' required>
+				</div>
+				<div class='form-group'>
+					<label for='Nome'>Nome</label>
+					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

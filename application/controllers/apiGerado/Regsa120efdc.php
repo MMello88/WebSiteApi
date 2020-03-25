@@ -7,6 +7,7 @@ class Regsa120efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regsa120efdc';
     $this->nameId = 'Id';
+    $this->usersId = 'UsersId';
   }
 
   public function get($Id = '', $date = ''){
@@ -28,6 +29,7 @@ class Regsa120efdc extends MY_Controller {
 		$this->form_validation->set_rules('DtPgtoCofinsImportacao', 'DtPgtoCofinsImportacao', 'required|valid_date');
 		$this->form_validation->set_rules('IndicadorLocalExecucaoServico', 'IndicadorLocalExecucaoServico', 'required|in_list[0 – Executado no País,1 – Executado no Exterior, cujo resultado se verifique no País]');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		
     parent::create();
   }
@@ -43,6 +45,7 @@ class Regsa120efdc extends MY_Controller {
 		$this->form_validation->set_rules('DtPgtoCofinsImportacao', 'DtPgtoCofinsImportacao', 'required|valid_date');
 		$this->form_validation->set_rules('IndicadorLocalExecucaoServico', 'IndicadorLocalExecucaoServico', 'required|in_list[0 – Executado no País,1 – Executado no Exterior, cujo resultado se verifique no País]');
 		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		
     parent::update($Id);
   }
@@ -105,6 +108,10 @@ class Regsa120efdc extends MY_Controller {
 				<div class='form-group'>
 					<label for='RegA100EFDCId'>Documento - Nota Fiscal de Serviço</label>
 					<input type='number' name='RegA100EFDCId' id='RegA100EFDCId' class='form-control' placeholder='Documento - Nota Fiscal de Serviço' >
+				</div>
+				<div class='form-group'>
+					<label for='UsersId'>Usuário</label>
+					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

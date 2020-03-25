@@ -7,6 +7,7 @@ class Regs0145efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0145efdc';
     $this->nameId = 'Id';
+    $this->usersId = '';
   }
 
   public function get($Id = '', $date = ''){
@@ -14,8 +15,7 @@ class Regs0145efdc extends MY_Controller {
   }
   
   public function setDefaultValue(){
-    $_POST['Reg'] = !isset($_POST['Reg']) ? '0145' : $_POST['Reg'];
-		
+    
   }
 
   public function create(){
@@ -44,3 +44,48 @@ class Regs0145efdc extends MY_Controller {
     parent::delete($Id);
   }
 }
+
+/*
+	<div class='card-body'>
+		<form>
+			<fieldset>
+				<legend>Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta</legend>
+				<div class='form-group'>
+					<label for='Id'>Identificador</label>
+					<input type='hidden' name='Id' id='Id'>
+				</div>
+				<div class='form-group'>
+					<label for='Reg'>Registro</label>
+					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+				</div>
+				<div class='form-group'>
+					<label for='CodIncTrib'>Código Incidência Tributária</label>
+					<input type='number' name='CodIncTrib' id='CodIncTrib' class='form-control' placeholder='Código Incidência Tributária' required>
+				</div>
+				<div class='form-group'>
+					<label for='VlRecTot'>Valor da Receita Bruta Total</label>
+					<input type='' name='VlRecTot' id='VlRecTot' class='form-control' placeholder='Valor da Receita Bruta Total' required>
+				</div>
+				<div class='form-group'>
+					<label for='VlRecAtiv'>Valor da Receita Bruta da Atividade</label>
+					<input type='' name='VlRecAtiv' id='VlRecAtiv' class='form-control' placeholder='Valor da Receita Bruta da Atividade' required>
+				</div>
+				<div class='form-group'>
+					<label for='VlRecDemaisAtiv'>Valor da Receita Bruta das demais Atividade</label>
+					<input type='' name='VlRecDemaisAtiv' id='VlRecDemaisAtiv' class='form-control' placeholder='Valor da Receita Bruta das demais Atividade' required>
+				</div>
+				<div class='form-group'>
+					<label for='InfoCompl'>Informação complementar</label>
+					<input type='text' name='InfoCompl' id='InfoCompl' class='form-control' placeholder='Informação complementar' >
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-primary' type='submit'>Salvar</button>
+				</div>
+				<div class='form-actions'>
+					<button class='btn btn-secondary' type='submit'>Cancelar</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+*/
+

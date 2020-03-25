@@ -6,6 +6,7 @@ abstract class MY_Controller extends API_Controller {
   
   protected $table;
   protected $nameId;
+  protected $usersId = "";
 
   public function  __construct() {
     parent::__construct();
@@ -14,18 +15,18 @@ abstract class MY_Controller extends API_Controller {
   }
 
   protected function get($Id = "", $date = ""){
-    $where = "";
-    $where.= !empty($Id) || $Id > 0 ? " {$this->table}.{$this->nameId} = {$Id} and" : "";
-    $where.= !empty($date) ? "{$date} between DtIni and IF(ISNULL(DtFin),SYSDATE(),DtFin) and" : "";
-    $where = !empty($where) ? substr($where, 0, -3) : "";
-
 		$user_data = $this->_apiConfig([
 			"methods" => ["GET"],
 			"requireAuthorization" => true,
 		]);
 
-    $data = $this->api->get($this->table, $where);
+    $where = "";
+    $where.= !empty($Id) || $Id > 0 ? " {$this->table}.{$this->nameId} = {$Id} and " : "";
+    $where.= !empty($date) ? "{$date} between DtIni and IF(ISNULL(DtFin),SYSDATE(),DtFin) and " : "";
+    $where.= !empty($this->usersId) ? "{$this->usersId} = " . $user_data["token_data"]["Id"] . " and ": "";
+    $where = !empty($where) ? substr($where, 0, -4) : "";
 
+    $data = $this->api->get($this->table, $where);
 		$this->api_return(
 			["status" => "TRUE", "data" => $data],
 			200
@@ -37,6 +38,12 @@ abstract class MY_Controller extends API_Controller {
       "methods" => ["POST"],
       "requireAuthorization" => true,
     ]);
+
+
+
+    if (!empty($this->usersId)){
+      $_POST[$this->usersId] = $user_data["token_data"]["Id"];
+    }
 
     $this->setDefaultValue();
   	
@@ -75,6 +82,10 @@ abstract class MY_Controller extends API_Controller {
 
     } else {
 
+      if (!empty($this->usersId)){
+        $_POST[$this->usersId] = $user_data["token_data"]["Id"];
+      }
+
       if ($this->form_validation->run() == TRUE){
 
         $this->api->update($this->table, $_POST, [$this->nameId => $Id]);
@@ -109,7 +120,12 @@ abstract class MY_Controller extends API_Controller {
 
     } else {
     
-      $this->api->delete($this->table, [$this->nameId => $Id]);
+      $where[$this->nameId] = $Id;
+      if (!empty($this->usersId)){
+        $where[$this->usersId] = $user_data["token_data"]["Id"];
+      }
+
+      $this->api->delete($this->table, $where);
 
       $this->api_return(
         ["status" => "FALSE", "data" => FALSE],
