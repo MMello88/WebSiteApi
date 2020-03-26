@@ -21,7 +21,7 @@ class Perfisuser extends MY_Controller {
   public function create(){
     $this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		$this->form_validation->set_rules('PerfisId', 'PerfisId', 'required|integer');
-		
+		$this->usersId = '';
     parent::create();
   }
   

@@ -38,6 +38,19 @@ class Menus extends MY_Controller {
   public function delete($Id){
     parent::delete($Id);
   }
+
+  public function getPerfilMenu(){
+    $user_data = $this->_apiConfig([
+      "methods" => ["GET"],
+      "requireAuthorization" => true,
+    ]);
+
+    $data = $this->api->getPerfilMenu($user_data["token_data"]["Id"]);
+    $this->api_return(
+      $data,
+      200
+    );
+  }
 }
 
 /*

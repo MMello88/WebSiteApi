@@ -69,7 +69,7 @@ abstract class MY_Controller extends API_Controller {
 
   protected function update($Id){
     $user_data = $this->_apiConfig([
-      "methods" => ["POST"],
+      "methods" => ["PUT"],
       "requireAuthorization" => true,
     ]);
     
@@ -107,7 +107,7 @@ abstract class MY_Controller extends API_Controller {
 
   protected function delete($Id){
     $user_data = $this->_apiConfig([
-      "methods" => ["GET"],
+      "methods" => ["DELETE"],
       "requireAuthorization" => true,
     ]);
 
@@ -128,7 +128,7 @@ abstract class MY_Controller extends API_Controller {
       $this->api->delete($this->table, $where);
 
       $this->api_return(
-        ["status" => "FALSE", "data" => FALSE],
+        ["status" => "TRUE", "data" => "delete realizado com sucesso"],
         200
       );
     }

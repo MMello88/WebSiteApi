@@ -102,4 +102,30 @@ class Api_model extends CI_Model {
       return ['status' => "FALSE", 'error' => ["Email" => "Tempo limite expirado para recuperar a senha."]];
     }
   }
+
+  public function getPerfilMenu($UsersId){
+    $sql = "SELECT p.*
+              FROM perfisuser pu
+              LEFT JOIN perfis p ON p.Id = pu.PerfisId
+             WHERE pu.UsersId = {$UsersId}
+               AND Ativo = 'True'";
+    $perfis = $this->db->query($sql)->result();
+
+    foreach ($perfis as $key => $perfil) {
+      $sql = "SELECT m.*
+                FROM perfismenu pm
+                LEFT JOIN menus m ON m.Id = pm.MenusId
+               WHERE pm.PerfisId = {$perfil->Id}";
+      $menus = $this->db->query($sql)->result();
+      $perfis[$key]->menus = $menus;
+
+      foreach ($menus as $key1 => $menu) {
+        $sql = "SELECT * FROM submenus WHERE MenusId = {$menu->Id}";
+        $submenus = $this->db->query($sql)->result();
+        $perfis[$key]->menus[$key1]->submenus = $submenus;
+      }
+    }
+
+    return ["status" => "TRUE", "data" => $perfis, "message" => "Montagem do Menu Realizada com Sucesso!"];
+  }
 }
