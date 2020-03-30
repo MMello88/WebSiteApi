@@ -8,6 +8,9 @@ class Perfisuser extends MY_Controller {
     $this->table = 'perfisuser';
     $this->nameId = 'Id';
     $this->usersId = 'UsersId';
+    $this->joins = [
+			['table' => 'perfis', 'condition' => 'perfis.Id = perfisuser.PerfisId', 'type' => 'inner'],
+    ];
   }
 
   public function get($Id = '', $date = ''){

@@ -8,6 +8,10 @@ class Perfismenu extends MY_Controller {
     $this->table = 'perfismenu';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+			['table' => 'menus', 'condition' => 'menus.Id = perfismenu.MenusId', 'type' => 'inner'],
+			['table' => 'perfis', 'condition' => 'perfis.Id = perfismenu.PerfisId', 'type' => 'inner'],
+    ];
   }
 
   public function get($Id = '', $date = ''){

@@ -8,6 +8,10 @@ class Regsa110efdc extends MY_Controller {
     $this->table = 'regsa110efdc';
     $this->nameId = 'Id';
     $this->usersId = 'UsersId';
+    $this->joins = [
+			['table' => 'regs0450efdc', 'condition' => 'regs0450efdc.Id = regsa110efdc.Reg0450EFDCId', 'type' => 'left'],
+			['table' => 'regsa100efdc', 'condition' => 'regsa100efdc.Id = regsa110efdc.RegA100EFDCId', 'type' => 'inner'],
+    ];
   }
 
   public function get($Id = '', $date = ''){

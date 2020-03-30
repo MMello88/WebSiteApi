@@ -8,6 +8,10 @@ class Pessoasjuridica extends MY_Controller {
     $this->table = 'pessoasjuridica';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+			['table' => 'municipios', 'condition' => 'municipios.Id = pessoasjuridica.MunicipioId', 'type' => 'inner'],
+			['table' => 'pessoasfisica', 'condition' => 'pessoasfisica.Id = pessoasjuridica.PessoaFisicaId', 'type' => 'inner'],
+    ];
   }
 
   public function get($Id = '', $date = ''){

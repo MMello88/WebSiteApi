@@ -8,6 +8,8 @@ class Perfis extends MY_Controller {
     $this->table = 'perfis';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){
@@ -22,6 +24,9 @@ class Perfis extends MY_Controller {
   public function create(){
     $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[250]');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
+		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
+		$this->form_validation->set_rules('tag', 'tag', 'max_length[255]');
+		$this->form_validation->set_rules('Imagem', 'Imagem', 'required');
 		
     parent::create();
   }
@@ -29,6 +34,9 @@ class Perfis extends MY_Controller {
   public function update($Id){
     $this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[250]');
 		$this->form_validation->set_rules('Ativo', 'Ativo', 'required|in_list[True,False]');
+		$this->form_validation->set_rules('Descricao', 'Descricao', 'required|max_length[255]');
+		$this->form_validation->set_rules('tag', 'tag', 'max_length[255]');
+		$this->form_validation->set_rules('Imagem', 'Imagem', 'required');
 		
     parent::update($Id);
   }
@@ -58,6 +66,18 @@ class Perfis extends MY_Controller {
 						<option value='True'> True </option>
 						<option value='False'> False </option>
 					</select>
+				</div>
+				<div class='form-group'>
+					<label for='Descricao'>Descrição</label>
+					<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='Descrição' required>
+				</div>
+				<div class='form-group'>
+					<label for='tag'>Tags do Perfil</label>
+					<input type='text' name='tag' id='tag' class='form-control' placeholder='Tags do Perfil' >
+				</div>
+				<div class='form-group'>
+					<label for='Imagem'>Imagem</label>
+					<input type='' name='Imagem' id='Imagem' class='form-control' placeholder='Imagem' required>
 				</div>
 				<div class='form-actions'>
 					<button class='btn btn-primary' type='submit'>Salvar</button>

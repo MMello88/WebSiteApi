@@ -7,7 +7,9 @@ class Usersgrupo extends MY_Controller {
     parent::__construct();
     $this->table = 'usersgrupo';
     $this->nameId = 'GrupoUserId';
-    $this->usersId = 'UsersId';
+    $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

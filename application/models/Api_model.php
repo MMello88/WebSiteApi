@@ -7,12 +7,21 @@ class Api_model extends CI_Model {
       parent::__construct();
   }
 
-  public function get($table, $where = []){
-    if (!empty($where)){
-      return $this->db->select('*')->from($table)->where($where)->order_by('1')->get()->result();
-    } else {
-      return $this->db->get($table)->result();
+  public function get($table, $where = [], $joins = []){
+    $this->db->select('*');
+    $this->db->from($table);
+
+    if(!empty($joins)){
+      foreach ($joins as $join) {
+        $this->db->join($join["table"], $join["condition"], $join["type"]);
+      }
     }
+
+    if (!empty($where)){
+      $this->db->where($where)->order_by('1');
+    } 
+
+    return $this->db->get()->result();
   }
 
   public function create($table, $data){
@@ -103,29 +112,25 @@ class Api_model extends CI_Model {
     }
   }
 
-  public function getPerfilMenu($UsersId){
-    $sql = "SELECT p.*
-              FROM perfisuser pu
+  public function getPerfilMenu($UsersId, $PerfisId){
+    $sql = "SELECT m.Id, m.Nome, m.Icone, m.url, m.Ativo
+              FROM perfismenu pm
+              LEFT JOIN menus m ON m.Id = pm.MenusId
+              LEFT JOIN perfisuser pu ON pu.PerfisId = pm.PerfisId
               LEFT JOIN perfis p ON p.Id = pu.PerfisId
              WHERE pu.UsersId = {$UsersId}
-               AND Ativo = 'True'";
-    $perfis = $this->db->query($sql)->result();
+               AND pu.PerfisId = {$PerfisId}
+               AND p.Ativo = 'True'
+               AND m.Ativo = 'True'
+             GROUP BY m.Id, m.Nome, m.Icone, m.url, m.Ativo";
+    $menus = $this->db->query($sql)->result();
 
-    foreach ($perfis as $key => $perfil) {
-      $sql = "SELECT m.*
-                FROM perfismenu pm
-                LEFT JOIN menus m ON m.Id = pm.MenusId
-               WHERE pm.PerfisId = {$perfil->Id}";
-      $menus = $this->db->query($sql)->result();
-      $perfis[$key]->menus = $menus;
-
-      foreach ($menus as $key1 => $menu) {
-        $sql = "SELECT * FROM submenus WHERE MenusId = {$menu->Id}";
-        $submenus = $this->db->query($sql)->result();
-        $perfis[$key]->menus[$key1]->submenus = $submenus;
-      }
+    foreach ($menus as $key => $menu) {
+      $sql = "SELECT * FROM submenus WHERE MenusId = {$menu->Id} AND Ativo = 'True'";
+      $submenus = $this->db->query($sql)->result();
+      $menus[$key]->submenus = $submenus;
     }
 
-    return ["status" => "TRUE", "data" => $perfis, "message" => "Montagem do Menu Realizada com Sucesso!"];
+    return ["status" => "TRUE", "data" => $menus, "message" => "Montagem do Menu Realizada com Sucesso!"];
   }
 }

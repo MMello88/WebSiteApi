@@ -8,6 +8,8 @@ class Pessoasfisica extends MY_Controller {
     $this->table = 'pessoasfisica';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

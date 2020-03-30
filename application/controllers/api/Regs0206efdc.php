@@ -8,6 +8,8 @@ class Regs0206efdc extends MY_Controller {
     $this->table = 'regs0206efdc';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

@@ -8,6 +8,9 @@ class Submenus extends MY_Controller {
     $this->table = 'submenus';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+			['table' => 'menus', 'condition' => 'menus.Id = submenus.MenusId', 'type' => 'inner'],
+    ];
   }
 
   public function get($Id = '', $date = ''){

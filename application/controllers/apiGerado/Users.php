@@ -8,6 +8,8 @@ class Users extends MY_Controller {
     $this->table = 'users';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

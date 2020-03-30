@@ -8,6 +8,8 @@ class Menus extends MY_Controller {
     $this->table = 'menus';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

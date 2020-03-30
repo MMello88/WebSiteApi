@@ -8,6 +8,9 @@ class Perfisuser extends MY_Controller {
     $this->table = 'perfisuser';
     $this->nameId = 'Id';
     $this->usersId = 'UsersId';
+    $this->joins = [
+			['table' => 'perfis', 'condition' => 'perfis.Id = perfisuser.PerfisId', 'type' => 'inner'],
+    ];
   }
 
   public function get($Id = '', $date = ''){
@@ -21,7 +24,7 @@ class Perfisuser extends MY_Controller {
   public function create(){
     $this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
 		$this->form_validation->set_rules('PerfisId', 'PerfisId', 'required|integer');
-		$this->usersId = '';
+		
     parent::create();
   }
   

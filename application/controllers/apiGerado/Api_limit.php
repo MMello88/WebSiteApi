@@ -8,6 +8,8 @@ class Api_limit extends MY_Controller {
     $this->table = 'api_limit';
     $this->nameId = 'id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

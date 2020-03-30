@@ -8,6 +8,8 @@ class Menus extends MY_Controller {
     $this->table = 'menus';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){
@@ -37,15 +39,15 @@ class Menus extends MY_Controller {
 
   public function delete($Id){
     parent::delete($Id);
-  }
-
-  public function getPerfilMenu(){
+	}
+	
+  public function getPerfilMenu($PerfisId){
     $user_data = $this->_apiConfig([
       "methods" => ["GET"],
       "requireAuthorization" => true,
     ]);
 
-    $data = $this->api->getPerfilMenu($user_data["token_data"]["Id"]);
+    $data = $this->api->getPerfilMenu($user_data["token_data"]["Id"], $PerfisId);
     $this->api_return(
       $data,
       200

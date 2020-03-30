@@ -8,6 +8,8 @@ class Teste extends MY_Controller {
     $this->table = 'teste';
     $this->nameId = 'Id';
     $this->usersId = 'UsersId';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

@@ -8,6 +8,8 @@ class Ref311 extends MY_Controller {
     $this->table = 'ref311';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

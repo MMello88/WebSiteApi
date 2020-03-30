@@ -8,6 +8,8 @@ class Paises extends MY_Controller {
     $this->table = 'paises';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

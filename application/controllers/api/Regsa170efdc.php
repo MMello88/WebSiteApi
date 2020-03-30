@@ -8,6 +8,15 @@ class Regsa170efdc extends MY_Controller {
     $this->table = 'regsa170efdc';
     $this->nameId = 'Id';
     $this->usersId = 'UsersId';
+    $this->joins = [
+			['table' => 'regs0200efdc', 'condition' => 'regs0200efdc.Id = regsa170efdc.Reg0200EFDCId', 'type' => 'left'],
+			['table' => 'ref431', 'condition' => 'ref431.Id = regsa170efdc.Ref431Id', 'type' => 'left'],
+			['table' => 'ref433', 'condition' => 'ref433.Id = regsa170efdc.Ref433Id', 'type' => 'left'],
+			['table' => 'ref434', 'condition' => 'ref434.Id = regsa170efdc.Ref434Id', 'type' => 'left'],
+			['table' => 'regs0500efdc', 'condition' => 'regs0500efdc.Id = regsa170efdc.Reg0500EFDCId', 'type' => 'left'],
+			['table' => 'regs0600efdc', 'condition' => 'regs0600efdc.Id = regsa170efdc.Reg0600EFDCId', 'type' => 'left'],
+			['table' => 'regsa100efdc', 'condition' => 'regsa100efdc.Id = regsa170efdc.RegA100EFDCId', 'type' => 'left'],
+    ];
   }
 
   public function get($Id = '', $date = ''){

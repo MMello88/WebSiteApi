@@ -8,6 +8,8 @@ class Api_keys extends MY_Controller {
     $this->table = 'api_keys';
     $this->nameId = 'id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

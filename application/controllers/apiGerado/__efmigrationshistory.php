@@ -8,6 +8,8 @@ class __efmigrationshistory extends MY_Controller {
     $this->table = '__efmigrationshistory';
     $this->nameId = 'MigrationId';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

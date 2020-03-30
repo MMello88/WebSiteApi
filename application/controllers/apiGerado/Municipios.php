@@ -8,6 +8,8 @@ class Municipios extends MY_Controller {
     $this->table = 'municipios';
     $this->nameId = 'Id';
     $this->usersId = '';
+    $this->joins = [
+    ];
   }
 
   public function get($Id = '', $date = ''){

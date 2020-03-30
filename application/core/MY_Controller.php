@@ -7,6 +7,7 @@ abstract class MY_Controller extends API_Controller {
   protected $table;
   protected $nameId;
   protected $usersId = "";
+  protected $joins = [];
 
   public function  __construct() {
     parent::__construct();
@@ -22,11 +23,11 @@ abstract class MY_Controller extends API_Controller {
 
     $where = "";
     $where.= !empty($Id) || $Id > 0 ? " {$this->table}.{$this->nameId} = {$Id} and " : "";
-    $where.= !empty($date) ? "{$date} between DtIni and IF(ISNULL(DtFin),SYSDATE(),DtFin) and " : "";
-    $where.= !empty($this->usersId) ? "{$this->usersId} = " . $user_data["token_data"]["Id"] . " and ": "";
+    $where.= !empty($date) ? "{$date} between {$this->table}.DtIni and IF(ISNULL({$this->table}.DtFin),SYSDATE(),DtFin) and " : "";
+    $where.= !empty($this->usersId) ? "{$this->table}.{$this->usersId} = " . $user_data["token_data"]["Id"] . " and ": "";
     $where = !empty($where) ? substr($where, 0, -4) : "";
 
-    $data = $this->api->get($this->table, $where);
+    $data = $this->api->get($this->table, $where, $this->joins);
 		$this->api_return(
 			["status" => "TRUE", "data" => $data],
 			200
