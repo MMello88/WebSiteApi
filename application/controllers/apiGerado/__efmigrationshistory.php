@@ -38,26 +38,32 @@ class __efmigrationshistory extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>histórico</legend>
-				<div class='form-group'>
-					<label for='MigrationId'></label>
-					<input type='hidden' name='MigrationId' id='MigrationId'>
+	<header class='page-title-bar'>
+		<legend>histórico</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('__efmigrationshistory/')) ?>
+						<fieldset>
+							<input type='hidden' name='MigrationId' id='MigrationId'>
+							<div class='form-group'>
+								<label for='ProductVersion'></label>
+								<input type='text' name='ProductVersion' id='ProductVersion' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->ProductVersion) ? $response->error->ProductVersion : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='ProductVersion'></label>
-					<input type='text' name='ProductVersion' id='ProductVersion' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

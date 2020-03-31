@@ -47,47 +47,62 @@ class Regsa111efdc extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Processo Referenciado</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Processo Referenciado</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('regsa111efdc/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Reg'>Registro</label>
+								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg) ? $response->error->Reg : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='NumProcesso'>Número do Processo</label>
+								<input type='text' name='NumProcesso' id='NumProcesso' class='form-control' placeholder='Número do Processo' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->NumProcesso) ? $response->error->NumProcesso : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='IndicadorOrigemProcesso'>Origem do Processo</label>
+								<select name='IndicadorOrigemProcesso' id='IndicadorOrigemProcesso' class='custom-select' placeholder='Origem do Processo' required>
+									<option value=''> Selecione </option>
+									<option value='1 - Justiça Federal'> 1 - Justiça Federal </option>
+									<option value='3 – Secretaria da Receita Federal do Brasil'> 3 – Secretaria da Receita Federal do Brasil </option>
+									<option value='9 - Outros'> 9 - Outros </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='RegA100EFDCId'>Documento - Nota Fiscal de Serviço</label>
+								<input type='number' name='RegA100EFDCId' id='RegA100EFDCId' class='form-control' placeholder='Documento - Nota Fiscal de Serviço' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RegA100EFDCId) ? $response->error->RegA100EFDCId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='UsersId'>Usuário</label>
+								<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->UsersId) ? $response->error->UsersId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-				</div>
-				<div class='form-group'>
-					<label for='NumProcesso'>Número do Processo</label>
-					<input type='text' name='NumProcesso' id='NumProcesso' class='form-control' placeholder='Número do Processo' required>
-				</div>
-				<div class='form-group'>
-					<label for='IndicadorOrigemProcesso'>Origem do Processo</label>
-					<select name='IndicadorOrigemProcesso' id='IndicadorOrigemProcesso' class='custom-select' placeholder='Origem do Processo' required>
-						<option value=''> Selecione </option>
-						<option value='1 - Justiça Federal'> 1 - Justiça Federal </option>
-						<option value='3 – Secretaria da Receita Federal do Brasil'> 3 – Secretaria da Receita Federal do Brasil </option>
-						<option value='9 - Outros'> 9 - Outros </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='RegA100EFDCId'>Documento - Nota Fiscal de Serviço</label>
-					<input type='number' name='RegA100EFDCId' id='RegA100EFDCId' class='form-control' placeholder='Documento - Nota Fiscal de Serviço' >
-				</div>
-				<div class='form-group'>
-					<label for='UsersId'>Usuário</label>
-					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

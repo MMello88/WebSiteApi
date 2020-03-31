@@ -44,53 +44,65 @@ class Regs0208efdc extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Grupos por Marca Comercial – Refri</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Grupos por Marca Comercial – Refri</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('regs0208efdc/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Reg'>Registro</label>
+								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg) ? $response->error->Reg : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='CodTabIncidencia'>Código Tabela de Incidência</label>
+								<select name='CodTabIncidencia' id='CodTabIncidencia' class='custom-select' placeholder='Código Tabela de Incidência' required>
+									<option value=''> Selecione </option>
+									<option value='01 – Tabela I'> 01 – Tabela I </option>
+									<option value='02 – Tabela II'> 02 – Tabela II </option>
+									<option value='03 – Tabela III'> 03 – Tabela III </option>
+									<option value='04 – Tabela IV'> 04 – Tabela IV </option>
+									<option value='05 – Tabela V'> 05 – Tabela V </option>
+									<option value='06 – Tabela VI'> 06 – Tabela VI </option>
+									<option value='07 – Tabela VII'> 07 – Tabela VII </option>
+									<option value='08– Tabela VIII'> 08– Tabela VIII </option>
+									<option value='09 – Tabela IX'> 09 – Tabela IX </option>
+									<option value='10 – Tabela X'> 10 – Tabela X </option>
+									<option value='11 – Tabela XI'> 11 – Tabela XI </option>
+									<option value='12 – Tabela XII'> 12 – Tabela XII </option>
+									<option value='13 – Tabela XIII'> 13 – Tabela XIII </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='CodGrupo'>Código Grupo</label>
+								<input type='text' name='CodGrupo' id='CodGrupo' class='form-control' placeholder='Código Grupo' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CodGrupo) ? $response->error->CodGrupo : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='MarcaComercial'>Marca Comercial</label>
+								<input type='text' name='MarcaComercial' id='MarcaComercial' class='form-control' placeholder='Marca Comercial' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->MarcaComercial) ? $response->error->MarcaComercial : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-				</div>
-				<div class='form-group'>
-					<label for='CodTabIncidencia'>Código Tabela de Incidência</label>
-					<select name='CodTabIncidencia' id='CodTabIncidencia' class='custom-select' placeholder='Código Tabela de Incidência' required>
-						<option value=''> Selecione </option>
-						<option value='01 – Tabela I'> 01 – Tabela I </option>
-						<option value='02 – Tabela II'> 02 – Tabela II </option>
-						<option value='03 – Tabela III'> 03 – Tabela III </option>
-						<option value='04 – Tabela IV'> 04 – Tabela IV </option>
-						<option value='05 – Tabela V'> 05 – Tabela V </option>
-						<option value='06 – Tabela VI'> 06 – Tabela VI </option>
-						<option value='07 – Tabela VII'> 07 – Tabela VII </option>
-						<option value='08– Tabela VIII'> 08– Tabela VIII </option>
-						<option value='09 – Tabela IX'> 09 – Tabela IX </option>
-						<option value='10 – Tabela X'> 10 – Tabela X </option>
-						<option value='11 – Tabela XI'> 11 – Tabela XI </option>
-						<option value='12 – Tabela XII'> 12 – Tabela XII </option>
-						<option value='13 – Tabela XIII'> 13 – Tabela XIII </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='CodGrupo'>Código Grupo</label>
-					<input type='text' name='CodGrupo' id='CodGrupo' class='form-control' placeholder='Código Grupo' required>
-				</div>
-				<div class='form-group'>
-					<label for='MarcaComercial'>Marca Comercial</label>
-					<input type='text' name='MarcaComercial' id='MarcaComercial' class='form-control' placeholder='Marca Comercial' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

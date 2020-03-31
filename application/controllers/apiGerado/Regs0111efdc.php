@@ -48,46 +48,67 @@ class Regs0111efdc extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Tabela de Receita Bruta Mensal Para Fins de Rateio de Créditos Comuns</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Tabela de Receita Bruta Mensal Para Fins de Rateio de Créditos Comuns</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('regs0111efdc/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Reg'>Registro</label>
+								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg) ? $response->error->Reg : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='RecBruNCumTribMI'>Tributada</label>
+								<input type='number' name='RecBruNCumTribMI' id='RecBruNCumTribMI' class='form-control' placeholder='Tributada' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCumTribMI) ? $response->error->RecBruNCumTribMI : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='RecBruNCumNaoTribMI'>Não Tributada</label>
+								<input type='number' name='RecBruNCumNaoTribMI' id='RecBruNCumNaoTribMI' class='form-control' placeholder='Não Tributada' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCumNaoTribMI) ? $response->error->RecBruNCumNaoTribMI : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='RecBruNCumExp'>Exportação</label>
+								<input type='number' name='RecBruNCumExp' id='RecBruNCumExp' class='form-control' placeholder='Exportação' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCumExp) ? $response->error->RecBruNCumExp : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='RecBruNCum'>Receita Bruta Cumulativa</label>
+								<input type='number' name='RecBruNCum' id='RecBruNCum' class='form-control' placeholder='Receita Bruta Cumulativa' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCum) ? $response->error->RecBruNCum : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='RecBruNCumTotal'>Receita Bruta Total</label>
+								<input type='number' name='RecBruNCumTotal' id='RecBruNCumTotal' class='form-control' placeholder='Receita Bruta Total' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCumTotal) ? $response->error->RecBruNCumTotal : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-				</div>
-				<div class='form-group'>
-					<label for='RecBruNCumTribMI'>Tributada</label>
-					<input type='number' name='RecBruNCumTribMI' id='RecBruNCumTribMI' class='form-control' placeholder='Tributada' required>
-				</div>
-				<div class='form-group'>
-					<label for='RecBruNCumNaoTribMI'>Não Tributada</label>
-					<input type='number' name='RecBruNCumNaoTribMI' id='RecBruNCumNaoTribMI' class='form-control' placeholder='Não Tributada' required>
-				</div>
-				<div class='form-group'>
-					<label for='RecBruNCumExp'>Exportação</label>
-					<input type='number' name='RecBruNCumExp' id='RecBruNCumExp' class='form-control' placeholder='Exportação' required>
-				</div>
-				<div class='form-group'>
-					<label for='RecBruNCum'>Receita Bruta Cumulativa</label>
-					<input type='number' name='RecBruNCum' id='RecBruNCum' class='form-control' placeholder='Receita Bruta Cumulativa' required>
-				</div>
-				<div class='form-group'>
-					<label for='RecBruNCumTotal'>Receita Bruta Total</label>
-					<input type='number' name='RecBruNCumTotal' id='RecBruNCumTotal' class='form-control' placeholder='Receita Bruta Total' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

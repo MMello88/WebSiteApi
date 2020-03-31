@@ -46,42 +46,60 @@ class Api_limit extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Limit</legend>
-				<div class='form-group'>
-					<label for='id'>Identificador</label>
-					<input type='hidden' name='id' id='id'>
+	<header class='page-title-bar'>
+		<legend>Limit</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('api_limit/')) ?>
+						<fieldset>
+							<input type='hidden' name='id' id='id'>
+							<div class='form-group'>
+								<label for='uri'></label>
+								<input type='text' name='uri' id='uri' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->uri) ? $response->error->uri : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='class'></label>
+								<input type='text' name='class' id='class' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->class) ? $response->error->class : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='method'></label>
+								<input type='text' name='method' id='method' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->method) ? $response->error->method : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='ip_address'></label>
+								<input type='text' name='ip_address' id='ip_address' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->ip_address) ? $response->error->ip_address : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='time'></label>
+								<input type='' name='time' id='time' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->time) ? $response->error->time : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='uri'></label>
-					<input type='text' name='uri' id='uri' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-group'>
-					<label for='class'></label>
-					<input type='text' name='class' id='class' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-group'>
-					<label for='method'></label>
-					<input type='text' name='method' id='method' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-group'>
-					<label for='ip_address'></label>
-					<input type='text' name='ip_address' id='ip_address' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-group'>
-					<label for='time'></label>
-					<input type='' name='time' id='time' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

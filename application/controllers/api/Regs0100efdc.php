@@ -74,94 +74,97 @@ class Regs0100efdc extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Dados do Contabilista</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Dados do Contabilista</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('regs0100efdc/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Reg'>Registro</label>
+								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+							</div>
+							<div class='form-group'>
+								<label for='Nome'>Nome</label>
+								<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
+							</div>
+							<div class='form-group'>
+								<label for='CPF'>CPF</label>
+								<input type='number' name='CPF' id='CPF' class='form-control' placeholder='CPF' required>
+							</div>
+							<div class='form-group'>
+								<label for='CRC'>CRC</label>
+								<input type='text' name='CRC' id='CRC' class='form-control' placeholder='CRC' required>
+							</div>
+							<div class='form-group'>
+								<label for='CNPJ'>CNPJ</label>
+								<input type='number' name='CNPJ' id='CNPJ' class='form-control' placeholder='CNPJ' required>
+							</div>
+							<div class='form-group'>
+								<label for='CEP'>CEP</label>
+								<input type='number' name='CEP' id='CEP' class='form-control' placeholder='CEP' required>
+							</div>
+							<div class='form-group'>
+								<label for='End'>Endereço</label>
+								<input type='text' name='End' id='End' class='form-control' placeholder='Endereço' >
+							</div>
+							<div class='form-group'>
+								<label for='Num'>Número</label>
+								<input type='text' name='Num' id='Num' class='form-control' placeholder='Número' >
+							</div>
+							<div class='form-group'>
+								<label for='Compl'>Complemento</label>
+								<input type='text' name='Compl' id='Compl' class='form-control' placeholder='Complemento' >
+							</div>
+							<div class='form-group'>
+								<label for='Bairro'>Bairro</label>
+								<input type='text' name='Bairro' id='Bairro' class='form-control' placeholder='Bairro' >
+							</div>
+							<div class='form-group'>
+								<label for='Fone'>Fone</label>
+								<input type='text' name='Fone' id='Fone' class='form-control' placeholder='Fone' >
+							</div>
+							<div class='form-group'>
+								<label for='Fax'>Fax</label>
+								<input type='text' name='Fax' id='Fax' class='form-control' placeholder='Fax' >
+							</div>
+							<div class='form-group'>
+								<label for='Email'>E-mail</label>
+								<input type='text' name='Email' id='Email' class='form-control' placeholder='E-mail' >
+							</div>
+							<div class='form-group'>
+								<label for='MunicipioId'>Municipio</label>
+								<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='Municipio' required>
+							</div>
+							<div class='form-group'>
+								<label for='DtIni'>Data Inicial</label>
+								<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
+							</div>
+							<div class='form-group'>
+								<label for='DtFin'>Data Final</label>
+								<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
+							</div>
+							<div class='form-group'>
+								<label for='PessoaJuridicaId'>Pessoa Juridica</label>
+								<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
+							</div>
+							<div class='form-group'>
+								<label for='UsersId'>Usuário</label>
+								<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-				</div>
-				<div class='form-group'>
-					<label for='Nome'>Nome</label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
-				</div>
-				<div class='form-group'>
-					<label for='CPF'>CPF</label>
-					<input type='number' name='CPF' id='CPF' class='form-control' placeholder='CPF' required>
-				</div>
-				<div class='form-group'>
-					<label for='CRC'>CRC</label>
-					<input type='text' name='CRC' id='CRC' class='form-control' placeholder='CRC' required>
-				</div>
-				<div class='form-group'>
-					<label for='CNPJ'>CNPJ</label>
-					<input type='number' name='CNPJ' id='CNPJ' class='form-control' placeholder='CNPJ' required>
-				</div>
-				<div class='form-group'>
-					<label for='CEP'>CEP</label>
-					<input type='number' name='CEP' id='CEP' class='form-control' placeholder='CEP' required>
-				</div>
-				<div class='form-group'>
-					<label for='End'>Endereço</label>
-					<input type='text' name='End' id='End' class='form-control' placeholder='Endereço' >
-				</div>
-				<div class='form-group'>
-					<label for='Num'>Número</label>
-					<input type='text' name='Num' id='Num' class='form-control' placeholder='Número' >
-				</div>
-				<div class='form-group'>
-					<label for='Compl'>Complemento</label>
-					<input type='text' name='Compl' id='Compl' class='form-control' placeholder='Complemento' >
-				</div>
-				<div class='form-group'>
-					<label for='Bairro'>Bairro</label>
-					<input type='text' name='Bairro' id='Bairro' class='form-control' placeholder='Bairro' >
-				</div>
-				<div class='form-group'>
-					<label for='Fone'>Fone</label>
-					<input type='text' name='Fone' id='Fone' class='form-control' placeholder='Fone' >
-				</div>
-				<div class='form-group'>
-					<label for='Fax'>Fax</label>
-					<input type='text' name='Fax' id='Fax' class='form-control' placeholder='Fax' >
-				</div>
-				<div class='form-group'>
-					<label for='Email'>E-mail</label>
-					<input type='text' name='Email' id='Email' class='form-control' placeholder='E-mail' >
-				</div>
-				<div class='form-group'>
-					<label for='MunicipioId'>Municipio</label>
-					<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='Municipio' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
-				</div>
-				<div class='form-group'>
-					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
-					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
-				</div>
-				<div class='form-group'>
-					<label for='UsersId'>Usuário</label>
-					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

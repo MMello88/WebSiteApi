@@ -55,64 +55,91 @@ class Teste extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Tabela de Teste</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Tabela de Teste</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('teste/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Nome'>Nome</label>
+								<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Nome) ? $response->error->Nome : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Valor'></label>
+								<input type='number' name='Valor' id='Valor' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Valor) ? $response->error->Valor : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Desconto'></label>
+								<input type='' name='Desconto' id='Desconto' class='form-control' placeholder='' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Desconto) ? $response->error->Desconto : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Total'></label>
+								<input type='' name='Total' id='Total' class='form-control' placeholder='' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Total) ? $response->error->Total : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='VlIcms'></label>
+								<input type='' name='VlIcms' id='VlIcms' class='form-control' placeholder='' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->VlIcms) ? $response->error->VlIcms : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Periodo'></label>
+								<input type='datetime-local' name='Periodo' id='Periodo' class='form-control' placeholder='' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Periodo) ? $response->error->Periodo : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Tipo'></label>
+								<select name='Tipo' id='Tipo' class='custom-select' placeholder='' >
+									<option value=''> Selecione </option>
+									<option value='masculino'> masculino </option>
+									<option value='feminino'> feminino </option>
+									<option value='trans'> trans </option>
+									<option value='gay'> gay </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='Ativo'>Ativo</label>
+								<input type='' name='Ativo' id='Ativo' class='form-control' placeholder='Ativo' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Ativo) ? $response->error->Ativo : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='UsersId'>Usuário</label>
+								<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->UsersId) ? $response->error->UsersId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Nome'>Nome</label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
-				</div>
-				<div class='form-group'>
-					<label for='Valor'></label>
-					<input type='number' name='Valor' id='Valor' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-group'>
-					<label for='Desconto'></label>
-					<input type='' name='Desconto' id='Desconto' class='form-control' placeholder='' >
-				</div>
-				<div class='form-group'>
-					<label for='Total'></label>
-					<input type='' name='Total' id='Total' class='form-control' placeholder='' >
-				</div>
-				<div class='form-group'>
-					<label for='VlIcms'></label>
-					<input type='' name='VlIcms' id='VlIcms' class='form-control' placeholder='' >
-				</div>
-				<div class='form-group'>
-					<label for='Periodo'></label>
-					<input type='datetime-local' name='Periodo' id='Periodo' class='form-control' placeholder='' >
-				</div>
-				<div class='form-group'>
-					<label for='Tipo'></label>
-					<select name='Tipo' id='Tipo' class='custom-select' placeholder='' >
-						<option value=''> Selecione </option>
-						<option value='masculino'> masculino </option>
-						<option value='feminino'> feminino </option>
-						<option value='trans'> trans </option>
-						<option value='gay'> gay </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='Ativo'>Ativo</label>
-					<input type='' name='Ativo' id='Ativo' class='form-control' placeholder='Ativo' >
-				</div>
-				<div class='form-group'>
-					<label for='UsersId'>Usuário</label>
-					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

@@ -47,46 +47,61 @@ class Perfis extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Perfil</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Perfil</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('perfis/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Nome'>Nome do Perfil</label>
+								<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome do Perfil' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Nome) ? $response->error->Nome : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Ativo'>Ativo</label>
+								<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
+									<option value=''> Selecione </option>
+									<option value='True'> True </option>
+									<option value='False'> False </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='Descricao'>Descrição</label>
+								<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='Descrição' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Descricao) ? $response->error->Descricao : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='tag'>Tags do Perfil</label>
+								<input type='text' name='tag' id='tag' class='form-control' placeholder='Tags do Perfil' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->tag) ? $response->error->tag : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Imagem'>Imagem</label>
+								<input type='' name='Imagem' id='Imagem' class='form-control' placeholder='Imagem' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Imagem) ? $response->error->Imagem : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Nome'>Nome do Perfil</label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome do Perfil' required>
-				</div>
-				<div class='form-group'>
-					<label for='Ativo'>Ativo</label>
-					<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
-						<option value=''> Selecione </option>
-						<option value='True'> True </option>
-						<option value='False'> False </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='Descricao'>Descrição</label>
-					<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='Descrição' required>
-				</div>
-				<div class='form-group'>
-					<label for='tag'>Tags do Perfil</label>
-					<input type='text' name='tag' id='tag' class='form-control' placeholder='Tags do Perfil' >
-				</div>
-				<div class='form-group'>
-					<label for='Imagem'>Imagem</label>
-					<input type='' name='Imagem' id='Imagem' class='form-control' placeholder='Imagem' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

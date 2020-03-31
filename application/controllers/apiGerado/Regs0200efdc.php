@@ -79,112 +79,169 @@ class Regs0200efdc extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Identificação do Item (Produtos e Serviços)</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Identificação do Item (Produtos e Serviços)</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('regs0200efdc/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Reg'>Registro</label>
+								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg) ? $response->error->Reg : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='CodItem'>Código do Item</label>
+								<input type='text' name='CodItem' id='CodItem' class='form-control' placeholder='Código do Item' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CodItem) ? $response->error->CodItem : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='DescricaoItem'>Descrição</label>
+								<input type='text' name='DescricaoItem' id='DescricaoItem' class='form-control' placeholder='Descrição' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DescricaoItem) ? $response->error->DescricaoItem : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='CodBarra'>Código de Barra</label>
+								<input type='text' name='CodBarra' id='CodBarra' class='form-control' placeholder='Código de Barra' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CodBarra) ? $response->error->CodBarra : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='CodAntItem'>Código Anterior do Item</label>
+								<input type='text' name='CodAntItem' id='CodAntItem' class='form-control' placeholder='Código Anterior do Item' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CodAntItem) ? $response->error->CodAntItem : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Reg0190EFDCId'>Unidades de Medida</label>
+								<input type='number' name='Reg0190EFDCId' id='Reg0190EFDCId' class='form-control' placeholder='Unidades de Medida' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg0190EFDCId) ? $response->error->Reg0190EFDCId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='TipoItem'>Tipo do item</label>
+								<select name='TipoItem' id='TipoItem' class='custom-select' placeholder='Tipo do item' required>
+									<option value=''> Selecione </option>
+									<option value='00 – Mercadoria para Revenda'> 00 – Mercadoria para Revenda </option>
+									<option value='01 – Matéria-Prima'> 01 – Matéria-Prima </option>
+									<option value='02 – Embalagem'> 02 – Embalagem </option>
+									<option value='03 – Produto em Processo'> 03 – Produto em Processo </option>
+									<option value='04 – Produto Acabado'> 04 – Produto Acabado </option>
+									<option value='05 – Subproduto'> 05 – Subproduto </option>
+									<option value='06 – Produto Intermediário'> 06 – Produto Intermediário </option>
+									<option value='07 – Material de Uso e Consumo'> 07 – Material de Uso e Consumo </option>
+									<option value='08 – Ativo Imobilizado'> 08 – Ativo Imobilizado </option>
+									<option value='09 – Serviços'> 09 – Serviços </option>
+									<option value='10 – Outros insumos'> 10 – Outros insumos </option>
+									<option value='99 – Outras'> 99 – Outras </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='CodNcm'>NCM</label>
+								<input type='text' name='CodNcm' id='CodNcm' class='form-control' placeholder='NCM' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CodNcm) ? $response->error->CodNcm : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='ExIpi'>Código EX TIPI</label>
+								<input type='text' name='ExIpi' id='ExIpi' class='form-control' placeholder='Código EX TIPI' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->ExIpi) ? $response->error->ExIpi : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='CodGen'>Código Gênero Item</label>
+								<input type='number' name='CodGen' id='CodGen' class='form-control' placeholder='Código Gênero Item' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CodGen) ? $response->error->CodGen : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='CodLst'>Código do Serviço</label>
+								<input type='number' name='CodLst' id='CodLst' class='form-control' placeholder='Código do Serviço' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CodLst) ? $response->error->CodLst : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='AliqIcms'>Alíquota de ICMS</label>
+								<input type='' name='AliqIcms' id='AliqIcms' class='form-control' placeholder='Alíquota de ICMS' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->AliqIcms) ? $response->error->AliqIcms : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='DtIni'>Data Inicial</label>
+								<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DtIni) ? $response->error->DtIni : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='DtFin'>Data Final</label>
+								<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DtFin) ? $response->error->DtFin : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='PessoaJuridicaId'>Pessoa Juridica</label>
+								<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->PessoaJuridicaId) ? $response->error->PessoaJuridicaId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='UsersId'>Usuário</label>
+								<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->UsersId) ? $response->error->UsersId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Reg0205EFDCId'>Alteração do Item</label>
+								<input type='number' name='Reg0205EFDCId' id='Reg0205EFDCId' class='form-control' placeholder='Alteração do Item' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg0205EFDCId) ? $response->error->Reg0205EFDCId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Reg0206EFDCId'>Código de Produto Conforme Tabela ANP</label>
+								<input type='number' name='Reg0206EFDCId' id='Reg0206EFDCId' class='form-control' placeholder='Código de Produto Conforme Tabela ANP' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg0206EFDCId) ? $response->error->Reg0206EFDCId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Reg020EFDCId'>Código de Grupos por Marca Comercial</label>
+								<input type='number' name='Reg020EFDCId' id='Reg020EFDCId' class='form-control' placeholder='Código de Grupos por Marca Comercial' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg020EFDCId) ? $response->error->Reg020EFDCId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-				</div>
-				<div class='form-group'>
-					<label for='CodItem'>Código do Item</label>
-					<input type='text' name='CodItem' id='CodItem' class='form-control' placeholder='Código do Item' required>
-				</div>
-				<div class='form-group'>
-					<label for='DescricaoItem'>Descrição</label>
-					<input type='text' name='DescricaoItem' id='DescricaoItem' class='form-control' placeholder='Descrição' required>
-				</div>
-				<div class='form-group'>
-					<label for='CodBarra'>Código de Barra</label>
-					<input type='text' name='CodBarra' id='CodBarra' class='form-control' placeholder='Código de Barra' >
-				</div>
-				<div class='form-group'>
-					<label for='CodAntItem'>Código Anterior do Item</label>
-					<input type='text' name='CodAntItem' id='CodAntItem' class='form-control' placeholder='Código Anterior do Item' >
-				</div>
-				<div class='form-group'>
-					<label for='Reg0190EFDCId'>Unidades de Medida</label>
-					<input type='number' name='Reg0190EFDCId' id='Reg0190EFDCId' class='form-control' placeholder='Unidades de Medida' >
-				</div>
-				<div class='form-group'>
-					<label for='TipoItem'>Tipo do item</label>
-					<select name='TipoItem' id='TipoItem' class='custom-select' placeholder='Tipo do item' required>
-						<option value=''> Selecione </option>
-						<option value='00 – Mercadoria para Revenda'> 00 – Mercadoria para Revenda </option>
-						<option value='01 – Matéria-Prima'> 01 – Matéria-Prima </option>
-						<option value='02 – Embalagem'> 02 – Embalagem </option>
-						<option value='03 – Produto em Processo'> 03 – Produto em Processo </option>
-						<option value='04 – Produto Acabado'> 04 – Produto Acabado </option>
-						<option value='05 – Subproduto'> 05 – Subproduto </option>
-						<option value='06 – Produto Intermediário'> 06 – Produto Intermediário </option>
-						<option value='07 – Material de Uso e Consumo'> 07 – Material de Uso e Consumo </option>
-						<option value='08 – Ativo Imobilizado'> 08 – Ativo Imobilizado </option>
-						<option value='09 – Serviços'> 09 – Serviços </option>
-						<option value='10 – Outros insumos'> 10 – Outros insumos </option>
-						<option value='99 – Outras'> 99 – Outras </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='CodNcm'>NCM</label>
-					<input type='text' name='CodNcm' id='CodNcm' class='form-control' placeholder='NCM' >
-				</div>
-				<div class='form-group'>
-					<label for='ExIpi'>Código EX TIPI</label>
-					<input type='text' name='ExIpi' id='ExIpi' class='form-control' placeholder='Código EX TIPI' >
-				</div>
-				<div class='form-group'>
-					<label for='CodGen'>Código Gênero Item</label>
-					<input type='number' name='CodGen' id='CodGen' class='form-control' placeholder='Código Gênero Item' required>
-				</div>
-				<div class='form-group'>
-					<label for='CodLst'>Código do Serviço</label>
-					<input type='number' name='CodLst' id='CodLst' class='form-control' placeholder='Código do Serviço' required>
-				</div>
-				<div class='form-group'>
-					<label for='AliqIcms'>Alíquota de ICMS</label>
-					<input type='' name='AliqIcms' id='AliqIcms' class='form-control' placeholder='Alíquota de ICMS' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
-				</div>
-				<div class='form-group'>
-					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
-					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
-				</div>
-				<div class='form-group'>
-					<label for='UsersId'>Usuário</label>
-					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
-				</div>
-				<div class='form-group'>
-					<label for='Reg0205EFDCId'>Alteração do Item</label>
-					<input type='number' name='Reg0205EFDCId' id='Reg0205EFDCId' class='form-control' placeholder='Alteração do Item' >
-				</div>
-				<div class='form-group'>
-					<label for='Reg0206EFDCId'>Código de Produto Conforme Tabela ANP</label>
-					<input type='number' name='Reg0206EFDCId' id='Reg0206EFDCId' class='form-control' placeholder='Código de Produto Conforme Tabela ANP' >
-				</div>
-				<div class='form-group'>
-					<label for='Reg020EFDCId'>Código de Grupos por Marca Comercial</label>
-					<input type='number' name='Reg020EFDCId' id='Reg020EFDCId' class='form-control' placeholder='Código de Grupos por Marca Comercial' >
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

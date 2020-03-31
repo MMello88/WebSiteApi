@@ -44,38 +44,53 @@ class Api_keys extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Key</legend>
-				<div class='form-group'>
-					<label for='id'>Identificador</label>
-					<input type='hidden' name='id' id='id'>
+	<header class='page-title-bar'>
+		<legend>Key</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('api_keys/')) ?>
+						<fieldset>
+							<input type='hidden' name='id' id='id'>
+							<div class='form-group'>
+								<label for='api_key'></label>
+								<input type='text' name='api_key' id='api_key' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->api_key) ? $response->error->api_key : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='controller'></label>
+								<input type='text' name='controller' id='controller' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->controller) ? $response->error->controller : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='date_created'></label>
+								<input type='date' name='date_created' id='date_created' class='form-control' placeholder='' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->date_created) ? $response->error->date_created : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='date_modified'></label>
+								<input type='date' name='date_modified' id='date_modified' class='form-control' placeholder='' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->date_modified) ? $response->error->date_modified : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='api_key'></label>
-					<input type='text' name='api_key' id='api_key' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-group'>
-					<label for='controller'></label>
-					<input type='text' name='controller' id='controller' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-group'>
-					<label for='date_created'></label>
-					<input type='date' name='date_created' id='date_created' class='form-control' placeholder='' >
-				</div>
-				<div class='form-group'>
-					<label for='date_modified'></label>
-					<input type='date' name='date_modified' id='date_modified' class='form-control' placeholder='' >
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

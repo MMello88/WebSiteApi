@@ -58,79 +58,100 @@ class Regs0110efdc extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Regimes de Apuração da Contribuição Social e de Apropriação de Crédito</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Regimes de Apuração da Contribuição Social e de Apropriação de Crédito</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('regs0110efdc/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Reg'>Registro</label>
+								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg) ? $response->error->Reg : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='CodIncTrib'>Código Incidência Tributária</label>
+								<select name='CodIncTrib' id='CodIncTrib' class='custom-select' placeholder='Código Incidência Tributária' required>
+									<option value=''> Selecione </option>
+									<option value='1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo'> 1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo </option>
+									<option value='2 – Escrituração de operações com incidência exclusivamente no regime cumulativo'> 2 – Escrituração de operações com incidência exclusivamente no regime cumulativo </option>
+									<option value='3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo'> 3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='IndAproCred'>Código Método Apropriação Créditos comuns</label>
+								<select name='IndAproCred' id='IndAproCred' class='custom-select' placeholder='Código Método Apropriação Créditos comuns' required>
+									<option value=''> Selecione </option>
+									<option value='1 – Método de Apropriação Direta'> 1 – Método de Apropriação Direta </option>
+									<option value='2 – Método de Rateio Proporcional (Receita Bruta'> 2 – Método de Rateio Proporcional (Receita Bruta </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='CodTipoCont'>Código Tipo de Contribuição Apurada</label>
+								<select name='CodTipoCont' id='CodTipoCont' class='custom-select' placeholder='Código Tipo de Contribuição Apurada' required>
+									<option value=''> Selecione </option>
+									<option value='1 – Apuração da Contribuição Exclusivamente a Alíquota Básica'> 1 – Apuração da Contribuição Exclusivamente a Alíquota Básica </option>
+									<option value='2 – Apuração da Contribuição a Alíquotas Específicas'> 2 – Apuração da Contribuição a Alíquotas Específicas </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='IndRegCum'>Código Critério de Escrituração</label>
+								<select name='IndRegCum' id='IndRegCum' class='custom-select' placeholder='Código Critério de Escrituração' required>
+									<option value=''> Selecione </option>
+									<option value='1 – Regime de Caixa – Escrituração consolidada'> 1 – Regime de Caixa – Escrituração consolidada </option>
+									<option value='2 – Regime de Competência - Escrituração consolidada'> 2 – Regime de Competência - Escrituração consolidada </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='DtIni'>Data Inicial</label>
+								<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DtIni) ? $response->error->DtIni : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='DtFin'>Data Final</label>
+								<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DtFin) ? $response->error->DtFin : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='PessoaJuridicaId'>Pessoa Juridica</label>
+								<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->PessoaJuridicaId) ? $response->error->PessoaJuridicaId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='UsersId'>Usuário</label>
+								<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->UsersId) ? $response->error->UsersId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Reg0111EFDCId'></label>
+								<input type='number' name='Reg0111EFDCId' id='Reg0111EFDCId' class='form-control' placeholder='' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg0111EFDCId) ? $response->error->Reg0111EFDCId : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-				</div>
-				<div class='form-group'>
-					<label for='CodIncTrib'>Código Incidência Tributária</label>
-					<select name='CodIncTrib' id='CodIncTrib' class='custom-select' placeholder='Código Incidência Tributária' required>
-						<option value=''> Selecione </option>
-						<option value='1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo'> 1 – Escrituração de operações com incidência exclusivamente no regime não-cumulativo </option>
-						<option value='2 – Escrituração de operações com incidência exclusivamente no regime cumulativo'> 2 – Escrituração de operações com incidência exclusivamente no regime cumulativo </option>
-						<option value='3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo'> 3 – Escrituração de operações com incidência nos regimes não-cumulativo e cumulativo </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='IndAproCred'>Código Método Apropriação Créditos comuns</label>
-					<select name='IndAproCred' id='IndAproCred' class='custom-select' placeholder='Código Método Apropriação Créditos comuns' required>
-						<option value=''> Selecione </option>
-						<option value='1 – Método de Apropriação Direta'> 1 – Método de Apropriação Direta </option>
-						<option value='2 – Método de Rateio Proporcional (Receita Bruta'> 2 – Método de Rateio Proporcional (Receita Bruta </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='CodTipoCont'>Código Tipo de Contribuição Apurada</label>
-					<select name='CodTipoCont' id='CodTipoCont' class='custom-select' placeholder='Código Tipo de Contribuição Apurada' required>
-						<option value=''> Selecione </option>
-						<option value='1 – Apuração da Contribuição Exclusivamente a Alíquota Básica'> 1 – Apuração da Contribuição Exclusivamente a Alíquota Básica </option>
-						<option value='2 – Apuração da Contribuição a Alíquotas Específicas'> 2 – Apuração da Contribuição a Alíquotas Específicas </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='IndRegCum'>Código Critério de Escrituração</label>
-					<select name='IndRegCum' id='IndRegCum' class='custom-select' placeholder='Código Critério de Escrituração' required>
-						<option value=''> Selecione </option>
-						<option value='1 – Regime de Caixa – Escrituração consolidada'> 1 – Regime de Caixa – Escrituração consolidada </option>
-						<option value='2 – Regime de Competência - Escrituração consolidada'> 2 – Regime de Competência - Escrituração consolidada </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
-				</div>
-				<div class='form-group'>
-					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
-					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
-				</div>
-				<div class='form-group'>
-					<label for='UsersId'>Usuário</label>
-					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
-				</div>
-				<div class='form-group'>
-					<label for='Reg0111EFDCId'></label>
-					<input type='number' name='Reg0111EFDCId' id='Reg0111EFDCId' class='form-control' placeholder='' >
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

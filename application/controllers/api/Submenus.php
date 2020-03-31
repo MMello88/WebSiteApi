@@ -46,46 +46,49 @@ class Submenus extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Submenus</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Submenus</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('submenus/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='MenusId'>Menu</label>
+								<input type='number' name='MenusId' id='MenusId' class='form-control' placeholder='Menu' required>
+							</div>
+							<div class='form-group'>
+								<label for='Nome'>Nome do Submenu</label>
+								<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome do Submenu' required>
+							</div>
+							<div class='form-group'>
+								<label for='Ativo'>Ativo</label>
+								<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
+									<option value=''> Selecione </option>
+									<option value='True'> True </option>
+									<option value='False'> False </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='Icone'>Icone</label>
+								<input type='' name='Icone' id='Icone' class='form-control' placeholder='Icone' >
+							</div>
+							<div class='form-group'>
+								<label for='Url'>Url</label>
+								<input type='' name='Url' id='Url' class='form-control' placeholder='Url' required>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='MenusId'>Menu</label>
-					<input type='number' name='MenusId' id='MenusId' class='form-control' placeholder='Menu' required>
-				</div>
-				<div class='form-group'>
-					<label for='Nome'>Nome do Submenu</label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome do Submenu' required>
-				</div>
-				<div class='form-group'>
-					<label for='Ativo'>Ativo</label>
-					<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
-						<option value=''> Selecione </option>
-						<option value='True'> True </option>
-						<option value='False'> False </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='Icone'>Icone</label>
-					<input type='' name='Icone' id='Icone' class='form-control' placeholder='Icone' >
-				</div>
-				<div class='form-group'>
-					<label for='Url'>Url</label>
-					<input type='' name='Url' id='Url' class='form-control' placeholder='Url' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

@@ -41,30 +41,33 @@ class Perfisuser extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Perfis do Usuário</legend>
-				<div class='form-group'>
-					<label for='Id'>Identifiador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Perfis do Usuário</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('perfisuser/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='UsersId'>Users</label>
+								<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Users' required>
+							</div>
+							<div class='form-group'>
+								<label for='PerfisId'>Perfil</label>
+								<input type='number' name='PerfisId' id='PerfisId' class='form-control' placeholder='Perfil' required>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='UsersId'>Users</label>
-					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Users' required>
-				</div>
-				<div class='form-group'>
-					<label for='PerfisId'>Perfil</label>
-					<input type='number' name='PerfisId' id='PerfisId' class='form-control' placeholder='Perfil' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

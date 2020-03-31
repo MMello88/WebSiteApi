@@ -53,54 +53,57 @@ class Regs0600efdc extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Centro de Custos</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Centro de Custos</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('regs0600efdc/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Reg'>Registro</label>
+								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+							</div>
+							<div class='form-group'>
+								<label for='DtAlteracao'>Data Alteração</label>
+								<input type='datetime-local' name='DtAlteracao' id='DtAlteracao' class='form-control' placeholder='Data Alteração' required>
+							</div>
+							<div class='form-group'>
+								<label for='CodCCusto'>Código</label>
+								<input type='text' name='CodCCusto' id='CodCCusto' class='form-control' placeholder='Código' required>
+							</div>
+							<div class='form-group'>
+								<label for='NomeCCusto'>Nome</label>
+								<input type='text' name='NomeCCusto' id='NomeCCusto' class='form-control' placeholder='Nome' required>
+							</div>
+							<div class='form-group'>
+								<label for='DtIni'>Data Inicial</label>
+								<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
+							</div>
+							<div class='form-group'>
+								<label for='DtFin'>Data Final</label>
+								<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
+							</div>
+							<div class='form-group'>
+								<label for='PessoaJuridicaId'>Pessoa Juridica</label>
+								<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
+							</div>
+							<div class='form-group'>
+								<label for='UsersId'>Usuário</label>
+								<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtAlteracao'>Data Alteração</label>
-					<input type='datetime-local' name='DtAlteracao' id='DtAlteracao' class='form-control' placeholder='Data Alteração' required>
-				</div>
-				<div class='form-group'>
-					<label for='CodCCusto'>Código</label>
-					<input type='text' name='CodCCusto' id='CodCCusto' class='form-control' placeholder='Código' required>
-				</div>
-				<div class='form-group'>
-					<label for='NomeCCusto'>Nome</label>
-					<input type='text' name='NomeCCusto' id='NomeCCusto' class='form-control' placeholder='Nome' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
-				</div>
-				<div class='form-group'>
-					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
-					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
-				</div>
-				<div class='form-group'>
-					<label for='UsersId'>Usuário</label>
-					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

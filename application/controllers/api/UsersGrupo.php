@@ -38,34 +38,34 @@ class Usersgrupo extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Grupo de Usuário</legend>
-				<div class='form-group'>
-					<label for='GrupoUserId'></label>
-					<input type='hidden' name='GrupoUserId' id='GrupoUserId'>
+	<header class='page-title-bar'>
+		<legend>Grupo de Usuário</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('usersgrupo/')) ?>
+						<fieldset>
+							<input type='hidden' name='GrupoUserId' id='GrupoUserId'>
+							<input type='hidden' name='UsersId' id='UsersId'>
+							<div class='form-group'>
+								<label for='Ativo'>Ativo</label>
+								<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
+									<option value=''> Selecione </option>
+									<option value='True'> True </option>
+									<option value='False'> False </option>
+								</select>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='UsersId'>Usuário</label>
-					<input type='hidden' name='UsersId' id='UsersId'>
-				</div>
-				<div class='form-group'>
-					<label for='Ativo'>Ativo</label>
-					<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
-						<option value=''> Selecione </option>
-						<option value='True'> True </option>
-						<option value='False'> False </option>
-					</select>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

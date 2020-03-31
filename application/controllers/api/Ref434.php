@@ -44,38 +44,41 @@ class Ref434 extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Código da Situação Tributária Referente à Cofins</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Código da Situação Tributária Referente à Cofins</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('ref434/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Codigo'>Código</label>
+								<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='Código' required>
+							</div>
+							<div class='form-group'>
+								<label for='Descricao'>Descrição</label>
+								<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='Descrição' required>
+							</div>
+							<div class='form-group'>
+								<label for='DtIni'>Data Inicial</label>
+								<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
+							</div>
+							<div class='form-group'>
+								<label for='DtFin'>Data Final</label>
+								<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Codigo'>Código</label>
-					<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='Código' required>
-				</div>
-				<div class='form-group'>
-					<label for='Descricao'>Descrição</label>
-					<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='Descrição' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

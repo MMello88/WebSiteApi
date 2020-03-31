@@ -29,7 +29,7 @@ abstract class MY_Controller extends API_Controller {
 
     $data = $this->api->get($this->table, $where, $this->joins);
 		$this->api_return(
-			["status" => "TRUE", "data" => $data],
+			["status" => "TRUE", "data" => $data, "message" => "Consulta realizada com sucesso!", "method" => "GET"],
 			200
 		);
   }
@@ -39,8 +39,6 @@ abstract class MY_Controller extends API_Controller {
       "methods" => ["POST"],
       "requireAuthorization" => true,
     ]);
-
-
 
     if (!empty($this->usersId)){
       $_POST[$this->usersId] = $user_data["token_data"]["Id"];
@@ -54,7 +52,7 @@ abstract class MY_Controller extends API_Controller {
       if (is_numeric($Id)){
         $data = $this->api->get($this->table, [$this->nameId => $Id]);
       	$this->api_return(
-          ["status" => "TRUE", "data" => $data],
+          ["status" => "TRUE", "data" => $data, "message" => "Cadastro realizado com sucesso!", "method" => "POST"],
           200
         );
       }
@@ -62,7 +60,7 @@ abstract class MY_Controller extends API_Controller {
     } else {
 
 			$this->api_return(
-				["status" => "FALSE", "error" => $this->form_validation->error_array()],
+				["status" => "FALSE", "error" => $this->form_validation->error_array(), "message" => "Erro ao validar o Formulário.", "method" => "POST"],
 				422
 			);
     }
@@ -70,14 +68,14 @@ abstract class MY_Controller extends API_Controller {
 
   protected function update($Id){
     $user_data = $this->_apiConfig([
-      "methods" => ["PUT"],
+      "methods" => ["POST"],
       "requireAuthorization" => true,
     ]);
     
     if(!is_numeric($Id)){
 
 			$this->api_return(
-				["status" => "FALSE", "error" => ["Id" => "The Id field must contain only numbers."]],
+				["status" => "FALSE", "error" => ["Id" => "The Id field must contain only numbers."], "message" => "Erro ao validar o Formulário.", "method" => "POST"],
 				422
 			);
 
@@ -92,14 +90,14 @@ abstract class MY_Controller extends API_Controller {
         $this->api->update($this->table, $_POST, [$this->nameId => $Id]);
         $data = $this->api->get($this->table, [$this->nameId => $Id]);
         $this->api_return(
-          ["status" => "TRUE", "data" => $data],
+          ["status" => "TRUE", "data" => $data, "message" => "Alteração realizada com sucesso!", "method" => "POST"],
           200
         );
 
       } else {
 
   			$this->api_return(
-  				["status" => "FALSE", "error" => $this->form_validation->error_array()],
+  				["status" => "FALSE", "error" => $this->form_validation->error_array(), "message" => "Erro ao validar o Formulário.", "method" => "POST"],
   				422
   			);
       }
@@ -115,7 +113,7 @@ abstract class MY_Controller extends API_Controller {
     if(!is_numeric($Id)){
 
       $this->api_return(
-        ["status" => "FALSE", "error" => ["Id" => "The Id field must contain only numbers."]],
+        ["status" => "FALSE", "error" => ["Id" => "The Id field must contain only numbers."], "message" => "Erro ao validar o Formulário.", "method" => "DELETE"],
         422
       );
 
@@ -129,7 +127,7 @@ abstract class MY_Controller extends API_Controller {
       $this->api->delete($this->table, $where);
 
       $this->api_return(
-        ["status" => "TRUE", "data" => "delete realizado com sucesso"],
+        ["status" => "TRUE", "data" => "", "message" => "delete realizado com sucesso", "method" => "DELETE"],
         200
       );
     }
@@ -178,7 +176,7 @@ abstract class MY_Controller extends API_Controller {
     
     } else {
     
-      return ["status" => "FALSE", "error" => $this->form_validation->error_array()];
+      return ["status" => "FALSE", "error" => $this->form_validation->error_array(), "message" => "Erro ao validar o Formulário.", "method" => "POST"];
     
     }
   }

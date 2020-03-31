@@ -67,78 +67,81 @@ class Regs0140efdc extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Tabela de Cadastro de Estabelecimentos</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Tabela de Cadastro de Estabelecimentos</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('regs0140efdc/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Reg'>Registro</label>
+								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+							</div>
+							<div class='form-group'>
+								<label for='CodEstab'>Código</label>
+								<input type='text' name='CodEstab' id='CodEstab' class='form-control' placeholder='Código' >
+							</div>
+							<div class='form-group'>
+								<label for='Nome'>Nome</label>
+								<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
+							</div>
+							<div class='form-group'>
+								<label for='CNPJ'>CNPJ</label>
+								<input type='number' name='CNPJ' id='CNPJ' class='form-control' placeholder='CNPJ' required>
+							</div>
+							<div class='form-group'>
+								<label for='UF'>UF</label>
+								<input type='text' name='UF' id='UF' class='form-control' placeholder='UF' required>
+							</div>
+							<div class='form-group'>
+								<label for='IE'>Inscrição Estadual</label>
+								<input type='text' name='IE' id='IE' class='form-control' placeholder='Inscrição Estadual' >
+							</div>
+							<div class='form-group'>
+								<label for='MunicipioId'>Municipio</label>
+								<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='Municipio' required>
+							</div>
+							<div class='form-group'>
+								<label for='IM'>Inscrição Municipal</label>
+								<input type='text' name='IM' id='IM' class='form-control' placeholder='Inscrição Municipal' >
+							</div>
+							<div class='form-group'>
+								<label for='Suframa'>Suframa</label>
+								<input type='text' name='Suframa' id='Suframa' class='form-control' placeholder='Suframa' >
+							</div>
+							<div class='form-group'>
+								<label for='DtIni'>Data Inicial</label>
+								<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
+							</div>
+							<div class='form-group'>
+								<label for='DtFin'>Data Final</label>
+								<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
+							</div>
+							<div class='form-group'>
+								<label for='PessoaJuridicaId'>Pessoa Juridica</label>
+								<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
+							</div>
+							<div class='form-group'>
+								<label for='UsersId'>Usuário</label>
+								<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
+							</div>
+							<div class='form-group'>
+								<label for='Reg0145EFDCId'>Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta</label>
+								<input type='number' name='Reg0145EFDCId' id='Reg0145EFDCId' class='form-control' placeholder='Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta' >
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-				</div>
-				<div class='form-group'>
-					<label for='CodEstab'>Código</label>
-					<input type='text' name='CodEstab' id='CodEstab' class='form-control' placeholder='Código' >
-				</div>
-				<div class='form-group'>
-					<label for='Nome'>Nome</label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
-				</div>
-				<div class='form-group'>
-					<label for='CNPJ'>CNPJ</label>
-					<input type='number' name='CNPJ' id='CNPJ' class='form-control' placeholder='CNPJ' required>
-				</div>
-				<div class='form-group'>
-					<label for='UF'>UF</label>
-					<input type='text' name='UF' id='UF' class='form-control' placeholder='UF' required>
-				</div>
-				<div class='form-group'>
-					<label for='IE'>Inscrição Estadual</label>
-					<input type='text' name='IE' id='IE' class='form-control' placeholder='Inscrição Estadual' >
-				</div>
-				<div class='form-group'>
-					<label for='MunicipioId'>Municipio</label>
-					<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='Municipio' required>
-				</div>
-				<div class='form-group'>
-					<label for='IM'>Inscrição Municipal</label>
-					<input type='text' name='IM' id='IM' class='form-control' placeholder='Inscrição Municipal' >
-				</div>
-				<div class='form-group'>
-					<label for='Suframa'>Suframa</label>
-					<input type='text' name='Suframa' id='Suframa' class='form-control' placeholder='Suframa' >
-				</div>
-				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
-				</div>
-				<div class='form-group'>
-					<label for='PessoaJuridicaId'>Pessoa Juridica</label>
-					<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
-				</div>
-				<div class='form-group'>
-					<label for='UsersId'>Usuário</label>
-					<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
-				</div>
-				<div class='form-group'>
-					<label for='Reg0145EFDCId'>Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta</label>
-					<input type='number' name='Reg0145EFDCId' id='Reg0145EFDCId' class='form-control' placeholder='Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta' >
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

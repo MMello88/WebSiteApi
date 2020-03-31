@@ -43,42 +43,54 @@ class Menus extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Menu</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Menu</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('menus/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Nome'>Nome do Menu</label>
+								<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome do Menu' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Nome) ? $response->error->Nome : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Ativo'>Ativo</label>
+								<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
+									<option value=''> Selecione </option>
+									<option value='True'> True </option>
+									<option value='False'> False </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='Icone'>Icone</label>
+								<input type='' name='Icone' id='Icone' class='form-control' placeholder='Icone' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Icone) ? $response->error->Icone : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='url'>Url</label>
+								<input type='' name='url' id='url' class='form-control' placeholder='Url' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->url) ? $response->error->url : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Nome'>Nome do Menu</label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome do Menu' required>
-				</div>
-				<div class='form-group'>
-					<label for='Ativo'>Ativo</label>
-					<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
-						<option value=''> Selecione </option>
-						<option value='True'> True </option>
-						<option value='False'> False </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='Icone'>Icone</label>
-					<input type='' name='Icone' id='Icone' class='form-control' placeholder='Icone' >
-				</div>
-				<div class='form-group'>
-					<label for='url'>Url</label>
-					<input type='' name='url' id='url' class='form-control' placeholder='Url' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

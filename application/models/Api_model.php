@@ -54,18 +54,19 @@ class Api_model extends CI_Model {
             return [
                 'status' => "TRUE",
                 'data' => $row,
-                'message' => "Login realizado com sucesso!!"
+                'message' => "Login realizado com sucesso!!",
+                'method' => "POST"
             ];
 
         } else {
-            return ['status' => "FALSE", 'error' => ["Senha" => "Invalid Password "]];
+            return ['status' => "FALSE", 'error' => ["Senha" => "Invalid Password "], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
         }
       } else {
-        return ['status' => "FALSE", 'error' => ["Email" => "Usuário Desativado"]];
+        return ['status' => "FALSE", 'error' => ["Email" => "Usuário Desativado"], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
       }
 
     } else {
-        return ['status' => "FALSE", 'error' => ["Email" => "Invalid Email"]];
+        return ['status' => "FALSE", 'error' => ["Email" => "Invalid Email"], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
     }
   }
 
@@ -87,10 +88,11 @@ class Api_model extends CI_Model {
       return [
         'status' => "TRUE",
         'data' => ["Email" => $email, "Nome" => $row["Nome"], "IdReset" => $hash],
-        'message' => "Enviamos o link de acesso para restaurar sua senha."
+        'message' => "Enviamos o link de acesso para restaurar sua senha.",
+        'method' => "POST"
       ];
     } else {
-      return ['status' => "FALSE", 'error' => ["Email" => "Invalid Email"]];
+      return ['status' => "FALSE", 'error' => ["Email" => "Invalid Email"], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
     }
   }
 
@@ -105,10 +107,11 @@ class Api_model extends CI_Model {
       return [
         'status' => "TRUE",
         'data' => [],
-        'message' => "Senha recuperada com sucesso!"
+        'message' => "Senha recuperada com sucesso!",
+        'method' => "POST"
       ];
     } else {
-      return ['status' => "FALSE", 'error' => ["Email" => "Tempo limite expirado para recuperar a senha."]];
+      return ['status' => "FALSE", 'error' => ["Email" => "Tempo limite expirado para recuperar a senha."], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
     }
   }
 
@@ -126,11 +129,16 @@ class Api_model extends CI_Model {
     $menus = $this->db->query($sql)->result();
 
     foreach ($menus as $key => $menu) {
-      $sql = "SELECT * FROM submenus WHERE MenusId = {$menu->Id} AND Ativo = 'True'";
+      $sql = "SELECT * FROM submenus WHERE MenusId = {$menu->Id} AND Ativo = 'True' AND nivel IS NULL";
       $submenus = $this->db->query($sql)->result();
       $menus[$key]->submenus = $submenus;
+      foreach ($submenus as $key1 => $submenu) {
+        $sql = "SELECT * FROM submenus WHERE MenusId = {$menu->Id} AND Ativo = 'True' AND nivel = {$submenu->Id}";
+        $nivel = $this->db->query($sql)->result();
+        $menus[$key]->submenus[$key1]->nivel = $nivel;
+      }
     }
 
-    return ["status" => "TRUE", "data" => $menus, "message" => "Montagem do Menu Realizada com Sucesso!"];
+    return ["status" => "TRUE", "data" => $menus, "message" => "Montagem do Menu Realizada com Sucesso!", "method" => "GET"];
   }
 }

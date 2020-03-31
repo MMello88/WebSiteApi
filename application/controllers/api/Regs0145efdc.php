@@ -48,46 +48,49 @@ class Regs0145efdc extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('regs0145efdc/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Reg'>Registro</label>
+								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
+							</div>
+							<div class='form-group'>
+								<label for='CodIncTrib'>Código Incidência Tributária</label>
+								<input type='number' name='CodIncTrib' id='CodIncTrib' class='form-control' placeholder='Código Incidência Tributária' required>
+							</div>
+							<div class='form-group'>
+								<label for='VlRecTot'>Valor da Receita Bruta Total</label>
+								<input type='' name='VlRecTot' id='VlRecTot' class='form-control' placeholder='Valor da Receita Bruta Total' required>
+							</div>
+							<div class='form-group'>
+								<label for='VlRecAtiv'>Valor da Receita Bruta da Atividade</label>
+								<input type='' name='VlRecAtiv' id='VlRecAtiv' class='form-control' placeholder='Valor da Receita Bruta da Atividade' required>
+							</div>
+							<div class='form-group'>
+								<label for='VlRecDemaisAtiv'>Valor da Receita Bruta das demais Atividade</label>
+								<input type='' name='VlRecDemaisAtiv' id='VlRecDemaisAtiv' class='form-control' placeholder='Valor da Receita Bruta das demais Atividade' required>
+							</div>
+							<div class='form-group'>
+								<label for='InfoCompl'>Informação complementar</label>
+								<input type='text' name='InfoCompl' id='InfoCompl' class='form-control' placeholder='Informação complementar' >
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Reg'>Registro</label>
-					<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-				</div>
-				<div class='form-group'>
-					<label for='CodIncTrib'>Código Incidência Tributária</label>
-					<input type='number' name='CodIncTrib' id='CodIncTrib' class='form-control' placeholder='Código Incidência Tributária' required>
-				</div>
-				<div class='form-group'>
-					<label for='VlRecTot'>Valor da Receita Bruta Total</label>
-					<input type='' name='VlRecTot' id='VlRecTot' class='form-control' placeholder='Valor da Receita Bruta Total' required>
-				</div>
-				<div class='form-group'>
-					<label for='VlRecAtiv'>Valor da Receita Bruta da Atividade</label>
-					<input type='' name='VlRecAtiv' id='VlRecAtiv' class='form-control' placeholder='Valor da Receita Bruta da Atividade' required>
-				</div>
-				<div class='form-group'>
-					<label for='VlRecDemaisAtiv'>Valor da Receita Bruta das demais Atividade</label>
-					<input type='' name='VlRecDemaisAtiv' id='VlRecDemaisAtiv' class='form-control' placeholder='Valor da Receita Bruta das demais Atividade' required>
-				</div>
-				<div class='form-group'>
-					<label for='InfoCompl'>Informação complementar</label>
-					<input type='text' name='InfoCompl' id='InfoCompl' class='form-control' placeholder='Informação complementar' >
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

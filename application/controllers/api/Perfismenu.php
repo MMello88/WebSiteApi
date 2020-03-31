@@ -42,30 +42,33 @@ class Perfismenu extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Menus do Perfil</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Menus do Perfil</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('perfismenu/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='MenusId'>Menu</label>
+								<input type='number' name='MenusId' id='MenusId' class='form-control' placeholder='Menu' required>
+							</div>
+							<div class='form-group'>
+								<label for='PerfisId'>Perfil</label>
+								<input type='number' name='PerfisId' id='PerfisId' class='form-control' placeholder='Perfil' required>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='MenusId'>Menu</label>
-					<input type='number' name='MenusId' id='MenusId' class='form-control' placeholder='Menu' required>
-				</div>
-				<div class='form-group'>
-					<label for='PerfisId'>Perfil</label>
-					<input type='number' name='PerfisId' id='PerfisId' class='form-control' placeholder='Perfil' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

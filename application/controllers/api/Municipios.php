@@ -42,34 +42,37 @@ class Municipios extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Municipios</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Municipios</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('municipios/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='CdMunicipio'>Cód. Municipio</label>
+								<input type='text' name='CdMunicipio' id='CdMunicipio' class='form-control' placeholder='Cód. Municipio' required>
+							</div>
+							<div class='form-group'>
+								<label for='Nome'>Nome</label>
+								<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
+							</div>
+							<div class='form-group'>
+								<label for='Uf'>UF</label>
+								<input type='text' name='Uf' id='Uf' class='form-control' placeholder='UF' required>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='CdMunicipio'>Cód. Municipio</label>
-					<input type='text' name='CdMunicipio' id='CdMunicipio' class='form-control' placeholder='Cód. Municipio' required>
-				</div>
-				<div class='form-group'>
-					<label for='Nome'>Nome</label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
-				</div>
-				<div class='form-group'>
-					<label for='Uf'>UF</label>
-					<input type='text' name='Uf' id='Uf' class='form-control' placeholder='UF' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

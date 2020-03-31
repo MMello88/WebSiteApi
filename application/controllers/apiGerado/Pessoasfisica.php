@@ -49,50 +49,68 @@ class Pessoasfisica extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Pessoa Fisica</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Pessoa Fisica</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('pessoasfisica/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Nome'>Nome</label>
+								<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Nome) ? $response->error->Nome : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Sobrenome'>Sobrenome</label>
+								<input type='text' name='Sobrenome' id='Sobrenome' class='form-control' placeholder='Sobrenome' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Sobrenome) ? $response->error->Sobrenome : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='DataNascimento'>Data Nascimento</label>
+								<input type='date' name='DataNascimento' id='DataNascimento' class='form-control' placeholder='Data Nascimento' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DataNascimento) ? $response->error->DataNascimento : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='UrlFoto'>Foto Perfil</label>
+								<input type='text' name='UrlFoto' id='UrlFoto' class='form-control' placeholder='Foto Perfil' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->UrlFoto) ? $response->error->UrlFoto : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Ativo'>Ativo</label>
+								<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
+									<option value=''> Selecione </option>
+									<option value='True'> True </option>
+									<option value='False'> False </option>
+								</select>
+							</div>
+							<div class='form-group'>
+								<label for='Criacao'></label>
+								<input type='datetime-local' name='Criacao' id='Criacao' class='form-control' placeholder='' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Criacao) ? $response->error->Criacao : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Nome'>Nome</label>
-					<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
-				</div>
-				<div class='form-group'>
-					<label for='Sobrenome'>Sobrenome</label>
-					<input type='text' name='Sobrenome' id='Sobrenome' class='form-control' placeholder='Sobrenome' required>
-				</div>
-				<div class='form-group'>
-					<label for='DataNascimento'>Data Nascimento</label>
-					<input type='date' name='DataNascimento' id='DataNascimento' class='form-control' placeholder='Data Nascimento' required>
-				</div>
-				<div class='form-group'>
-					<label for='UrlFoto'>Foto Perfil</label>
-					<input type='text' name='UrlFoto' id='UrlFoto' class='form-control' placeholder='Foto Perfil' >
-				</div>
-				<div class='form-group'>
-					<label for='Ativo'>Ativo</label>
-					<select name='Ativo' id='Ativo' class='custom-select' placeholder='Ativo' required>
-						<option value=''> Selecione </option>
-						<option value='True'> True </option>
-						<option value='False'> False </option>
-					</select>
-				</div>
-				<div class='form-group'>
-					<label for='Criacao'></label>
-					<input type='datetime-local' name='Criacao' id='Criacao' class='form-control' placeholder='' required>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 

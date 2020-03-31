@@ -44,58 +44,88 @@ class Ref714 extends MY_Controller {
 }
 
 /*
-	<div class='card-body'>
-		<form>
-			<fieldset>
-				<legend>Detalhamento Analítico das Deduções e Exclusões</legend>
-				<div class='form-group'>
-					<label for='Id'>Identificador</label>
-					<input type='hidden' name='Id' id='Id'>
+	<header class='page-title-bar'>
+		<legend>Detalhamento Analítico das Deduções e Exclusões</legend>
+	</header>
+	<div class='page-section'>
+		<div class='section-block'>
+			<div class='card' id='floating-label'>
+				<div class='card-body'>
+					<?= form_open(base_url('ref714/')) ?>
+						<fieldset>
+							<input type='hidden' name='Id' id='Id'>
+							<div class='form-group'>
+								<label for='Codigo'>Código</label>
+								<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='Código' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Codigo) ? $response->error->Codigo : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Descricao'>Descrição</label>
+								<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='Descrição' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Descricao) ? $response->error->Descricao : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='DtIni'>Data Inicial</label>
+								<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DtIni) ? $response->error->DtIni : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='DtFin'>Data Final</label>
+								<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DtFin) ? $response->error->DtFin : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='IndTipoAtividade'>Indicador Tipo Atividade</label>
+								<input type='text' name='IndTipoAtividade' id='IndTipoAtividade' class='form-control' placeholder='Indicador Tipo Atividade' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->IndTipoAtividade) ? $response->error->IndTipoAtividade : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='IndAjuste'>Indicador Ajuste</label>
+								<input type='text' name='IndAjuste' id='IndAjuste' class='form-control' placeholder='Indicador Ajuste' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->IndAjuste) ? $response->error->IndAjuste : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='Grupo'>Cód. Grupo</label>
+								<input type='text' name='Grupo' id='Grupo' class='form-control' placeholder='Cód. Grupo' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Grupo) ? $response->error->Grupo : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='SubGrupo'>Cód. SubGrupo</label>
+								<input type='text' name='SubGrupo' id='SubGrupo' class='form-control' placeholder='Cód. SubGrupo' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->SubGrupo) ? $response->error->SubGrupo : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-group'>
+								<label for='IndOutros'>Indicador Outros</label>
+								<input type='text' name='IndOutros' id='IndOutros' class='form-control' placeholder='Indicador Outros' >
+								<?php if(isset($response)): ?>
+									<div class='invalid-feedback' style='display:block'><?= isset($response->error->IndOutros) ? $response->error->IndOutros : ''; ?></div>
+								<?php endif; ?>
+							</div>
+							<div class='form-actions'>
+								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
+								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
+							</div>
+					</fieldset>
+					<?= form_close() ?>
 				</div>
-				<div class='form-group'>
-					<label for='Codigo'>Código</label>
-					<input type='text' name='Codigo' id='Codigo' class='form-control' placeholder='Código' required>
-				</div>
-				<div class='form-group'>
-					<label for='Descricao'>Descrição</label>
-					<input type='text' name='Descricao' id='Descricao' class='form-control' placeholder='Descrição' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtIni'>Data Inicial</label>
-					<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
-				</div>
-				<div class='form-group'>
-					<label for='DtFin'>Data Final</label>
-					<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
-				</div>
-				<div class='form-group'>
-					<label for='IndTipoAtividade'>Indicador Tipo Atividade</label>
-					<input type='text' name='IndTipoAtividade' id='IndTipoAtividade' class='form-control' placeholder='Indicador Tipo Atividade' >
-				</div>
-				<div class='form-group'>
-					<label for='IndAjuste'>Indicador Ajuste</label>
-					<input type='text' name='IndAjuste' id='IndAjuste' class='form-control' placeholder='Indicador Ajuste' >
-				</div>
-				<div class='form-group'>
-					<label for='Grupo'>Cód. Grupo</label>
-					<input type='text' name='Grupo' id='Grupo' class='form-control' placeholder='Cód. Grupo' >
-				</div>
-				<div class='form-group'>
-					<label for='SubGrupo'>Cód. SubGrupo</label>
-					<input type='text' name='SubGrupo' id='SubGrupo' class='form-control' placeholder='Cód. SubGrupo' >
-				</div>
-				<div class='form-group'>
-					<label for='IndOutros'>Indicador Outros</label>
-					<input type='text' name='IndOutros' id='IndOutros' class='form-control' placeholder='Indicador Outros' >
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-primary' type='submit'>Salvar</button>
-				</div>
-				<div class='form-actions'>
-					<button class='btn btn-secondary' type='submit'>Cancelar</button>
-				</div>
-			</fieldset>
-		</form>
+			</div>
+		</div>
 	</div>
 */
 
