@@ -43,14 +43,14 @@ class Api_model extends CI_Model {
   }
 
   public function check_login($userData){
-    $query = $this->db->get_where('users', array('Email' => $userData['Email']));
+    $query = $this->db->get_where('users', array('uu_Email' => $userData['uu_Email']));
     if ($this->db->affected_rows() > 0) {
 
-      if($query->row('Ativo') === "True"){
-        $password = $query->row('Senha');
-        if (md5($userData['Senha']) === $password) {
+      if($query->row('uu_Ativo') === "True"){
+        $password = $query->row('uu_Senha');
+        if (md5($userData['uu_Senha']) === $password) {
             $row = $query->row_array();
-            unset($row["Senha"]);
+            unset($row["uu_Senha"]);
             return [
                 'status' => "TRUE",
                 'data' => $row,
@@ -59,19 +59,19 @@ class Api_model extends CI_Model {
             ];
 
         } else {
-            return ['status' => "FALSE", 'error' => ["Senha" => "Invalid Password "], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
+            return ['status' => "FALSE", 'error' => ["uu_Senha" => "Invalid Password "], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
         }
       } else {
-        return ['status' => "FALSE", 'error' => ["Email" => "Usuário Desativado"], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
+        return ['status' => "FALSE", 'error' => ["uu_Email" => "Usuário Desativado"], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
       }
 
     } else {
-        return ['status' => "FALSE", 'error' => ["Email" => "Invalid Email"], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
+        return ['status' => "FALSE", 'error' => ["uu_Email" => "Invalid Email"], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
     }
   }
 
   public function forgot($email){
-    $query = $this->db->get_where('users', array('Email' => $email));
+    $query = $this->db->get_where('users', array('uu_Email' => $email));
     if ($this->db->affected_rows() > 0) {
 
       $hash = md5(date('Y-m-d H:i:s'));
@@ -81,28 +81,28 @@ class Api_model extends CI_Model {
 
       $this->db->update(
         'users', 
-        ["IdReset" => $hash, "DataReset" => $dataLimite], 
-        ["Id" => $row["Id"]]
+        ["uu_IdReset" => $hash, "uu_DataReset" => $dataLimite], 
+        ["uu_Id" => $row["uu_Id"]]
       );
 
       return [
         'status' => "TRUE",
-        'data' => ["Email" => $email, "Nome" => $row["Nome"], "IdReset" => $hash],
+        'data' => ["uu_Email" => $email, "uu_Nome" => $row["uu_Nome"], "uu_IdReset" => $hash],
         'message' => "Enviamos o link de acesso para restaurar sua senha.",
         'method' => "POST"
       ];
     } else {
-      return ['status' => "FALSE", 'error' => ["Email" => "Invalid Email"], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
+      return ['status' => "FALSE", 'error' => ["uu_Email" => "Invalid Email"], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
     }
   }
 
   public function recover($hash, $senha){
-    $row = $this->db->query("SELECT * FROM users WHERE IdReset = '$hash' AND DataReset >= CURDATE()")->row_array();
+    $row = $this->db->query("SELECT * FROM users WHERE uu_IdReset = '$hash' AND uu_DataReset >= CURDATE()")->row_array();
     if ($this->db->affected_rows() > 0) {
       $this->db->update(
         'users', 
-        ["Senha" => $senha, "IdReset" => null, "DataReset" => null], 
-        ["Id" => $row["Id"]]
+        ["uu_Senha" => $senha, "uu_IdReset" => null, "uu_DataReset" => null], 
+        ["uu_Id" => $row["uu_Id"]]
       );
       return [
         'status' => "TRUE",
@@ -111,31 +111,31 @@ class Api_model extends CI_Model {
         'method' => "POST"
       ];
     } else {
-      return ['status' => "FALSE", 'error' => ["Email" => "Tempo limite expirado para recuperar a senha."], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
+      return ['status' => "FALSE", 'error' => ["uu_Email" => "Tempo limite expirado para recuperar a senha."], 'message' => "Erro ao validar o Formulário.", 'method' => "POST"];
     }
   }
 
   public function getPerfilMenu($UsersId, $PerfisId){
-    $sql = "SELECT m.Id, m.Nome, m.Icone, m.url, m.Ativo
+    $sql = "SELECT m.mns_Id, m.mns_Nome, m.mns_Icone, m.mns_url, m.mns_Ativo
               FROM perfismenu pm
-              LEFT JOIN menus m ON m.Id = pm.MenusId
+              LEFT JOIN menus m ON m.mns_Id = pm.MenusId
               LEFT JOIN perfisuser pu ON pu.PerfisId = pm.PerfisId
-              LEFT JOIN perfis p ON p.Id = pu.PerfisId
+              LEFT JOIN perfis p ON p.ps_Id = pu.PerfisId
              WHERE pu.UsersId = {$UsersId}
                AND pu.PerfisId = {$PerfisId}
-               AND p.Ativo = 'True'
-               AND m.Ativo = 'True'
-             GROUP BY m.Id, m.Nome, m.Icone, m.url, m.Ativo";
+               AND p.ps_Ativo = 'True'
+               AND m.mns_Ativo = 'True'
+             GROUP BY m.mns_Id, m.mns_Nome, m.mns_Icone, m.mns_url, m.mns_Ativo";
     $menus = $this->db->query($sql)->result();
 
     foreach ($menus as $key => $menu) {
-      $sql = "SELECT * FROM submenus WHERE MenusId = {$menu->Id} AND Ativo = 'True' AND nivel IS NULL";
+      $sql = "SELECT * FROM submenus WHERE sbm_MenusId = {$menu->mns_Id} AND sbm_Ativo = 'True' AND sbm_nivel IS NULL";
       $submenus = $this->db->query($sql)->result();
       $menus[$key]->submenus = $submenus;
       foreach ($submenus as $key1 => $submenu) {
-        $sql = "SELECT * FROM submenus WHERE MenusId = {$menu->Id} AND Ativo = 'True' AND nivel = {$submenu->Id}";
+        $sql = "SELECT * FROM submenus WHERE sbm_MenusId = {$menu->mns_Id} AND sbm_Ativo = 'True' AND sbm_nivel = {$submenu->sbm_Id}";
         $nivel = $this->db->query($sql)->result();
-        $menus[$key]->submenus[$key1]->nivel = $nivel;
+        $menus[$key]->submenus[$key1]->sbm_nivel = $nivel;
       }
     }
 

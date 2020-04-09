@@ -6,62 +6,62 @@ class Regs0100efdc extends MY_Controller {
   public function  __construct() {
     parent::__construct();
     $this->table = 'regs0100efdc';
-    $this->nameId = 'Id';
+    $this->nameId = '0100_Id';
     $this->usersId = 'UsersId';
     $this->joins = [
-			['table' => 'municipios', 'condition' => 'municipios.Id = regs0100efdc.MunicipioId', 'type' => 'inner'],
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.Id = regs0100efdc.PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'municipios', 'condition' => 'municipios.mun_Id = regs0100efdc.MunicipioId', 'type' => 'inner'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0100efdc.PessoaJuridicaId', 'type' => 'left'],
     ];
   }
 
   public function get($Id = '', $date = ''){
     parent::get($Id, $date);
   }
-  
+
   public function setDefaultValue(){
     
   }
 
   public function create(){
-    $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[100]');
-		$this->form_validation->set_rules('CPF', 'CPF', 'required|integer');
-		$this->form_validation->set_rules('CRC', 'CRC', 'required|max_length[15]');
-		$this->form_validation->set_rules('CNPJ', 'CNPJ', 'required|integer');
-		$this->form_validation->set_rules('CEP', 'CEP', 'required|integer');
-		$this->form_validation->set_rules('End', 'End', 'max_length[60]');
-		$this->form_validation->set_rules('Num', 'Num', 'max_length[5]');
-		$this->form_validation->set_rules('Compl', 'Compl', 'max_length[60]');
-		$this->form_validation->set_rules('Bairro', 'Bairro', 'max_length[60]');
-		$this->form_validation->set_rules('Fone', 'Fone', 'max_length[11]');
-		$this->form_validation->set_rules('Fax', 'Fax', 'max_length[11]');
-		$this->form_validation->set_rules('Email', 'Email', 'max_length[255]');
+    $this->form_validation->set_rules('0100_Reg', '0100_Reg', 'required|max_length[4]');
+		$this->form_validation->set_rules('0100_Nome', '0100_Nome', 'required|max_length[100]');
+		$this->form_validation->set_rules('0100_CPF', '0100_CPF', 'required|integer');
+		$this->form_validation->set_rules('0100_CRC', '0100_CRC', 'required|max_length[15]');
+		$this->form_validation->set_rules('0100_CNPJ', '0100_CNPJ', 'required|integer');
+		$this->form_validation->set_rules('0100_CEP', '0100_CEP', 'required|integer');
+		$this->form_validation->set_rules('0100_End', '0100_End', 'max_length[60]');
+		$this->form_validation->set_rules('0100_Num', '0100_Num', 'max_length[5]');
+		$this->form_validation->set_rules('0100_Compl', '0100_Compl', 'max_length[60]');
+		$this->form_validation->set_rules('0100_Bairro', '0100_Bairro', 'max_length[60]');
+		$this->form_validation->set_rules('0100_Fone', '0100_Fone', 'max_length[11]');
+		$this->form_validation->set_rules('0100_Fax', '0100_Fax', 'max_length[11]');
+		$this->form_validation->set_rules('0100_Email', '0100_Email', 'max_length[255]');
 		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('0100_DtIni', '0100_DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('0100_DtFin', '0100_DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
 		
     parent::create();
   }
-  
+
   public function update($Id){
-    $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('Nome', 'Nome', 'required|max_length[100]');
-		$this->form_validation->set_rules('CPF', 'CPF', 'required|integer');
-		$this->form_validation->set_rules('CRC', 'CRC', 'required|max_length[15]');
-		$this->form_validation->set_rules('CNPJ', 'CNPJ', 'required|integer');
-		$this->form_validation->set_rules('CEP', 'CEP', 'required|integer');
-		$this->form_validation->set_rules('End', 'End', 'max_length[60]');
-		$this->form_validation->set_rules('Num', 'Num', 'max_length[5]');
-		$this->form_validation->set_rules('Compl', 'Compl', 'max_length[60]');
-		$this->form_validation->set_rules('Bairro', 'Bairro', 'max_length[60]');
-		$this->form_validation->set_rules('Fone', 'Fone', 'max_length[11]');
-		$this->form_validation->set_rules('Fax', 'Fax', 'max_length[11]');
-		$this->form_validation->set_rules('Email', 'Email', 'max_length[255]');
+    $this->form_validation->set_rules('0100_Reg', '0100_Reg', 'required|max_length[4]');
+		$this->form_validation->set_rules('0100_Nome', '0100_Nome', 'required|max_length[100]');
+		$this->form_validation->set_rules('0100_CPF', '0100_CPF', 'required|integer');
+		$this->form_validation->set_rules('0100_CRC', '0100_CRC', 'required|max_length[15]');
+		$this->form_validation->set_rules('0100_CNPJ', '0100_CNPJ', 'required|integer');
+		$this->form_validation->set_rules('0100_CEP', '0100_CEP', 'required|integer');
+		$this->form_validation->set_rules('0100_End', '0100_End', 'max_length[60]');
+		$this->form_validation->set_rules('0100_Num', '0100_Num', 'max_length[5]');
+		$this->form_validation->set_rules('0100_Compl', '0100_Compl', 'max_length[60]');
+		$this->form_validation->set_rules('0100_Bairro', '0100_Bairro', 'max_length[60]');
+		$this->form_validation->set_rules('0100_Fone', '0100_Fone', 'max_length[11]');
+		$this->form_validation->set_rules('0100_Fax', '0100_Fax', 'max_length[11]');
+		$this->form_validation->set_rules('0100_Email', '0100_Email', 'max_length[255]');
 		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
-		$this->form_validation->set_rules('DtIni', 'DtIni', 'required|valid_date');
-		$this->form_validation->set_rules('DtFin', 'DtFin', 'valid_date');
+		$this->form_validation->set_rules('0100_DtIni', '0100_DtIni', 'required|valid_date');
+		$this->form_validation->set_rules('0100_DtFin', '0100_DtFin', 'valid_date');
 		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
 		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
 		
@@ -72,153 +72,3 @@ class Regs0100efdc extends MY_Controller {
     parent::delete($Id);
   }
 }
-
-/*
-	<header class='page-title-bar'>
-		<legend>Dados do Contabilista</legend>
-	</header>
-	<div class='page-section'>
-		<div class='section-block'>
-			<div class='card' id='floating-label'>
-				<div class='card-body'>
-					<?= form_open(base_url('regs0100efdc/')) ?>
-						<fieldset>
-							<input type='hidden' name='Id' id='Id'>
-							<div class='form-group'>
-								<label for='Reg'>Registro</label>
-								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg) ? $response->error->Reg : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='Nome'>Nome</label>
-								<input type='text' name='Nome' id='Nome' class='form-control' placeholder='Nome' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Nome) ? $response->error->Nome : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='CPF'>CPF</label>
-								<input type='number' name='CPF' id='CPF' class='form-control' placeholder='CPF' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CPF) ? $response->error->CPF : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='CRC'>CRC</label>
-								<input type='text' name='CRC' id='CRC' class='form-control' placeholder='CRC' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CRC) ? $response->error->CRC : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='CNPJ'>CNPJ</label>
-								<input type='number' name='CNPJ' id='CNPJ' class='form-control' placeholder='CNPJ' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CNPJ) ? $response->error->CNPJ : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='CEP'>CEP</label>
-								<input type='number' name='CEP' id='CEP' class='form-control' placeholder='CEP' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CEP) ? $response->error->CEP : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='End'>Endereço</label>
-								<input type='text' name='End' id='End' class='form-control' placeholder='Endereço' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->End) ? $response->error->End : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='Num'>Número</label>
-								<input type='text' name='Num' id='Num' class='form-control' placeholder='Número' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Num) ? $response->error->Num : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='Compl'>Complemento</label>
-								<input type='text' name='Compl' id='Compl' class='form-control' placeholder='Complemento' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Compl) ? $response->error->Compl : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='Bairro'>Bairro</label>
-								<input type='text' name='Bairro' id='Bairro' class='form-control' placeholder='Bairro' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Bairro) ? $response->error->Bairro : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='Fone'>Fone</label>
-								<input type='text' name='Fone' id='Fone' class='form-control' placeholder='Fone' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Fone) ? $response->error->Fone : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='Fax'>Fax</label>
-								<input type='text' name='Fax' id='Fax' class='form-control' placeholder='Fax' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Fax) ? $response->error->Fax : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='Email'>E-mail</label>
-								<input type='text' name='Email' id='Email' class='form-control' placeholder='E-mail' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Email) ? $response->error->Email : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='MunicipioId'>Municipio</label>
-								<input type='number' name='MunicipioId' id='MunicipioId' class='form-control' placeholder='Municipio' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->MunicipioId) ? $response->error->MunicipioId : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='DtIni'>Data Inicial</label>
-								<input type='date' name='DtIni' id='DtIni' class='form-control' placeholder='Data Inicial' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DtIni) ? $response->error->DtIni : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='DtFin'>Data Final</label>
-								<input type='date' name='DtFin' id='DtFin' class='form-control' placeholder='Data Final' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->DtFin) ? $response->error->DtFin : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='PessoaJuridicaId'>Pessoa Juridica</label>
-								<input type='number' name='PessoaJuridicaId' id='PessoaJuridicaId' class='form-control' placeholder='Pessoa Juridica' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->PessoaJuridicaId) ? $response->error->PessoaJuridicaId : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='UsersId'>Usuário</label>
-								<input type='number' name='UsersId' id='UsersId' class='form-control' placeholder='Usuário' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->UsersId) ? $response->error->UsersId : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-actions'>
-								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
-								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
-							</div>
-					</fieldset>
-					<?= form_close() ?>
-				</div>
-			</div>
-		</div>
-	</div>
-*/
-

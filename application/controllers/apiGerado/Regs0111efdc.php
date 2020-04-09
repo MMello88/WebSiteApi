@@ -6,7 +6,7 @@ class Regs0111efdc extends MY_Controller {
   public function  __construct() {
     parent::__construct();
     $this->table = 'regs0111efdc';
-    $this->nameId = 'Id';
+    $this->nameId = '0111_Id';
     $this->usersId = '';
     $this->joins = [
     ];
@@ -15,29 +15,29 @@ class Regs0111efdc extends MY_Controller {
   public function get($Id = '', $date = ''){
     parent::get($Id, $date);
   }
-  
+
   public function setDefaultValue(){
     
   }
 
   public function create(){
-    $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('RecBruNCumTribMI', 'RecBruNCumTribMI', 'required|integer');
-		$this->form_validation->set_rules('RecBruNCumNaoTribMI', 'RecBruNCumNaoTribMI', 'required|integer');
-		$this->form_validation->set_rules('RecBruNCumExp', 'RecBruNCumExp', 'required|integer');
-		$this->form_validation->set_rules('RecBruNCum', 'RecBruNCum', 'required|integer');
-		$this->form_validation->set_rules('RecBruNCumTotal', 'RecBruNCumTotal', 'required|integer');
+    $this->form_validation->set_rules('0111_Reg', '0111_Reg', 'required|max_length[4]');
+		$this->form_validation->set_rules('0111_RecBruNCumTribMI', '0111_RecBruNCumTribMI', 'required|integer');
+		$this->form_validation->set_rules('0111_RecBruNCumNaoTribMI', '0111_RecBruNCumNaoTribMI', 'required|integer');
+		$this->form_validation->set_rules('0111_RecBruNCumExp', '0111_RecBruNCumExp', 'required|integer');
+		$this->form_validation->set_rules('0111_RecBruNCum', '0111_RecBruNCum', 'required|integer');
+		$this->form_validation->set_rules('0111_RecBruNCumTotal', '0111_RecBruNCumTotal', 'required|integer');
 		
     parent::create();
   }
-  
+
   public function update($Id){
-    $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('RecBruNCumTribMI', 'RecBruNCumTribMI', 'required|integer');
-		$this->form_validation->set_rules('RecBruNCumNaoTribMI', 'RecBruNCumNaoTribMI', 'required|integer');
-		$this->form_validation->set_rules('RecBruNCumExp', 'RecBruNCumExp', 'required|integer');
-		$this->form_validation->set_rules('RecBruNCum', 'RecBruNCum', 'required|integer');
-		$this->form_validation->set_rules('RecBruNCumTotal', 'RecBruNCumTotal', 'required|integer');
+    $this->form_validation->set_rules('0111_Reg', '0111_Reg', 'required|max_length[4]');
+		$this->form_validation->set_rules('0111_RecBruNCumTribMI', '0111_RecBruNCumTribMI', 'required|integer');
+		$this->form_validation->set_rules('0111_RecBruNCumNaoTribMI', '0111_RecBruNCumNaoTribMI', 'required|integer');
+		$this->form_validation->set_rules('0111_RecBruNCumExp', '0111_RecBruNCumExp', 'required|integer');
+		$this->form_validation->set_rules('0111_RecBruNCum', '0111_RecBruNCum', 'required|integer');
+		$this->form_validation->set_rules('0111_RecBruNCumTotal', '0111_RecBruNCumTotal', 'required|integer');
 		
     parent::update($Id);
   }
@@ -46,69 +46,3 @@ class Regs0111efdc extends MY_Controller {
     parent::delete($Id);
   }
 }
-
-/*
-	<header class='page-title-bar'>
-		<legend>Tabela de Receita Bruta Mensal Para Fins de Rateio de Créditos Comuns</legend>
-	</header>
-	<div class='page-section'>
-		<div class='section-block'>
-			<div class='card' id='floating-label'>
-				<div class='card-body'>
-					<?= form_open(base_url('regs0111efdc/')) ?>
-						<fieldset>
-							<input type='hidden' name='Id' id='Id'>
-							<div class='form-group'>
-								<label for='Reg'>Registro</label>
-								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg) ? $response->error->Reg : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='RecBruNCumTribMI'>Tributada</label>
-								<input type='number' name='RecBruNCumTribMI' id='RecBruNCumTribMI' class='form-control' placeholder='Tributada' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCumTribMI) ? $response->error->RecBruNCumTribMI : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='RecBruNCumNaoTribMI'>Não Tributada</label>
-								<input type='number' name='RecBruNCumNaoTribMI' id='RecBruNCumNaoTribMI' class='form-control' placeholder='Não Tributada' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCumNaoTribMI) ? $response->error->RecBruNCumNaoTribMI : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='RecBruNCumExp'>Exportação</label>
-								<input type='number' name='RecBruNCumExp' id='RecBruNCumExp' class='form-control' placeholder='Exportação' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCumExp) ? $response->error->RecBruNCumExp : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='RecBruNCum'>Receita Bruta Cumulativa</label>
-								<input type='number' name='RecBruNCum' id='RecBruNCum' class='form-control' placeholder='Receita Bruta Cumulativa' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCum) ? $response->error->RecBruNCum : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='RecBruNCumTotal'>Receita Bruta Total</label>
-								<input type='number' name='RecBruNCumTotal' id='RecBruNCumTotal' class='form-control' placeholder='Receita Bruta Total' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->RecBruNCumTotal) ? $response->error->RecBruNCumTotal : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-actions'>
-								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
-								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
-							</div>
-					</fieldset>
-					<?= form_close() ?>
-				</div>
-			</div>
-		</div>
-	</div>
-*/
-

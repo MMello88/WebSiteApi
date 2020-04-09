@@ -6,7 +6,7 @@ class Regs0145efdc extends MY_Controller {
   public function  __construct() {
     parent::__construct();
     $this->table = 'regs0145efdc';
-    $this->nameId = 'Id';
+    $this->nameId = '0145_Id';
     $this->usersId = '';
     $this->joins = [
     ];
@@ -15,29 +15,29 @@ class Regs0145efdc extends MY_Controller {
   public function get($Id = '', $date = ''){
     parent::get($Id, $date);
   }
-  
+
   public function setDefaultValue(){
     
   }
 
   public function create(){
-    $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('CodIncTrib', 'CodIncTrib', 'required|integer');
-		$this->form_validation->set_rules('VlRecTot', 'VlRecTot', 'required|decimal');
-		$this->form_validation->set_rules('VlRecAtiv', 'VlRecAtiv', 'required|decimal');
-		$this->form_validation->set_rules('VlRecDemaisAtiv', 'VlRecDemaisAtiv', 'required|decimal');
-		$this->form_validation->set_rules('InfoCompl', 'InfoCompl', 'max_length[255]');
+    $this->form_validation->set_rules('0145_Reg', '0145_Reg', 'required|max_length[4]');
+		$this->form_validation->set_rules('0145_CodIncTrib', '0145_CodIncTrib', 'required|integer');
+		$this->form_validation->set_rules('0145_VlRecTot', '0145_VlRecTot', 'required|decimal');
+		$this->form_validation->set_rules('0145_VlRecAtiv', '0145_VlRecAtiv', 'required|decimal');
+		$this->form_validation->set_rules('0145_VlRecDemaisAtiv', '0145_VlRecDemaisAtiv', 'required|decimal');
+		$this->form_validation->set_rules('0145_InfoCompl', '0145_InfoCompl', 'max_length[255]');
 		
     parent::create();
   }
-  
+
   public function update($Id){
-    $this->form_validation->set_rules('Reg', 'Reg', 'required|max_length[4]');
-		$this->form_validation->set_rules('CodIncTrib', 'CodIncTrib', 'required|integer');
-		$this->form_validation->set_rules('VlRecTot', 'VlRecTot', 'required|decimal');
-		$this->form_validation->set_rules('VlRecAtiv', 'VlRecAtiv', 'required|decimal');
-		$this->form_validation->set_rules('VlRecDemaisAtiv', 'VlRecDemaisAtiv', 'required|decimal');
-		$this->form_validation->set_rules('InfoCompl', 'InfoCompl', 'max_length[255]');
+    $this->form_validation->set_rules('0145_Reg', '0145_Reg', 'required|max_length[4]');
+		$this->form_validation->set_rules('0145_CodIncTrib', '0145_CodIncTrib', 'required|integer');
+		$this->form_validation->set_rules('0145_VlRecTot', '0145_VlRecTot', 'required|decimal');
+		$this->form_validation->set_rules('0145_VlRecAtiv', '0145_VlRecAtiv', 'required|decimal');
+		$this->form_validation->set_rules('0145_VlRecDemaisAtiv', '0145_VlRecDemaisAtiv', 'required|decimal');
+		$this->form_validation->set_rules('0145_InfoCompl', '0145_InfoCompl', 'max_length[255]');
 		
     parent::update($Id);
   }
@@ -46,69 +46,3 @@ class Regs0145efdc extends MY_Controller {
     parent::delete($Id);
   }
 }
-
-/*
-	<header class='page-title-bar'>
-		<legend>Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta</legend>
-	</header>
-	<div class='page-section'>
-		<div class='section-block'>
-			<div class='card' id='floating-label'>
-				<div class='card-body'>
-					<?= form_open(base_url('regs0145efdc/')) ?>
-						<fieldset>
-							<input type='hidden' name='Id' id='Id'>
-							<div class='form-group'>
-								<label for='Reg'>Registro</label>
-								<input type='text' name='Reg' id='Reg' class='form-control' placeholder='Registro' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->Reg) ? $response->error->Reg : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='CodIncTrib'>Código Incidência Tributária</label>
-								<input type='number' name='CodIncTrib' id='CodIncTrib' class='form-control' placeholder='Código Incidência Tributária' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->CodIncTrib) ? $response->error->CodIncTrib : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='VlRecTot'>Valor da Receita Bruta Total</label>
-								<input type='' name='VlRecTot' id='VlRecTot' class='form-control' placeholder='Valor da Receita Bruta Total' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->VlRecTot) ? $response->error->VlRecTot : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='VlRecAtiv'>Valor da Receita Bruta da Atividade</label>
-								<input type='' name='VlRecAtiv' id='VlRecAtiv' class='form-control' placeholder='Valor da Receita Bruta da Atividade' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->VlRecAtiv) ? $response->error->VlRecAtiv : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='VlRecDemaisAtiv'>Valor da Receita Bruta das demais Atividade</label>
-								<input type='' name='VlRecDemaisAtiv' id='VlRecDemaisAtiv' class='form-control' placeholder='Valor da Receita Bruta das demais Atividade' required>
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->VlRecDemaisAtiv) ? $response->error->VlRecDemaisAtiv : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-group'>
-								<label for='InfoCompl'>Informação complementar</label>
-								<input type='text' name='InfoCompl' id='InfoCompl' class='form-control' placeholder='Informação complementar' >
-								<?php if(isset($response)): ?>
-									<div class='invalid-feedback' style='display:block'><?= isset($response->error->InfoCompl) ? $response->error->InfoCompl : ''; ?></div>
-								<?php endif; ?>
-							</div>
-							<div class='form-actions'>
-								<button class='btn btn-primary mr-auto' type='submit'>Salvar</button>
-								<button class='btn btn-secondary ml-auto' type='submit'>Cancelar</button>
-							</div>
-					</fieldset>
-					<?= form_close() ?>
-				</div>
-			</div>
-		</div>
-	</div>
-*/
-

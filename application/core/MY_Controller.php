@@ -24,7 +24,7 @@ abstract class MY_Controller extends API_Controller {
     $where = "";
     $where.= !empty($Id) || $Id > 0 ? " {$this->table}.{$this->nameId} = {$Id} and " : "";
     $where.= !empty($date) ? "{$date} between {$this->table}.DtIni and IF(ISNULL({$this->table}.DtFin),SYSDATE(),DtFin) and " : "";
-    $where.= !empty($this->usersId) ? "{$this->table}.{$this->usersId} = " . $user_data["token_data"]["Id"] . " and ": "";
+    $where.= !empty($this->usersId) ? "{$this->table}.{$this->usersId} = " . $user_data["token_data"]["uu_Id"] . " and ": "";
     $where = !empty($where) ? substr($where, 0, -4) : "";
 
     $data = $this->api->get($this->table, $where, $this->joins);
@@ -41,7 +41,7 @@ abstract class MY_Controller extends API_Controller {
     ]);
 
     if (!empty($this->usersId)){
-      $_POST[$this->usersId] = $user_data["token_data"]["Id"];
+      $_POST[$this->usersId] = $user_data["token_data"]["uu_Id"];
     }
 
     $this->setDefaultValue();
@@ -82,7 +82,7 @@ abstract class MY_Controller extends API_Controller {
     } else {
 
       if (!empty($this->usersId)){
-        $_POST[$this->usersId] = $user_data["token_data"]["Id"];
+        $_POST[$this->usersId] = $user_data["token_data"]["uu_Id"];
       }
 
       if ($this->form_validation->run() == TRUE){
@@ -121,7 +121,7 @@ abstract class MY_Controller extends API_Controller {
     
       $where[$this->nameId] = $Id;
       if (!empty($this->usersId)){
-        $where[$this->usersId] = $user_data["token_data"]["Id"];
+        $where[$this->usersId] = $user_data["token_data"]["uu_Id"];
       }
 
       $this->api->delete($this->table, $where);
@@ -167,8 +167,8 @@ abstract class MY_Controller extends API_Controller {
   }
 
   private function verify_login(){
-    $this->form_validation->set_rules("Email", "Email", "required|valid_email|max_length[250]");
-    $this->form_validation->set_rules("Senha", "Senha", "required|max_length[64]");
+    $this->form_validation->set_rules("uu_Email", "Email", "required|valid_email|max_length[250]");
+    $this->form_validation->set_rules("uu_Senha", "Senha", "required|max_length[64]");
     
     if ($this->form_validation->run() == TRUE){
     
