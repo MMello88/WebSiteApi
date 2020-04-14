@@ -7,9 +7,9 @@ class Regsa111efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regsa111efdc';
     $this->nameId = 'a111_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = 'a111_UsersId';
     $this->joins = [
-			['table' => 'regsa100efdc', 'condition' => 'regsa100efdc.a100_Id = regsa111efdc.RegA100EFDCId', 'type' => 'left'],
+			['table' => 'regsa100efdc', 'condition' => 'regsa100efdc.a100_Id = regsa111efdc.a111_RegA100EFDCId', 'type' => 'left'],
     ];
   }
 
@@ -25,8 +25,8 @@ class Regsa111efdc extends MY_Controller {
     $this->form_validation->set_rules('a111_Reg', 'a111_Reg', 'required|max_length[4]');
 		$this->form_validation->set_rules('a111_NumProcesso', 'a111_NumProcesso', 'required|max_length[15]');
 		$this->form_validation->set_rules('a111_IndicadorOrigemProcesso', 'a111_IndicadorOrigemProcesso', 'required|in_list[1 - Justiça Federal,3 – Secretaria da Receita Federal do Brasil,9 - Outros]');
-		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
+		$this->form_validation->set_rules('a111_RegA100EFDCId', 'a111_RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('a111_UsersId', 'a111_UsersId', 'required|integer');
 		
     parent::create();
   }
@@ -35,8 +35,8 @@ class Regsa111efdc extends MY_Controller {
     $this->form_validation->set_rules('a111_Reg', 'a111_Reg', 'required|max_length[4]');
 		$this->form_validation->set_rules('a111_NumProcesso', 'a111_NumProcesso', 'required|max_length[15]');
 		$this->form_validation->set_rules('a111_IndicadorOrigemProcesso', 'a111_IndicadorOrigemProcesso', 'required|in_list[1 - Justiça Federal,3 – Secretaria da Receita Federal do Brasil,9 - Outros]');
-		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
+		$this->form_validation->set_rules('a111_RegA100EFDCId', 'a111_RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('a111_UsersId', 'a111_UsersId', 'required|integer');
 		
     parent::update($Id);
   }

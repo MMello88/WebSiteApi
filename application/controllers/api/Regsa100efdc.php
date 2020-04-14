@@ -7,10 +7,10 @@ class Regsa100efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regsa100efdc';
     $this->nameId = 'a100_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = 'a100_UsersId';
     $this->joins = [
 			['table' => 'regs0150efdc', 'condition' => 'regs0150efdc.0150_Id = regsa100efdc.Reg0150EFDCId', 'type' => 'left'],
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regsa100efdc.PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regsa100efdc.a100_PessoaJuridicaId', 'type' => 'left'],
     ];
   }
 
@@ -46,8 +46,8 @@ class Regsa100efdc extends MY_Controller {
 		$this->form_validation->set_rules('a100_VlIss', 'a100_VlIss', 'required|decimal');
 		$this->form_validation->set_rules('a100_DtIni', 'a100_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('a100_DtFin', 'a100_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('a100_PessoaJuridicaId', 'a100_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('a100_UsersId', 'a100_UsersId', 'integer');
 		
     parent::create();
   }
@@ -76,8 +76,8 @@ class Regsa100efdc extends MY_Controller {
 		$this->form_validation->set_rules('a100_VlIss', 'a100_VlIss', 'required|decimal');
 		$this->form_validation->set_rules('a100_DtIni', 'a100_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('a100_DtFin', 'a100_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('a100_PessoaJuridicaId', 'a100_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('a100_UsersId', 'a100_UsersId', 'integer');
 		
     parent::update($Id);
   }

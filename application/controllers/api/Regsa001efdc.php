@@ -7,9 +7,9 @@ class Regsa001efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regsa001efdc';
     $this->nameId = 'a001_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = 'a001_UsersId';
     $this->joins = [
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regsa001efdc.PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regsa001efdc.a001_PessoaJuridicaId', 'type' => 'left'],
     ];
   }
 
@@ -26,8 +26,8 @@ class Regsa001efdc extends MY_Controller {
 		$this->form_validation->set_rules('a001_IndicadorMovimento', 'a001_IndicadorMovimento', 'required|in_list[0 - Bloco com dados informados,1 - Bloco sem dados informados]');
 		$this->form_validation->set_rules('a001_DtIni', 'a001_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('a001_DtFin', 'a001_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('a001_PessoaJuridicaId', 'a001_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('a001_UsersId', 'a001_UsersId', 'integer');
 		
     parent::create();
   }
@@ -37,8 +37,8 @@ class Regsa001efdc extends MY_Controller {
 		$this->form_validation->set_rules('a001_IndicadorMovimento', 'a001_IndicadorMovimento', 'required|in_list[0 - Bloco com dados informados,1 - Bloco sem dados informados]');
 		$this->form_validation->set_rules('a001_DtIni', 'a001_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('a001_DtFin', 'a001_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('a001_PessoaJuridicaId', 'a001_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('a001_UsersId', 'a001_UsersId', 'integer');
 		
     parent::update($Id);
   }

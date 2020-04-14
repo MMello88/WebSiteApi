@@ -7,11 +7,11 @@ class Regs0140efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0140efdc';
     $this->nameId = '0140_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = '0140_UsersId';
     $this->joins = [
-			['table' => 'municipios', 'condition' => 'municipios.mun_Id = regs0140efdc.MunicipioId', 'type' => 'inner'],
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0140efdc.PessoaJuridicaId', 'type' => 'left'],
-			['table' => 'regs0145efdc', 'condition' => 'regs0145efdc.0145_Id = regs0140efdc.Reg0145EFDCId', 'type' => 'left'],
+			['table' => 'municipios', 'condition' => 'municipios.mun_Id = regs0140efdc.0140_MunicipioId', 'type' => 'inner'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0140efdc.0140_PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'regs0145efdc', 'condition' => 'regs0145efdc.0145_Id = regs0140efdc.0140_Reg0145EFDCId', 'type' => 'left'],
     ];
   }
 
@@ -20,7 +20,8 @@ class Regs0140efdc extends MY_Controller {
   }
 
   public function setDefaultValue(){
-    
+    $_POST['0140_Reg'] = !isset($_POST['0140_Reg']) ? '0140' : $_POST['0140_Reg'];
+		
   }
 
   public function create(){
@@ -30,14 +31,14 @@ class Regs0140efdc extends MY_Controller {
 		$this->form_validation->set_rules('0140_CNPJ', '0140_CNPJ', 'required|integer');
 		$this->form_validation->set_rules('0140_UF', '0140_UF', 'required|max_length[2]');
 		$this->form_validation->set_rules('0140_IE', '0140_IE', 'max_length[14]');
-		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
+		$this->form_validation->set_rules('0140_MunicipioId', '0140_MunicipioId', 'required|integer');
 		$this->form_validation->set_rules('0140_IM', '0140_IM', 'max_length[255]');
 		$this->form_validation->set_rules('0140_Suframa', '0140_Suframa', 'max_length[9]');
 		$this->form_validation->set_rules('0140_DtIni', '0140_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0140_DtFin', '0140_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
-		$this->form_validation->set_rules('Reg0145EFDCId', 'Reg0145EFDCId', 'integer');
+		$this->form_validation->set_rules('0140_PessoaJuridicaId', '0140_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0140_UsersId', '0140_UsersId', 'integer');
+		$this->form_validation->set_rules('0140_Reg0145EFDCId', '0140_Reg0145EFDCId', 'integer');
 		
     parent::create();
   }
@@ -49,14 +50,14 @@ class Regs0140efdc extends MY_Controller {
 		$this->form_validation->set_rules('0140_CNPJ', '0140_CNPJ', 'required|integer');
 		$this->form_validation->set_rules('0140_UF', '0140_UF', 'required|max_length[2]');
 		$this->form_validation->set_rules('0140_IE', '0140_IE', 'max_length[14]');
-		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
+		$this->form_validation->set_rules('0140_MunicipioId', '0140_MunicipioId', 'required|integer');
 		$this->form_validation->set_rules('0140_IM', '0140_IM', 'max_length[255]');
 		$this->form_validation->set_rules('0140_Suframa', '0140_Suframa', 'max_length[9]');
 		$this->form_validation->set_rules('0140_DtIni', '0140_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0140_DtFin', '0140_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
-		$this->form_validation->set_rules('Reg0145EFDCId', 'Reg0145EFDCId', 'integer');
+		$this->form_validation->set_rules('0140_PessoaJuridicaId', '0140_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0140_UsersId', '0140_UsersId', 'integer');
+		$this->form_validation->set_rules('0140_Reg0145EFDCId', '0140_Reg0145EFDCId', 'integer');
 		
     parent::update($Id);
   }

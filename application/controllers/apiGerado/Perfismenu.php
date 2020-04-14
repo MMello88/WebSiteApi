@@ -9,8 +9,8 @@ class Perfismenu extends MY_Controller {
     $this->nameId = 'pm_Id';
     $this->usersId = '';
     $this->joins = [
-			['table' => 'menus', 'condition' => 'menus.mns_Id = perfismenu.MenusId', 'type' => 'inner'],
-			['table' => 'perfis', 'condition' => 'perfis.ps_Id = perfismenu.PerfisId', 'type' => 'inner'],
+			['table' => 'menus', 'condition' => 'menus.mns_Id = perfismenu.pm_MenusId', 'type' => 'inner'],
+			['table' => 'perfis', 'condition' => 'perfis.ps_Id = perfismenu.pm_PerfisId', 'type' => 'inner'],
     ];
   }
 
@@ -23,15 +23,15 @@ class Perfismenu extends MY_Controller {
   }
 
   public function create(){
-    $this->form_validation->set_rules('MenusId', 'MenusId', 'required|integer');
-		$this->form_validation->set_rules('PerfisId', 'PerfisId', 'required|integer');
+    $this->form_validation->set_rules('pm_MenusId', 'pm_MenusId', 'required|integer');
+		$this->form_validation->set_rules('pm_PerfisId', 'pm_PerfisId', 'required|integer');
 		
     parent::create();
   }
 
   public function update($Id){
-    $this->form_validation->set_rules('MenusId', 'MenusId', 'required|integer');
-		$this->form_validation->set_rules('PerfisId', 'PerfisId', 'required|integer');
+    $this->form_validation->set_rules('pm_MenusId', 'pm_MenusId', 'required|integer');
+		$this->form_validation->set_rules('pm_PerfisId', 'pm_PerfisId', 'required|integer');
 		
     parent::update($Id);
   }

@@ -7,9 +7,9 @@ class Perfisuser extends MY_Controller {
     parent::__construct();
     $this->table = 'perfisuser';
     $this->nameId = 'pu_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = 'pu_UsersId';
     $this->joins = [
-			['table' => 'perfis', 'condition' => 'perfis.ps_Id = perfisuser.PerfisId', 'type' => 'inner'],
+			['table' => 'perfis', 'condition' => 'perfis.ps_Id = perfisuser.pu_PerfisId', 'type' => 'inner'],
     ];
   }
 
@@ -22,15 +22,15 @@ class Perfisuser extends MY_Controller {
   }
 
   public function create(){
-    $this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
-		$this->form_validation->set_rules('PerfisId', 'PerfisId', 'required|integer');
+    $this->form_validation->set_rules('pu_UsersId', 'pu_UsersId', 'required|integer');
+		$this->form_validation->set_rules('pu_PerfisId', 'pu_PerfisId', 'required|integer');
 		
     parent::create();
   }
 
   public function update($Id){
-    $this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
-		$this->form_validation->set_rules('PerfisId', 'PerfisId', 'required|integer');
+    $this->form_validation->set_rules('pu_UsersId', 'pu_UsersId', 'required|integer');
+		$this->form_validation->set_rules('pu_PerfisId', 'pu_PerfisId', 'required|integer');
 		
     parent::update($Id);
   }

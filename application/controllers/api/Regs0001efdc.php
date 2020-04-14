@@ -17,7 +17,8 @@ class Regs0001efdc extends MY_Controller {
   }
 
   public function setDefaultValue(){
-    
+    $_POST['0001_Reg'] = !isset($_POST['0001_Reg']) ? '0001' : $_POST['0001_Reg'];
+		
   }
 
   public function create(){

@@ -7,9 +7,9 @@ class Regs0500efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0500efdc';
     $this->nameId = '0500_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = '0500_UsersId';
     $this->joins = [
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0500efdc.PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0500efdc.0500_PessoaJuridicaId', 'type' => 'left'],
     ];
   }
 
@@ -33,8 +33,8 @@ class Regs0500efdc extends MY_Controller {
 		$this->form_validation->set_rules('0500_CNPJEstab', '0500_CNPJEstab', 'required|integer');
 		$this->form_validation->set_rules('0500_DtIni', '0500_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0500_DtFin', '0500_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0500_PessoaJuridicaId', '0500_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0500_UsersId', '0500_UsersId', 'integer');
 		
     parent::create();
   }
@@ -51,8 +51,8 @@ class Regs0500efdc extends MY_Controller {
 		$this->form_validation->set_rules('0500_CNPJEstab', '0500_CNPJEstab', 'required|integer');
 		$this->form_validation->set_rules('0500_DtIni', '0500_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0500_DtFin', '0500_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0500_PessoaJuridicaId', '0500_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0500_UsersId', '0500_UsersId', 'integer');
 		
     parent::update($Id);
   }

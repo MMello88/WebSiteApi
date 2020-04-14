@@ -7,10 +7,10 @@ class Regs0110efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0110efdc';
     $this->nameId = '0110_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = '0110_UsersId';
     $this->joins = [
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0110efdc.PessoaJuridicaId', 'type' => 'left'],
-			['table' => 'regs0111efdc', 'condition' => 'regs0111efdc.0111_Id = regs0110efdc.Reg0111EFDCId', 'type' => 'left'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0110efdc.0110_PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'regs0111efdc', 'condition' => 'regs0111efdc.0111_Id = regs0110efdc.0110_Reg0111EFDCId', 'type' => 'left'],
     ];
   }
 
@@ -19,7 +19,8 @@ class Regs0110efdc extends MY_Controller {
   }
 
   public function setDefaultValue(){
-    
+    $_POST['0110_Reg'] = !isset($_POST['0110_Reg']) ? '0110' : $_POST['0110_Reg'];
+		
   }
 
   public function create(){
@@ -30,9 +31,9 @@ class Regs0110efdc extends MY_Controller {
 		$this->form_validation->set_rules('0110_IndRegCum', '0110_IndRegCum', 'required|in_list[1 – Regime de Caixa – Escrituração consolidada,2 – Regime de Competência - Escrituração consolidada]');
 		$this->form_validation->set_rules('0110_DtIni', '0110_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0110_DtFin', '0110_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
-		$this->form_validation->set_rules('Reg0111EFDCId', 'Reg0111EFDCId', 'integer');
+		$this->form_validation->set_rules('0110_PessoaJuridicaId', '0110_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0110_UsersId', '0110_UsersId', 'integer');
+		$this->form_validation->set_rules('0110_Reg0111EFDCId', '0110_Reg0111EFDCId', 'integer');
 		
     parent::create();
   }
@@ -45,9 +46,9 @@ class Regs0110efdc extends MY_Controller {
 		$this->form_validation->set_rules('0110_IndRegCum', '0110_IndRegCum', 'required|in_list[1 – Regime de Caixa – Escrituração consolidada,2 – Regime de Competência - Escrituração consolidada]');
 		$this->form_validation->set_rules('0110_DtIni', '0110_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0110_DtFin', '0110_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
-		$this->form_validation->set_rules('Reg0111EFDCId', 'Reg0111EFDCId', 'integer');
+		$this->form_validation->set_rules('0110_PessoaJuridicaId', '0110_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0110_UsersId', '0110_UsersId', 'integer');
+		$this->form_validation->set_rules('0110_Reg0111EFDCId', '0110_Reg0111EFDCId', 'integer');
 		
     parent::update($Id);
   }

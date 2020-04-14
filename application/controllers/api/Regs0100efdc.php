@@ -7,10 +7,10 @@ class Regs0100efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0100efdc';
     $this->nameId = '0100_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = '0100_UsersId';
     $this->joins = [
-			['table' => 'municipios', 'condition' => 'municipios.mun_Id = regs0100efdc.MunicipioId', 'type' => 'inner'],
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0100efdc.PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'municipios', 'condition' => 'municipios.mun_Id = regs0100efdc.0100_MunicipioId', 'type' => 'inner'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0100efdc.0100_PessoaJuridicaId', 'type' => 'left'],
     ];
   }
 
@@ -19,7 +19,8 @@ class Regs0100efdc extends MY_Controller {
   }
 
   public function setDefaultValue(){
-    
+    $_POST['0100_Reg'] = !isset($_POST['0100_Reg']) ? '0100' : $_POST['0100_Reg'];
+		
   }
 
   public function create(){
@@ -36,11 +37,11 @@ class Regs0100efdc extends MY_Controller {
 		$this->form_validation->set_rules('0100_Fone', '0100_Fone', 'max_length[11]');
 		$this->form_validation->set_rules('0100_Fax', '0100_Fax', 'max_length[11]');
 		$this->form_validation->set_rules('0100_Email', '0100_Email', 'max_length[255]');
-		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
+		$this->form_validation->set_rules('0100_MunicipioId', '0100_MunicipioId', 'required|integer');
 		$this->form_validation->set_rules('0100_DtIni', '0100_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0100_DtFin', '0100_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0100_PessoaJuridicaId', '0100_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0100_UsersId', '0100_UsersId', 'integer');
 		
     parent::create();
   }
@@ -59,11 +60,11 @@ class Regs0100efdc extends MY_Controller {
 		$this->form_validation->set_rules('0100_Fone', '0100_Fone', 'max_length[11]');
 		$this->form_validation->set_rules('0100_Fax', '0100_Fax', 'max_length[11]');
 		$this->form_validation->set_rules('0100_Email', '0100_Email', 'max_length[255]');
-		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
+		$this->form_validation->set_rules('0100_MunicipioId', '0100_MunicipioId', 'required|integer');
 		$this->form_validation->set_rules('0100_DtIni', '0100_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0100_DtFin', '0100_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0100_PessoaJuridicaId', '0100_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0100_UsersId', '0100_UsersId', 'integer');
 		
     parent::update($Id);
   }

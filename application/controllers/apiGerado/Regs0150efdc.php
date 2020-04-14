@@ -7,11 +7,11 @@ class Regs0150efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0150efdc';
     $this->nameId = '0150_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = '0150_UsersId';
     $this->joins = [
 			['table' => 'paises', 'condition' => 'paises.pss_Id = regs0150efdc.0150_PaisId', 'type' => 'left'],
-			['table' => 'municipios', 'condition' => 'municipios.mun_Id = regs0150efdc.MunicipioId', 'type' => 'inner'],
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0150efdc.PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'municipios', 'condition' => 'municipios.mun_Id = regs0150efdc.0150_MunicipioId', 'type' => 'inner'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0150efdc.0150_PessoaJuridicaId', 'type' => 'left'],
     ];
   }
 
@@ -31,7 +31,7 @@ class Regs0150efdc extends MY_Controller {
 		$this->form_validation->set_rules('0150_CNPJ', '0150_CNPJ', 'required|integer');
 		$this->form_validation->set_rules('0150_CPF', '0150_CPF', 'required|integer');
 		$this->form_validation->set_rules('0150_IE', '0150_IE', 'max_length[14]');
-		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
+		$this->form_validation->set_rules('0150_MunicipioId', '0150_MunicipioId', 'required|integer');
 		$this->form_validation->set_rules('0150_Suframa', '0150_Suframa', 'max_length[9]');
 		$this->form_validation->set_rules('0150_End', '0150_End', 'max_length[60]');
 		$this->form_validation->set_rules('0150_Num', '0150_Num', 'max_length[20]');
@@ -39,8 +39,8 @@ class Regs0150efdc extends MY_Controller {
 		$this->form_validation->set_rules('0150_Bairro', '0150_Bairro', 'max_length[60]');
 		$this->form_validation->set_rules('0150_DtIni', '0150_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0150_DtFin', '0150_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0150_PessoaJuridicaId', '0150_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0150_UsersId', '0150_UsersId', 'integer');
 		
     parent::create();
   }
@@ -53,7 +53,7 @@ class Regs0150efdc extends MY_Controller {
 		$this->form_validation->set_rules('0150_CNPJ', '0150_CNPJ', 'required|integer');
 		$this->form_validation->set_rules('0150_CPF', '0150_CPF', 'required|integer');
 		$this->form_validation->set_rules('0150_IE', '0150_IE', 'max_length[14]');
-		$this->form_validation->set_rules('MunicipioId', 'MunicipioId', 'required|integer');
+		$this->form_validation->set_rules('0150_MunicipioId', '0150_MunicipioId', 'required|integer');
 		$this->form_validation->set_rules('0150_Suframa', '0150_Suframa', 'max_length[9]');
 		$this->form_validation->set_rules('0150_End', '0150_End', 'max_length[60]');
 		$this->form_validation->set_rules('0150_Num', '0150_Num', 'max_length[20]');
@@ -61,8 +61,8 @@ class Regs0150efdc extends MY_Controller {
 		$this->form_validation->set_rules('0150_Bairro', '0150_Bairro', 'max_length[60]');
 		$this->form_validation->set_rules('0150_DtIni', '0150_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0150_DtFin', '0150_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0150_PessoaJuridicaId', '0150_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0150_UsersId', '0150_UsersId', 'integer');
 		
     parent::update($Id);
   }

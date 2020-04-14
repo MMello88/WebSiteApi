@@ -7,9 +7,9 @@ class Regs0120efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0120efdc';
     $this->nameId = '0120_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = '0120_UsersId';
     $this->joins = [
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0120efdc.PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0120efdc.0120_PessoaJuridicaId', 'type' => 'left'],
     ];
   }
 
@@ -18,7 +18,8 @@ class Regs0120efdc extends MY_Controller {
   }
 
   public function setDefaultValue(){
-    
+    $_POST['0120_Reg'] = !isset($_POST['0120_Reg']) ? '0120' : $_POST['0120_Reg'];
+		
   }
 
   public function create(){
@@ -27,8 +28,8 @@ class Regs0120efdc extends MY_Controller {
 		$this->form_validation->set_rules('0120_InfoCompl', '0120_InfoCompl', 'required|integer');
 		$this->form_validation->set_rules('0120_DtIni', '0120_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0120_DtFin', '0120_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0120_PessoaJuridicaId', '0120_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0120_UsersId', '0120_UsersId', 'integer');
 		
     parent::create();
   }
@@ -39,8 +40,8 @@ class Regs0120efdc extends MY_Controller {
 		$this->form_validation->set_rules('0120_InfoCompl', '0120_InfoCompl', 'required|integer');
 		$this->form_validation->set_rules('0120_DtIni', '0120_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0120_DtFin', '0120_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0120_PessoaJuridicaId', '0120_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0120_UsersId', '0120_UsersId', 'integer');
 		
     parent::update($Id);
   }

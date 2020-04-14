@@ -7,9 +7,9 @@ class Regs0190efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regs0190efdc';
     $this->nameId = '0190_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = '0190_UsersId';
     $this->joins = [
-			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0190efdc.PessoaJuridicaId', 'type' => 'left'],
+			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0190efdc.0190_PessoaJuridicaId', 'type' => 'left'],
     ];
   }
 
@@ -27,8 +27,8 @@ class Regs0190efdc extends MY_Controller {
 		$this->form_validation->set_rules('0190_Descrição', '0190_Descrição', 'required|max_length[255]');
 		$this->form_validation->set_rules('0190_DtIni', '0190_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0190_DtFin', '0190_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0190_PessoaJuridicaId', '0190_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0190_UsersId', '0190_UsersId', 'integer');
 		
     parent::create();
   }
@@ -39,8 +39,8 @@ class Regs0190efdc extends MY_Controller {
 		$this->form_validation->set_rules('0190_Descrição', '0190_Descrição', 'required|max_length[255]');
 		$this->form_validation->set_rules('0190_DtIni', '0190_DtIni', 'required|valid_date');
 		$this->form_validation->set_rules('0190_DtFin', '0190_DtFin', 'valid_date');
-		$this->form_validation->set_rules('PessoaJuridicaId', 'PessoaJuridicaId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'integer');
+		$this->form_validation->set_rules('0190_PessoaJuridicaId', '0190_PessoaJuridicaId', 'integer');
+		$this->form_validation->set_rules('0190_UsersId', '0190_UsersId', 'integer');
 		
     parent::update($Id);
   }

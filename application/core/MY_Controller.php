@@ -45,11 +45,15 @@ abstract class MY_Controller extends API_Controller {
     }
 
     $this->setDefaultValue();
+
+    foreach($_POST as $key => $Value){
+      $_POST[$key] = !empty($_POST[$key]) ? $_POST[$key] : null;
+    }
   	
     if ($this->form_validation->run() == TRUE){
     
       $Id = $this->api->create($this->table, $_POST);
-      if (is_numeric($Id)){
+      if (is_numeric($Id)){ 
         $data = $this->api->get($this->table, [$this->nameId => $Id]);
       	$this->api_return(
           ["status" => "TRUE", "data" => $data, "message" => "Cadastro realizado com sucesso!", "method" => "POST"],
@@ -85,6 +89,10 @@ abstract class MY_Controller extends API_Controller {
         $_POST[$this->usersId] = $user_data["token_data"]["uu_Id"];
       }
 
+      foreach($_POST as $key => $Value){
+        $_POST[$key] = !empty($_POST[$key]) ? $_POST[$key] : null;
+      }
+      
       if ($this->form_validation->run() == TRUE){
 
         $this->api->update($this->table, $_POST, [$this->nameId => $Id]);

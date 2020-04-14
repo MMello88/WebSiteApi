@@ -7,9 +7,9 @@ class Regsa120efdc extends MY_Controller {
     parent::__construct();
     $this->table = 'regsa120efdc';
     $this->nameId = 'a120_Id';
-    $this->usersId = 'UsersId';
+    $this->usersId = 'a120_UsersId';
     $this->joins = [
-			['table' => 'regsa100efdc', 'condition' => 'regsa100efdc.a100_Id = regsa120efdc.RegA100EFDCId', 'type' => 'left'],
+			['table' => 'regsa100efdc', 'condition' => 'regsa100efdc.a100_Id = regsa120efdc.a120_RegA100EFDCId', 'type' => 'left'],
     ];
   }
 
@@ -31,8 +31,8 @@ class Regsa120efdc extends MY_Controller {
 		$this->form_validation->set_rules('a120_VlCofinsImportacao', 'a120_VlCofinsImportacao', 'required|decimal');
 		$this->form_validation->set_rules('a120_DtPgtoCofinsImportacao', 'a120_DtPgtoCofinsImportacao', 'required|valid_date');
 		$this->form_validation->set_rules('a120_IndicadorLocalExecucaoServico', 'a120_IndicadorLocalExecucaoServico', 'required|in_list[0 – Executado no País,1 – Executado no Exterior, cujo resultado se verifique no País]');
-		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
+		$this->form_validation->set_rules('a120_RegA100EFDCId', 'a120_RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('a120_UsersId', 'a120_UsersId', 'required|integer');
 		
     parent::create();
   }
@@ -47,8 +47,8 @@ class Regsa120efdc extends MY_Controller {
 		$this->form_validation->set_rules('a120_VlCofinsImportacao', 'a120_VlCofinsImportacao', 'required|decimal');
 		$this->form_validation->set_rules('a120_DtPgtoCofinsImportacao', 'a120_DtPgtoCofinsImportacao', 'required|valid_date');
 		$this->form_validation->set_rules('a120_IndicadorLocalExecucaoServico', 'a120_IndicadorLocalExecucaoServico', 'required|in_list[0 – Executado no País,1 – Executado no Exterior, cujo resultado se verifique no País]');
-		$this->form_validation->set_rules('RegA100EFDCId', 'RegA100EFDCId', 'integer');
-		$this->form_validation->set_rules('UsersId', 'UsersId', 'required|integer');
+		$this->form_validation->set_rules('a120_RegA100EFDCId', 'a120_RegA100EFDCId', 'integer');
+		$this->form_validation->set_rules('a120_UsersId', 'a120_UsersId', 'required|integer');
 		
     parent::update($Id);
   }

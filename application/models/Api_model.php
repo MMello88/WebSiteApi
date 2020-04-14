@@ -118,11 +118,11 @@ class Api_model extends CI_Model {
   public function getPerfilMenu($UsersId, $PerfisId){
     $sql = "SELECT m.mns_Id, m.mns_Nome, m.mns_Icone, m.mns_url, m.mns_Ativo
               FROM perfismenu pm
-              LEFT JOIN menus m ON m.mns_Id = pm.MenusId
-              LEFT JOIN perfisuser pu ON pu.PerfisId = pm.PerfisId
-              LEFT JOIN perfis p ON p.ps_Id = pu.PerfisId
-             WHERE pu.UsersId = {$UsersId}
-               AND pu.PerfisId = {$PerfisId}
+              LEFT JOIN menus m ON m.mns_Id = pm.pm_MenusId
+              LEFT JOIN perfisuser pu ON pu.pu_PerfisId = pm.pm_PerfisId
+              LEFT JOIN perfis p ON p.ps_Id = pu.pu_PerfisId
+             WHERE pu.pu_UsersId = {$UsersId}
+               AND pu.pu_PerfisId = {$PerfisId}
                AND p.ps_Ativo = 'True'
                AND m.mns_Ativo = 'True'
              GROUP BY m.mns_Id, m.mns_Nome, m.mns_Icone, m.mns_url, m.mns_Ativo";
