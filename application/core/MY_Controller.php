@@ -34,6 +34,24 @@ abstract class MY_Controller extends API_Controller {
 		);
   }
 
+  protected function getByParent($IdParent, $Id = ''){
+		$user_data = $this->_apiConfig([
+			"methods" => ["GET"],
+			"requireAuthorization" => true,
+    ]);
+    
+    $where = "";
+    $where.= !empty($IdParent) || $Id > 0 ? " {$this->tableParent}.{$this->nameIdParent} = {$IdParent} and " : "";
+    $where.= !empty($Id) || $Id > 0 ? " {$this->table}.{$this->nameId} = {$Id} and " : "";
+    $where = !empty($where) ? substr($where, 0, -4) : "";
+
+    $data = $this->api->get($this->table, $where, $this->joins);
+    $this->api_return(
+			["status" => "TRUE", "data" => $data, "message" => "Consulta realizada com sucesso!", "method" => "GET"],
+			200
+		);
+  }
+
   protected function create(){
     $user_data = $this->_apiConfig([
       "methods" => ["POST"],

@@ -12,10 +12,16 @@ class Regsa110efdc extends MY_Controller {
 			['table' => 'regs0450efdc', 'condition' => 'regs0450efdc.0450_Id = regsa110efdc.a110_Reg0450EFDCId', 'type' => 'left'],
 			['table' => 'regsa100efdc', 'condition' => 'regsa100efdc.a100_Id = regsa110efdc.a110_RegA100EFDCId', 'type' => 'inner'],
     ];
+    $this->tableParent = 'regsa100efdc';
+    $this->nameIdParent = 'a100_Id';
   }
 
   public function get($Id = '', $date = ''){
     parent::get($Id, $date);
+  }
+
+  public function getByParent($IdParent, $Id = ''){
+    parent::getByParent($IdParent, $Id);
   }
 
   public function setDefaultValue(){

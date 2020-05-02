@@ -13,10 +13,16 @@ class Regs0150efdc extends MY_Controller {
 			['table' => 'municipios', 'condition' => 'municipios.mun_Id = regs0150efdc.0150_MunicipioId', 'type' => 'inner'],
 			['table' => 'pessoasjuridica', 'condition' => 'pessoasjuridica.pj_Id = regs0150efdc.0150_PessoaJuridicaId', 'type' => 'left'],
     ];
+    $this->tableParent = 'municipios';
+    $this->nameIdParent = 'mun_Id';
   }
 
   public function get($Id = '', $date = ''){
     parent::get($Id, $date);
+  }
+
+  public function getByParent($IdParent, $Id = ''){
+    parent::getByParent($IdParent, $Id);
   }
 
   public function setDefaultValue(){

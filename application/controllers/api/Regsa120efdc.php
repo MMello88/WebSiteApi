@@ -11,10 +11,16 @@ class Regsa120efdc extends MY_Controller {
     $this->joins = [
 			['table' => 'regsa100efdc', 'condition' => 'regsa100efdc.a100_Id = regsa120efdc.a120_RegA100EFDCId', 'type' => 'left'],
     ];
+    $this->tableParent = 'regsa100efdc';
+    $this->nameIdParent = 'a100_Id';
   }
 
   public function get($Id = '', $date = ''){
     parent::get($Id, $date);
+  }
+
+  public function getByParent($IdParent, $Id = ''){
+    parent::getByParent($IdParent, $Id);
   }
 
   public function setDefaultValue(){

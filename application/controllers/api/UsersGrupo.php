@@ -10,10 +10,16 @@ class Usersgrupo extends MY_Controller {
     $this->usersId = '';
     $this->joins = [
     ];
+    $this->tableParent = 'grupousers';
+    $this->nameIdParent = 'gpu_Id';
   }
 
   public function get($Id = '', $date = ''){
     parent::get($Id, $date);
+  }
+
+  public function getByParent($IdParent, $Id = ''){
+    parent::getByParent($IdParent, $Id);
   }
 
   public function setDefaultValue(){

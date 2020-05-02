@@ -12,10 +12,16 @@ class Pessoasjuridica extends MY_Controller {
 			['table' => 'municipios', 'condition' => 'municipios.mun_Id = pessoasjuridica.pj_MunicipioId', 'type' => 'inner'],
 			['table' => 'pessoasfisica', 'condition' => 'pessoasfisica.pf_Id = pessoasjuridica.pj_PessoaFisicaId', 'type' => 'inner'],
     ];
+    $this->tableParent = 'pessoasfisica';
+    $this->nameIdParent = 'pf_Id';
   }
 
   public function get($Id = '', $date = ''){
     parent::get($Id, $date);
+  }
+
+  public function getByParent($IdParent, $Id = ''){
+    parent::getByParent($IdParent, $Id);
   }
 
   public function setDefaultValue(){
