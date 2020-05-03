@@ -14,16 +14,10 @@ class Regs0000efdc extends MY_Controller {
 			['table' => 'regs0001efdc', 'condition' => 'regs0001efdc.0001_Id = regs0000efdc.0000_Reg0001EFDCId', 'type' => 'left'],
 			['table' => 'regs0110efdc', 'condition' => 'regs0110efdc.0110_Id = regs0000efdc.0000_Regs0110EFDCId', 'type' => 'left'],
     ];
-    $this->tableParent = 'ref311';
-    $this->nameIdParent = '311_Id';
   }
 
   public function get($Id = '', $date = ''){
     parent::get($Id, $date);
-  }
-
-  public function getByParent($IdParent, $Id = ''){
-    parent::getByParent($IdParent, $Id);
   }
 
   public function setDefaultValue(){
