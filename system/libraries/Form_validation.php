@@ -1517,15 +1517,15 @@ class CI_Form_validation {
     /**
      * valid_datetime
      *
-     * valid datetime default mysql 2020-03-02 21:20:02
+     * valid datetime default mysql 2020-03-02T21:20
      * 
      * @param	string
      * @return	bool
      */
     function valid_datetime($date)
     {
-    	$format = 'Y-m-d H:i:s';
-		$d = DateTime::createFromFormat($format, $date);
+    	$format = 'Y-m-d\TH:i';
+	  	$d = DateTime::createFromFormat($format, $date);
 	    return $d && $d->format($format) == $date;
     }
 
